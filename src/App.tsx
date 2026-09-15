@@ -214,7 +214,7 @@ function Navbar() {
 
       {/* Slide-in panel from right */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-full max-w-[375px] bg-[#0a1b3a] flex flex-col lg:hidden transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-full bg-[#0a1b3a] flex flex-col lg:hidden transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
