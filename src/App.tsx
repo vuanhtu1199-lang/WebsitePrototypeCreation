@@ -3,35 +3,35 @@ import svgPaths from "@/imports/ConstructQldMobile/svg-hlp6ebxj1v";
 import aboutSvg from "@/imports/Section-1/svg-ffkrh6ctfc";
 import faqSvg from "@/imports/Section-2/svg-ci6s0k97t4";
 
-import imgHeroBg from "@/imports/ConstructQldMobile/995af0a91b969218e5730846fa0b595d97fc064b.png";
-import imgAbout from "@/imports/ConstructQldMobile/62b5fb7399a4c8e07cf4f8e8ad76993ccf2668ca.png";
-import imgProj1 from "@/imports/ConstructQldMobile/4e5394a6920318e4a6e974f3cd9674b0a5fe7dd6.png";
-import imgProj2a from "@/imports/ConstructQldMobile/da27a46dc8078953aa73c2d2588b2b7193da4107.png";
-import imgProj2b from "@/imports/ConstructQldMobile/142b0b7396ef766d3115b4a7236c1bbe9aac27f8.png";
-import imgProj3 from "@/imports/ConstructQldMobile/4e616da646f44f330ed4425184c9032ef98089bb.png";
-import imgProj4 from "@/imports/ConstructQldMobile/ddb7aefbfc3acccd1672c9bdd2284e0d16d9c457.png";
-import imgProj5 from "@/imports/ConstructQldMobile/85c24732ddc9b63aa6887c9e01682297ee32eb7b.png";
-import imgWhyUsBg from "@/imports/ConstructQldMobile/f0a5ae6d016f6e0b35305126c7e539647c478e77.png";
-import imgDavidLansdell from "@/imports/ConstructQldMobile/8d29293451dd8fdfea0fc92f15f3b91f17684b40.png";
-import imgDavidDirector from "@/imports/ConstructQldMobile/3849eacacaa613d286caca5a991e26fa60175bda.png";
-import imgConstructionBg from "@/imports/ConstructQldMobile/c9a857ac12e83ad66507bb2254e207dabba94373.png";
-import imgLogo from "@/imports/ConstructQldMobile/09226c2e8d97c3c0c5923aa477aa8ef349cbed29.png";
-import logoQldGov from "@/imports/ConstructQldMobile/afe076ce4c7ecd668cb18150ea361de4823d102a.png";
-import logoBrisbaneAirport from "@/imports/ConstructQldMobile/d08b16d98b2970922879f37b72b2018bb4030d11.png";
-import logoBCC from "@/imports/ConstructQldMobile/eed8866d2447cde40b3ac449c31b845a6ca07f8b.png";
-import logoDefence from "@/imports/ConstructQldMobile/794d6512373440c293f1f5b937f4c2036f196191.png";
-import logoQldHealth from "@/imports/ConstructQldMobile/837c8157faf2063b319f28be40562d69271536ea.png";
-import logoQldRail from "@/imports/ConstructQldMobile/b19a61d35b5930286cfc5def3d4442f671c427fa.png";
-import logoTransurban from "@/imports/ConstructQldMobile/b067922edabb8532b905bb864b3054ffef48685f.png";
-import logoAirservices from "@/imports/ConstructQldMobile/d686d5bde99ec2c63c1ef080d3a749ba1d112069.png";
-import logoEducation from "@/imports/ConstructQldMobile/b43a7d3e34803702798c223d5ecd64bd4c9519e7.png";
-import logoHousing from "@/imports/ConstructQldMobile/5270e57075b8d535ff0d08953d66d4a1f1904d9c.png";
-import logoYouthJustice from "@/imports/ConstructQldMobile/18b8158d1b409900526e85d8a6d8679b151f19ce.png";
-import logoAirports from "@/imports/ConstructQldMobile/0e900319e754d23ebf4783ad2193a37703d90d43.png";
-import logoQCS from "@/imports/ConstructQldMobile/03155c7a3b333db917e755eb7abe64a429ba658b.png";
-import logoRegis from "@/imports/ConstructQldMobile/ca03546fe94b6752d299c57012918f86053fcb09.png";
-import logoStVincents from "@/imports/ConstructQldMobile/2f62ae2c28533167af9b49ac90d935d6984961d0.png";
-import logoBloomberg from "@/imports/ConstructQldMobile/b63759244a0d5c207c80d1ed6161d387855abed4.png";
+import imgHeroBg from "@/imports/ConstructQldDesktopSm-1/1c78a27cb93b8e1864da822b18b0998077658673.png";
+import imgAbout from "@/imports/ConstructQldDesktopSm-1/62b5fb7399a4c8e07cf4f8e8ad76993ccf2668ca.png";
+import imgProj1 from "@/imports/ConstructQldDesktopSm-1/4e5394a6920318e4a6e974f3cd9674b0a5fe7dd6.png";
+import imgProj2a from "@/imports/ConstructQldDesktopSm-1/da27a46dc8078953aa73c2d2588b2b7193da4107.png";
+import imgProj2b from "@/imports/ConstructQldDesktopSm-1/142b0b7396ef766d3115b4a7236c1bbe9aac27f8.png";
+import imgProj3 from "@/imports/ConstructQldDesktopSm-1/4e616da646f44f330ed4425184c9032ef98089bb.png";
+import imgProj4 from "@/imports/ConstructQldDesktopSm-1/ddb7aefbfc3acccd1672c9bdd2284e0d16d9c457.png";
+import imgProj5 from "@/imports/ConstructQldDesktopSm-1/85c24732ddc9b63aa6887c9e01682297ee32eb7b.png";
+import imgWhyUsBg from "@/imports/ConstructQldDesktopSm-1/f0a5ae6d016f6e0b35305126c7e539647c478e77.png";
+import imgDavidLansdell from "@/imports/ConstructQldDesktopSm-1/8d29293451dd8fdfea0fc92f15f3b91f17684b40.png";
+import imgDavidDirector from "@/imports/ConstructQldDesktopSm-1/3849eacacaa613d286caca5a991e26fa60175bda.png";
+import imgConstructionBg from "@/imports/ConstructQldDesktopSm-1/c9a857ac12e83ad66507bb2254e207dabba94373.png";
+import imgLogo from "@/imports/ConstructQldDesktopSm-1/09226c2e8d97c3c0c5923aa477aa8ef349cbed29.png";
+import logoQldGov from "@/imports/ConstructQldDesktopSm-1/afe076ce4c7ecd668cb18150ea361de4823d102a.png";
+import logoBrisbaneAirport from "@/imports/ConstructQldDesktopSm-1/d08b16d98b2970922879f37b72b2018bb4030d11.png";
+import logoBCC from "@/imports/ConstructQldDesktopSm-1/eed8866d2447cde40b3ac449c31b845a6ca07f8b.png";
+import logoDefence from "@/imports/ConstructQldDesktopSm-1/794d6512373440c293f1f5b937f4c2036f196191.png";
+import logoQldHealth from "@/imports/ConstructQldDesktopSm-1/837c8157faf2063b319f28be40562d69271536ea.png";
+import logoQldRail from "@/imports/ConstructQldDesktopSm-1/b19a61d35b5930286cfc5def3d4442f671c427fa.png";
+import logoTransurban from "@/imports/ConstructQldDesktopSm-1/b067922edabb8532b905bb864b3054ffef48685f.png";
+import logoAirservices from "@/imports/ConstructQldDesktopSm-1/d686d5bde99ec2c63c1ef080d3a749ba1d112069.png";
+import logoEducation from "@/imports/ConstructQldDesktopSm-1/b43a7d3e34803702798c223d5ecd64bd4c9519e7.png";
+import logoHousing from "@/imports/ConstructQldDesktopSm-1/5270e57075b8d535ff0d08953d66d4a1f1904d9c.png";
+import logoYouthJustice from "@/imports/ConstructQldDesktopSm-1/18b8158d1b409900526e85d8a6d8679b151f19ce.png";
+import logoAirports from "@/imports/ConstructQldDesktopSm-1/0e900319e754d23ebf4783ad2193a37703d90d43.png";
+import logoQCS from "@/imports/ConstructQldDesktopSm-1/03155c7a3b333db917e755eb7abe64a429ba658b.png";
+import logoRegis from "@/imports/ConstructQldDesktopSm-1/ca03546fe94b6752d299c57012918f86053fcb09.png";
+import logoStVincents from "@/imports/ConstructQldDesktopSm-1/2f62ae2c28533167af9b49ac90d935d6984961d0.png";
+import logoBloomberg from "@/imports/ConstructQldDesktopSm-1/b63759244a0d5c207c80d1ed6161d387855abed4.png";
 
 // ===== DATA =====
 
@@ -558,22 +558,20 @@ function ProjectsSection() {
                     <button
                       onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
                       title="Previous image"
-                      className="group/btn"
                     >
-                      <div className="backdrop-blur-[17px] bg-white hover:bg-[#d4a44f] p-[4.3px] flex items-center justify-center transition-colors duration-200">
+                      <div className="backdrop-blur-[17px] bg-[rgba(0,0,0,0.3)] border border-white/10 p-[4.3px] flex items-center justify-center">
                         <svg width="21" height="21" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
-                          <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+                          <path d={svgPaths.p33b71300} fill="white" />
                         </svg>
                       </div>
                     </button>
                     <button
                       onClick={(e) => handleCardNav(String(idx), "next", project.images.length, e)}
                       title="Next image"
-                      className="group/btn"
                     >
-                      <div className="backdrop-blur-[17px] bg-white hover:bg-[#d4a44f] p-[4.3px] flex items-center justify-center transition-colors duration-200">
+                      <div className="backdrop-blur-[17px] bg-[rgba(0,0,0,0.3)] border border-white/10 p-[4.3px] flex items-center justify-center">
                         <svg width="21" height="21" viewBox="0 0 21.4286 21.4286" fill="none">
-                          <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+                          <path d={svgPaths.p33b71300} fill="white" />
                         </svg>
                       </div>
                     </button>
@@ -618,14 +616,14 @@ function ProjectsSection() {
                 {/* Image nav arrows (top-right) */}
                 {project.images.length > 1 && (
                   <div className="absolute top-4 right-4 flex items-center gap-1">
-                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "prev", project.images.length, e)} className="bg-white hover:bg-[#d4a44f] p-[4.3px] transition-colors">
+                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "prev", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] border border-white/10 p-[4.3px]">
                       <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
-                        <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+                        <path d={svgPaths.p33b71300} fill="white" />
                       </svg>
                     </button>
-                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "next", project.images.length, e)} className="bg-white hover:bg-[#d4a44f] p-[4.3px] transition-colors">
+                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "next", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] border border-white/10 p-[4.3px]">
                       <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
-                        <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+                        <path d={svgPaths.p33b71300} fill="white" />
                       </svg>
                     </button>
                   </div>
@@ -944,12 +942,12 @@ function LeadershipSection() {
   return (
     <section id="leadership" className="bg-white py-[60px] px-5">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white border border-[#eef0f2] shadow-[0px_10px_30px_0px_rgba(0,0,0,0.05)] grid lg:grid-cols-2 overflow-hidden">
-          <div className="relative min-h-[400px] lg:min-h-[500px] bg-[#0a1b3a]">
+        <div className="bg-white border border-[#eef0f2] shadow-[0px_10px_30px_0px_rgba(0,0,0,0.05)] grid lg:grid-cols-[minmax(0,5fr)_minmax(0,12fr)] overflow-hidden">
+          <div className="relative min-h-[300px] lg:min-h-0 bg-[#0a1b3a]">
             <img
               src={imgDavidDirector}
               alt="David Lansdell"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-top"
             />
           </div>
 
