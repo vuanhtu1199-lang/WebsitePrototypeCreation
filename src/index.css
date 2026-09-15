@@ -42,10 +42,10 @@
   font-style: normal;
 }
 
-/* Desktop carousel: 5 × (400 + 24) = 2120px per set */
+/* Desktop carousel: 5 × (484 + 24) = 2540px per set */
 @keyframes carousel-scroll-desktop {
   from { transform: translateX(0); }
-  to { transform: translateX(-2120px); }
+  to { transform: translateX(-2540px); }
 }
 
 /* Mobile carousel: 5 × (300 + 12) = 1560px per set */

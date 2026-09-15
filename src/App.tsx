@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import svgPaths from "@/imports/ConstructQldMobile/svg-hlp6ebxj1v";
+import aboutSvg from "@/imports/Section-1/svg-ffkrh6ctfc";
+import faqSvg from "@/imports/Section-2/svg-ci6s0k97t4";
 
 import imgHeroBg from "@/imports/ConstructQldMobile/995af0a91b969218e5730846fa0b595d97fc064b.png";
 import imgAbout from "@/imports/ConstructQldMobile/62b5fb7399a4c8e07cf4f8e8ad76993ccf2668ca.png";
@@ -322,66 +324,80 @@ function HeroSection() {
 // ===== ABOUT SECTION =====
 
 function AboutSection() {
+  const capabilityCards = [
+    {
+      svgPath: aboutSvg.p5abe8e0,
+      viewBox: "0 0 63 63",
+      size: 63,
+      title: "Executive Secondment & Advisory",
+      desc: "Seamless integration into departmental delivery units, providing instant leadership uplift, clear delegations, and strategic accountability on public works.",
+    },
+    {
+      svgPath: aboutSvg.p398a6c00,
+      viewBox: "0 0 64 64",
+      size: 64,
+      title: "Modern Methods of Construction (MMC)",
+      desc: "Pioneered the Queensland Government MMC Programme in partnership with the Office of the Queensland Government Architect (OQGA), advancing modular and off-site delivery.",
+    },
+    {
+      svgPath: aboutSvg.p2b518e80,
+      viewBox: "0 0 64 64",
+      size: 64,
+      title: "Programme Recovery & Cost Certainty",
+      desc: "Targeted high-value interventions that turn around distressed projects, restore stakeholder confidence, and establish ironclad constructability pathways under budget.",
+    },
+  ];
+
   return (
-    <section id="about" className="bg-white py-[60px] lg:py-24">
-      <div className="max-w-7xl mx-auto px-5">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          <div>
-            <SectionLabel text="About Construct Queensland" />
-            <h2
-              className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] leading-[1.2] tracking-[-0.74px] mt-4 mb-5"
-              style={{ fontSize: "clamp(24px, 2.8vw, 38px)" }}
-            >
+    <section id="about" className="bg-white py-[100px]">
+      <div className="max-w-7xl mx-auto px-[80px]">
+        {/* Top: text + image */}
+        <div className="flex items-start gap-0 mb-[60px]">
+          <div className="flex-1 min-w-0 pr-10">
+            <SectionLabel text="About" />
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[40px] leading-[48px] tracking-[-1px] mt-4 mb-0 max-w-[519px]">
               Where Policy Intent Meets On-the-Ground Delivery
             </h2>
-            <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[18px] leading-[1.65]">
-              Established in 2019 by Director David Lansdell, Construct Queensland operates at the
-              executive echelon of infrastructure delivery. Having served as Construction Director and
-              Executive Director for critical Queensland portfolios, we bridge commercial rigour with
-              government governance.
-            </p>
-            <div className="grid gap-6 mt-10" id="capabilities">
-              {[
-                {
-                  svg: svgPaths.p1ccfcf0,
-                  title: "Executive Secondment & Advisory",
-                  desc: "Seamless integration into departmental delivery units, providing instant leadership uplift, clear delegations, and strategic accountability on public works.",
-                },
-                {
-                  svg: svgPaths.p8a48180,
-                  title: "Modern Methods of Construction (MMC)",
-                  desc: "Pioneered the Queensland Government MMC Programme in partnership with the Office of the Queensland Government Architect (OQGA), advancing modular and off-site delivery.",
-                },
-                {
-                  svg: svgPaths.p6cfd400,
-                  title: "Programme Recovery & Cost Certainty",
-                  desc: "Targeted high-value interventions that turn around distressed projects, restore stakeholder confidence, and establish ironclad constructability pathways under budget.",
-                },
-              ].map(({ svg, title, desc }) => (
-                <div key={title} className="border-l border-[#e5e7eb] pl-6">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="shrink-0 mb-6">
-                    <path d={svg} fill="#0A1B3A" />
-                  </svg>
-                  <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[18px] leading-7 mb-2">
-                    {title}
-                  </p>
-                  <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[14px] leading-5">
-                    {desc}
-                  </p>
-                </div>
-              ))}
+            <div className="pt-[18px]">
+              <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[18px] leading-[28px] max-w-[620px]">
+                Established in 2019 by Director David Lansdell, Construct Queensland operates at the
+                executive echelon of infrastructure delivery. Having served as Construction Director and
+                Executive Director for critical Queensland portfolios, we bridge commercial rigour with
+                government governance.
+              </p>
             </div>
           </div>
+          <div className="shrink-0 w-[626px] h-[502px] relative overflow-hidden">
+            <img
+              src={imgAbout}
+              alt="Gold Coast Airport International Terminal"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+        </div>
 
-          <div>
-            <div className="aspect-[844/676] relative overflow-hidden">
-              <img
-                src={imgAbout}
-                alt="Gold Coast Airport International Terminal"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+        {/* Bottom: 3-column capability cards */}
+        <div id="capabilities" className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {capabilityCards.map(({ svgPath, viewBox, size, title, desc }) => (
+            <div
+              key={title}
+              className="border-l border-[#e5e7eb] flex flex-col gap-10 p-8"
+            >
+              <div className="relative shrink-0" style={{ width: size, height: size }}>
+                <svg width={size} height={size} viewBox={viewBox} fill="none" className="block">
+                  <path d={svgPath} fill="#0A1B3A" />
+                </svg>
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[24px] leading-[32px]">
+                  {title}
+                </p>
+                <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[16px] leading-[24px]">
+                  {desc}
+                </p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -485,7 +501,7 @@ function ProjectsSection() {
   const tripleProjects = [...projects, ...projects, ...projects];
 
   return (
-    <section id="projects" className="bg-[#0b0c0e] py-[60px] overflow-hidden">
+    <section id="projects" className="bg-[#0b0c0e] py-[80px] overflow-hidden">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-5 mb-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
@@ -508,13 +524,13 @@ function ProjectsSection() {
         </div>
       </div>
 
-      {/* ===== DESKTOP CAROUSEL ===== */}
+      {/* ===== DESKTOP CAROUSEL — 4:3 images, text below ===== */}
       <div className="hidden lg:block overflow-hidden pl-5">
         <div
           style={{
             display: "flex",
             gap: "24px",
-            animation: "carousel-scroll-desktop 55s linear infinite",
+            animation: "carousel-scroll-desktop 62s linear infinite",
             animationPlayState: desktopPaused ? "paused" : "running",
           }}
         >
@@ -524,68 +540,71 @@ function ProjectsSection() {
             return (
               <div
                 key={idx}
-                className="relative shrink-0 w-[400px] group cursor-pointer"
+                className="relative shrink-0 w-[484px] group cursor-pointer"
                 onMouseEnter={() => setDesktopPaused(true)}
                 onMouseLeave={() => setDesktopPaused(false)}
               >
-                <div className="relative h-[480px] overflow-hidden">
+                {/* 4:3 image container */}
+                <div className="relative overflow-hidden" style={{ height: "363px" }}>
                   <img
                     src={currentImg}
                     alt={project.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Dark overlay on hover */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  {/* Category badge */}
-                  <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-black/30 border border-white/10 px-2.5 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="font-['Onest:Regular',sans-serif] text-white text-[13px]">
+                  {/* Category badge — visible on hover */}
+                  <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] px-[9px] py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="font-['Onest:Regular',sans-serif] text-white text-[14px] leading-5 whitespace-nowrap">
                       {project.category}
                     </p>
                   </div>
 
-                  {/* Top-right: nav arrows + gallery button */}
-                  <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Nav arrows — always visible on hover */}
+                  <div className="absolute top-4 right-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button
+                      onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
+                      title="Previous image"
+                    >
+                      <div className="backdrop-blur-[17px] bg-[rgba(0,0,0,0.3)] p-[4.3px] flex items-center justify-center">
+                        <svg width="21" height="21" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
+                          <path d={svgPaths.p33b71300} fill="white" />
+                        </svg>
+                      </div>
+                    </button>
+                    <button
+                      onClick={(e) => handleCardNav(String(idx), "next", project.images.length, e)}
+                      title="Next image"
+                    >
+                      <div className="backdrop-blur-[17px] bg-[#d4a44f] p-[4.3px] flex items-center justify-center">
+                        <svg width="21" height="21" viewBox="0 0 21.4286 21.4286" fill="none">
+                          <path d={svgPaths.p33b71300} fill="white" />
+                        </svg>
+                      </div>
+                    </button>
                     {project.images.length > 1 && (
-                      <>
-                        <button
-                          onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
-                          title="Previous image"
-                        >
-                          <ArrowBtn rotate />
-                        </button>
-                        <button
-                          onClick={(e) => handleCardNav(String(idx), "next", project.images.length, e)}
-                          title="Next image"
-                        >
-                          <ArrowBtn />
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setGallery({ images: project.images, index: imgIdx, title: project.title });
-                          }}
-                          className="backdrop-blur-[16px] bg-black/30 border border-white/20 px-2.5 py-[4.3px] ml-1"
-                          title="View all images"
-                        >
-                          <span className="font-['Onest:Regular',sans-serif] text-white text-[11px] whitespace-nowrap">
-                            View All
-                          </span>
-                        </button>
-                      </>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setGallery({ images: project.images, index: imgIdx, title: project.title });
+                        }}
+                        className="backdrop-blur-[16px] bg-black/30 border border-white/20 px-2.5 py-[4.3px] ml-1"
+                        title="View all images"
+                      >
+                        <span className="font-['Onest:Regular',sans-serif] text-white text-[11px] whitespace-nowrap">
+                          View All
+                        </span>
+                      </button>
                     )}
                   </div>
+                </div>
 
-                  {/* Bottom text overlay */}
-                  <div
-                    className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
-                    style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)" }}
-                  >
-                    <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[13px] tracking-[0.56px] uppercase">
+                {/* Text below image — visible on hover */}
+                <div className="h-[56px] overflow-hidden">
+                  <div className="flex flex-col gap-1 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[14px] tracking-[0.56px] uppercase leading-5 whitespace-nowrap">
                       {project.location}
                     </p>
-                    <p className="font-['Onest:Regular',sans-serif] text-white text-[19px] leading-7 mt-1">
+                    <p className="font-['Onest:Regular',sans-serif] text-white text-[20px] leading-[28px] whitespace-nowrap">
                       {project.title}
                     </p>
                   </div>
@@ -769,17 +788,7 @@ function ServicesSection() {
               Senior-level construction leadership and delivery capability for complex, high-risk capital
               portfolios.
             </p>
-            <a href="#contact" className="flex items-center self-start w-fit">
-              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
-                Discuss Engagement
-              </span>
-              <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px] h-[46px]">
-                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
-                  <path d={svgPaths.p3c2a0580} fill="white" />
-                </svg>
-              </div>
-            </a>
-            <div className="mt-9">
+            <div className="mb-9">
               <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px]">
                 Contact Us for Consultation
               </p>
@@ -790,6 +799,16 @@ function ServicesSection() {
                 </span>
               </p>
             </div>
+            <a href="#contact" className="flex items-center self-start w-fit">
+              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
+                Get In Touch
+              </span>
+              <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px] h-[46px]">
+                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                  <path d={svgPaths.p3c2a0580} fill="white" />
+                </svg>
+              </div>
+            </a>
           </div>
 
           <div className="border-t border-[rgba(10,27,58,0.14)]">
@@ -868,44 +887,45 @@ function TrustedBySection() {
           </div>
         </div>
 
-        {/* Our Clients label */}
-        <div className="flex items-center gap-6 mt-10 mb-6">
-          <div className="flex items-center gap-2.5 shrink-0">
-            <div className="pt-1.5 shrink-0">
-              <GoldSquare />
+        {/* Our Clients label + marquee clipped within the container */}
+        <div className="mt-10">
+          <div className="flex items-center gap-6 mb-6">
+            <div className="flex items-center gap-2.5 shrink-0">
+              <div className="pt-1.5 shrink-0">
+                <GoldSquare />
+              </div>
+              <span className="font-['DM_Mono:Medium',sans-serif] text-white text-[14px] tracking-[0.56px] uppercase">
+                Our Clients
+              </span>
             </div>
-            <span className="font-['DM_Mono:Medium',sans-serif] text-white text-[14px] tracking-[0.56px] uppercase">
-              Our Clients
-            </span>
+            <div className="bg-white/45 h-px flex-1" />
           </div>
-          <div className="bg-white/45 h-px flex-1" />
-        </div>
-      </div>
 
-      {/* Logo Marquee — full width overflow */}
-      <div className="overflow-hidden mt-2">
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            animation: "logo-marquee 40s linear infinite",
-            width: "max-content",
-            gap: "56px",
-            paddingLeft: "56px",
-          }}
-        >
-          {allLogos.map((logo, idx) => (
+          {/* Marquee clipped to this container's width */}
+          <div className="overflow-hidden">
             <div
-              key={idx}
-              className="flex items-center justify-center h-[60px] shrink-0 opacity-[0.78]"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                animation: "logo-marquee 40s linear infinite",
+                width: "max-content",
+                gap: "48px",
+              }}
             >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="max-h-[52px] max-w-[200px] object-contain"
-              />
+              {allLogos.map((logo, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center justify-center h-[56px] shrink-0 opacity-[0.78]"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-h-[48px] max-w-[160px] object-contain"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -1161,27 +1181,27 @@ function FAQSection() {
   const faqs = [
     {
       q: "What sectors and project scopes does Construct Queensland specialise in?",
-      a: "We specialise in government, justice, health, transport, defence and social infrastructure. Our directors have led complex brownfield and greenfield portfolios across Queensland, from court facilities to aviation terminals.",
+      a: "Construct Queensland specialises in complex, high-risk government and institutional infrastructure. Our core sector expertise spans Corrective Services & Youth Justice facilities, Social Housing MMC programmes, Health & Tertiary precincts, Aviation, and Transport infrastructure across Queensland.",
     },
     {
       q: "How do government departments and institutional clients engage your services?",
-      a: "Engagement typically begins with a confidential consultation to scope your programme. We can commence via direct engagement, panel arrangements, or PSA frameworks across state and local government.",
+      a: "We offer agile engagement models tailored to public sector governance, including executive secondment into departmental delivery units, client-sided project management, and targeted advisory commissions. You can initiate a consultation by contacting our Director directly on 0436 603 061 or via enquiries@constructqld.com.au.",
     },
     {
       q: "What is Construct Queensland's role in Programme Recovery & Distressed Projects?",
-      a: "We conduct forensic programme analysis, reset baselines, re-sequence live works, and restore contractor accountability. We operate as a trusted extension of your executive team throughout recovery.",
+      a: "We provide rapid, forensic interventions for capital projects experiencing cost or schedule distress. Our team conducts situation analyses, renegotiates critical baseline milestones, resolves contractor disputes, and restores stakeholder confidence while maintaining operations in live, sensitive environments.",
     },
     {
       q: "Do you provide design management and Modern Methods of Construction (MMC) advisory?",
-      a: "Yes. Our directors pioneered Queensland's MMC Programme with OQGA and can deliver DfMA strategies, modular procurement frameworks and off-site delivery planning across social and civic infrastructure.",
+      a: "Yes. Construct Queensland led the establishment of the Queensland Government MMC Programme in partnership with the Office of the Queensland Government Architect (OQGA). We provide strategic design management, constructability reviews, and off-site modular prefabrication strategies from initial PAF feasibility through to delivery.",
     },
     {
       q: "What contract administration and Superintendent services do you offer?",
-      a: "We provide independent superintendent services under AS 2124, AS 4000, and AS 4902 — covering claim certification, time extensions, completion, and dispute resolution support.",
+      a: "We act as independent Superintendents and Superintendent Representatives under standard Australian construction contracts (including AS 2124, AS 4000, and AS 4902), providing impartial assessment of contractor claims, variations, Extensions of Time (EOTs), and certification of Practical Completion.",
     },
     {
       q: "How does Construct Queensland integrate with existing departmental delivery teams?",
-      a: "Seamlessly. Our directors are accustomed to operating within government governance structures, holding delegations alongside departmental officers without duplicating existing functions.",
+      a: "Our model is designed to be low-friction and collaborative. Having operated at Executive Director level within Queensland Government (QBuild, EPW, QCS), we seamlessly embed within internal agency structures, respecting delegations and procurement protocols while providing instant leadership uplift.",
     },
   ];
 
@@ -1192,10 +1212,10 @@ function FAQSection() {
           <div>
             <div className="inline-block border border-[#161616] px-3 py-1 mb-6">
               <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616] text-[12px] tracking-[0.72px] uppercase">
-                Common Enquiries
+                Common Enquiries · Expanded State
               </span>
             </div>
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#161616] text-[32px] leading-[1.2] tracking-[-0.8px]">
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#161616] text-[40px] leading-[48px] tracking-[-1px]">
               Frequently Asked Questions
             </h2>
             <div className="mt-10">
@@ -1216,33 +1236,39 @@ function FAQSection() {
           </div>
 
           <div>
-            {faqs.map(({ q, a }, idx) => (
-              <div key={idx} className="border-b border-[#e5e7eb]">
-                <button
-                  className="flex items-center justify-between py-6 w-full text-left gap-4"
-                  onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-                >
-                  <p className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[16px] leading-[1.35]">
-                    {q}
-                  </p>
-                  <div
-                    className="flex items-center justify-center size-6 shrink-0 transition-transform duration-200"
-                    style={{ transform: openIdx === idx ? "rotate(45deg)" : "rotate(0deg)" }}
+            {faqs.map(({ q, a }, idx) => {
+              const isOpen = openIdx === idx;
+              return (
+                <div key={idx} className="border-b border-[#e5e7eb]">
+                  <button
+                    className="flex items-center justify-between py-6 w-full text-left gap-4"
+                    onClick={() => setOpenIdx(isOpen ? null : idx)}
                   >
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d={svgPaths.p9106f00} fill="#161616" />
-                    </svg>
-                  </div>
-                </button>
-                {openIdx === idx && (
-                  <div className="pb-6 pr-8">
-                    <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[15px] leading-[1.65]">
-                      {a}
+                    <p className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[18px] leading-[24.3px] w-[633px]">
+                      {q}
                     </p>
-                  </div>
-                )}
-              </div>
-            ))}
+                    <div className="flex items-center justify-center size-6 shrink-0">
+                      {isOpen ? (
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d={faqSvg.p2a87ddc0} fill="#161616" />
+                        </svg>
+                      ) : (
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d={svgPaths.p9106f00} fill="#161616" />
+                        </svg>
+                      )}
+                    </div>
+                  </button>
+                  {isOpen && (
+                    <div className="pb-6 w-[654px]">
+                      <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] leading-[26.4px]">
+                        {a}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
