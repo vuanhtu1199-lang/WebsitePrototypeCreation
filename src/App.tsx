@@ -509,11 +509,11 @@ function ProjectsSection() {
               Explore our landmark portfolio.
             </h2>
           </div>
-          <a href="#contact" className="flex border border-white/25 self-start">
+          <a href="#contact" className="group flex border border-white/25 self-start">
             <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] px-7 py-3.5">
               Get In Touch
             </span>
-            <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[46px]">
+            <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] transition-colors duration-200">
               <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                 <path d={svgPaths.p30053000} fill="white" />
               </svg>
@@ -559,7 +559,7 @@ function ProjectsSection() {
                       onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
                       title="Previous image"
                     >
-                      <div className="backdrop-blur-[17px] bg-[rgba(0,0,0,0.3)] border border-white/10 p-[4.3px] flex items-center justify-center">
+                      <div className="backdrop-blur-[17px] bg-[rgba(0,0,0,0.3)] hover:bg-[#d4a44f] border border-white/10 p-[4.3px] flex items-center justify-center transition-colors duration-200">
                         <svg width="21" height="21" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
                           <path d={svgPaths.p33b71300} fill="white" />
                         </svg>
@@ -569,7 +569,7 @@ function ProjectsSection() {
                       onClick={(e) => handleCardNav(String(idx), "next", project.images.length, e)}
                       title="Next image"
                     >
-                      <div className="backdrop-blur-[17px] bg-[rgba(0,0,0,0.3)] border border-white/10 p-[4.3px] flex items-center justify-center">
+                      <div className="backdrop-blur-[17px] bg-[rgba(0,0,0,0.3)] hover:bg-[#d4a44f] border border-white/10 p-[4.3px] flex items-center justify-center transition-colors duration-200">
                         <svg width="21" height="21" viewBox="0 0 21.4286 21.4286" fill="none">
                           <path d={svgPaths.p33b71300} fill="white" />
                         </svg>
@@ -616,12 +616,12 @@ function ProjectsSection() {
                 {/* Image nav arrows (top-right) */}
                 {project.images.length > 1 && (
                   <div className="absolute top-4 right-4 flex items-center gap-1">
-                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "prev", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] border border-white/10 p-[4.3px]">
+                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "prev", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] hover:bg-[#d4a44f] border border-white/10 p-[4.3px] transition-colors duration-200">
                       <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
                         <path d={svgPaths.p33b71300} fill="white" />
                       </svg>
                     </button>
-                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "next", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] border border-white/10 p-[4.3px]">
+                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "next", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] hover:bg-[#d4a44f] border border-white/10 p-[4.3px] transition-colors duration-200">
                       <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
                         <path d={svgPaths.p33b71300} fill="white" />
                       </svg>
@@ -655,7 +655,7 @@ function ProjectsSection() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => goMobile("prev")}
-              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5"
+              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5 hover:bg-[#d4a44f] transition-colors duration-200"
             >
               <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
                 <path d={svgPaths.p33b71300} fill="white" />
@@ -663,7 +663,7 @@ function ProjectsSection() {
             </button>
             <button
               onClick={() => goMobile("next")}
-              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5"
+              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5 hover:bg-[#d4a44f] transition-colors duration-200"
             >
               <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
                 <path d={svgPaths.p33b71300} fill="white" />
@@ -801,11 +801,11 @@ function ServicesSection() {
                 </span>
               </p>
             </div>
-            <a href="#contact" className="flex self-start w-fit">
+            <a href="#contact" className="group flex self-start w-fit">
               <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
                 Get In Touch
               </span>
-              <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px]">
+              <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] transition-colors duration-200">
                 <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                   <path d={svgPaths.p3c2a0580} fill="white" />
                 </svg>
@@ -848,11 +848,11 @@ function TrustedBySection() {
             <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[28px] leading-[1.2] tracking-[-0.7px] mt-3 max-w-sm">
               Key Statutory Authorities & Tier-1 Operators
             </h2>
-            <a href="#contact" className="mt-6 flex border border-white/25 w-fit">
+            <a href="#contact" className="group mt-6 flex border border-white/25 w-fit">
               <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] px-7 py-3.5">
                 Get In Touch
               </span>
-              <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[46px]">
+              <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] transition-colors duration-200">
                 <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                   <path d={svgPaths.p3c2a0580} fill="white" />
                 </svg>
@@ -1007,11 +1007,11 @@ function LeadershipSection() {
                   dlansdell@constructqld.com.au
                 </span>
               </a>
-              <a href="https://linkedin.com" className="flex mt-2 w-fit">
+              <a href="https://linkedin.com" className="group flex mt-2 w-fit">
                 <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[14px] bg-[#0a1b3a] px-5 py-2">
                   Connect on LinkedIn
                 </span>
-                <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[38px]">
+                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[38px] transition-colors duration-200">
                   <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                     <path d={svgPaths.p2434d500} fill="white" />
                   </svg>
@@ -1158,11 +1158,11 @@ function ContactSection() {
                     className={`${inputClass} resize-none`}
                   />
                 </div>
-                <button type="submit" className="flex">
+                <button type="submit" className="group flex">
                   <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] tracking-[0.96px] uppercase bg-[#0a1b3a] px-6 py-3.5 flex-1 text-center">
                     Request a Consultation
                   </span>
-                  <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px]">
+                  <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] transition-colors duration-200">
                     <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                       <path d={svgPaths.p30053000} fill="white" />
                     </svg>
@@ -1222,32 +1222,32 @@ function FAQSection() {
             <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#161616] text-[40px] leading-[48px] tracking-[-1px]">
               Frequently Asked Questions
             </h2>
-            <div className="mt-10 flex-1 flex flex-col">
+            {/* Spacer pushes enquiry block to bottom */}
+            <div className="flex-1" />
+            <div className="flex flex-col gap-4 mt-8 lg:mt-0">
               <h3 className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[20px] tracking-[-0.5px]">
                 Have a Specific Programme Enquiry?
               </h3>
-              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[16px] leading-6 mt-2.5 max-w-xs">
+              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[16px] leading-6 max-w-xs">
                 Our executive leadership is available to discuss advisory mandates, programme
                 recoveries, and procurement pathways.
               </p>
-              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[16px] mt-4">
+              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[16px]">
                 Call us:{" "}
                 <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616]">
                   0436 603 061
                 </span>
               </p>
-              <div className="mt-8 lg:mt-auto lg:pt-8">
-                <a href="#contact" className="flex w-fit">
-                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
-                    Get In Touch
-                  </span>
-                  <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px]">
-                    <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
-                      <path d={svgPaths.p3c2a0580} fill="white" />
-                    </svg>
-                  </div>
-                </a>
-              </div>
+              <a href="#contact" className="group flex w-fit">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
+                  Get In Touch
+                </span>
+                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] transition-colors duration-200">
+                  <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                    <path d={svgPaths.p3c2a0580} fill="white" />
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
 
@@ -1330,35 +1330,23 @@ function Footer() {
             </div>
           </div>
 
-          {/* Right block: Quick Nav + Acknowledgement | Head Office */}
+          {/* Right block: Quick Nav | Head Office / Acknowledgement full-width below */}
           <div className="grid sm:grid-cols-2 gap-10">
-            {/* Quick Navigation + Acknowledgement */}
-            <div className="flex flex-col gap-8">
-              <div>
-                <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-5">
-                  Quick Navigation
-                </p>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-                  {navLinks.map(([label, href]) => (
-                    <a
-                      key={label}
-                      href={href}
-                      className="font-['Onest:Medium',sans-serif] font-medium text-white/75 text-[14px] hover:text-white transition-colors leading-[1.5]"
-                    >
-                      {label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-3">
-                  Acknowledgement of Country
-                </p>
-                <p className="font-['Onest:Regular',sans-serif] text-white/45 text-[13px] leading-[1.65]">
-                  Construct Queensland respectfully acknowledges the Traditional Custodians of the
-                  lands, winds, and waters on which we live and build across Queensland. We pay our
-                  deepest respects to Elders past, present, and emerging.
-                </p>
+            {/* Quick Navigation */}
+            <div>
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-5">
+                Quick Navigation
+              </p>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                {navLinks.map(([label, href]) => (
+                  <a
+                    key={label}
+                    href={href}
+                    className="font-['Onest:Medium',sans-serif] font-medium text-white/75 text-[14px] hover:text-white transition-colors leading-[1.5]"
+                  >
+                    {label}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -1387,6 +1375,18 @@ function Footer() {
                   LinkedIn
                 </span>
               </a>
+            </div>
+
+            {/* Acknowledgement of Country — full width below both columns */}
+            <div className="sm:col-span-2 pt-2 border-t border-white/10">
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-3">
+                Acknowledgement of Country
+              </p>
+              <p className="font-['Onest:Regular',sans-serif] text-white/45 text-[13px] leading-[1.65]">
+                Construct Queensland respectfully acknowledges the Traditional Custodians of the
+                lands, winds, and waters on which we live and build across Queensland. We pay our
+                deepest respects to Elders past, present, and emerging.
+              </p>
             </div>
           </div>
         </div>
