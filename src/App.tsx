@@ -530,7 +530,10 @@ function ProjectsSection() {
           style={{
             display: "flex",
             gap: "24px",
-            animation: "carousel-scroll-desktop 62s linear infinite",
+            animationName: "carousel-scroll-desktop",
+            animationDuration: "62s",
+            animationTimingFunction: "linear",
+            animationIterationCount: "infinite",
             animationPlayState: desktopPaused ? "paused" : "running",
           }}
         >
@@ -625,7 +628,10 @@ function ProjectsSection() {
           style={{
             display: "flex",
             gap: "12px",
-            animation: "carousel-scroll-mobile 38s linear infinite",
+            animationName: "carousel-scroll-mobile",
+            animationDuration: "38s",
+            animationTimingFunction: "linear",
+            animationIterationCount: "infinite",
             animationPlayState: mobilePaused ? "paused" : "running",
           }}
         >
@@ -907,7 +913,10 @@ function TrustedBySection() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                animation: "logo-marquee 40s linear infinite",
+                animationName: "logo-marquee",
+                animationDuration: "40s",
+                animationTimingFunction: "linear",
+                animationIterationCount: "infinite",
                 width: "max-content",
                 gap: "48px",
               }}
