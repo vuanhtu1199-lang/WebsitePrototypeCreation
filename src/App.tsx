@@ -1,3 +1,1367 @@
+import { useState, useEffect, useRef, useCallback } from "react";
+import svgPaths from "@/imports/ConstructQldMobile/svg-hlp6ebxj1v";
+
+import imgHeroBg from "@/imports/ConstructQldMobile/995af0a91b969218e5730846fa0b595d97fc064b.png";
+import imgAbout from "@/imports/ConstructQldMobile/62b5fb7399a4c8e07cf4f8e8ad76993ccf2668ca.png";
+import imgProj1 from "@/imports/ConstructQldMobile/4e5394a6920318e4a6e974f3cd9674b0a5fe7dd6.png";
+import imgProj2a from "@/imports/ConstructQldMobile/da27a46dc8078953aa73c2d2588b2b7193da4107.png";
+import imgProj2b from "@/imports/ConstructQldMobile/142b0b7396ef766d3115b4a7236c1bbe9aac27f8.png";
+import imgProj3 from "@/imports/ConstructQldMobile/4e616da646f44f330ed4425184c9032ef98089bb.png";
+import imgProj4 from "@/imports/ConstructQldMobile/ddb7aefbfc3acccd1672c9bdd2284e0d16d9c457.png";
+import imgProj5 from "@/imports/ConstructQldMobile/85c24732ddc9b63aa6887c9e01682297ee32eb7b.png";
+import imgWhyUsBg from "@/imports/ConstructQldMobile/f0a5ae6d016f6e0b35305126c7e539647c478e77.png";
+import imgDavidLansdell from "@/imports/ConstructQldMobile/8d29293451dd8fdfea0fc92f15f3b91f17684b40.png";
+import imgDavidDirector from "@/imports/ConstructQldMobile/3849eacacaa613d286caca5a991e26fa60175bda.png";
+import imgConstructionBg from "@/imports/ConstructQldMobile/c9a857ac12e83ad66507bb2254e207dabba94373.png";
+import imgLogo from "@/imports/ConstructQldMobile/09226c2e8d97c3c0c5923aa477aa8ef349cbed29.png";
+import logoQldGov from "@/imports/ConstructQldMobile/afe076ce4c7ecd668cb18150ea361de4823d102a.png";
+import logoBrisbaneAirport from "@/imports/ConstructQldMobile/d08b16d98b2970922879f37b72b2018bb4030d11.png";
+import logoBCC from "@/imports/ConstructQldMobile/eed8866d2447cde40b3ac449c31b845a6ca07f8b.png";
+import logoDefence from "@/imports/ConstructQldMobile/794d6512373440c293f1f5b937f4c2036f196191.png";
+import logoQldHealth from "@/imports/ConstructQldMobile/837c8157faf2063b319f28be40562d69271536ea.png";
+import logoQldRail from "@/imports/ConstructQldMobile/b19a61d35b5930286cfc5def3d4442f671c427fa.png";
+import logoTransurban from "@/imports/ConstructQldMobile/b067922edabb8532b905bb864b3054ffef48685f.png";
+import logoAirservices from "@/imports/ConstructQldMobile/d686d5bde99ec2c63c1ef080d3a749ba1d112069.png";
+import logoEducation from "@/imports/ConstructQldMobile/b43a7d3e34803702798c223d5ecd64bd4c9519e7.png";
+import logoHousing from "@/imports/ConstructQldMobile/5270e57075b8d535ff0d08953d66d4a1f1904d9c.png";
+import logoYouthJustice from "@/imports/ConstructQldMobile/18b8158d1b409900526e85d8a6d8679b151f19ce.png";
+import logoAirports from "@/imports/ConstructQldMobile/0e900319e754d23ebf4783ad2193a37703d90d43.png";
+import logoQCS from "@/imports/ConstructQldMobile/03155c7a3b333db917e755eb7abe64a429ba658b.png";
+import logoRegis from "@/imports/ConstructQldMobile/ca03546fe94b6752d299c57012918f86053fcb09.png";
+import logoStVincents from "@/imports/ConstructQldMobile/2f62ae2c28533167af9b49ac90d935d6984961d0.png";
+import logoBloomberg from "@/imports/ConstructQldMobile/b63759244a0d5c207c80d1ed6161d387855abed4.png";
+
+// ===== DATA =====
+
+interface Project {
+  id: number;
+  images: string[];
+  category: string;
+  location: string;
+  title: string;
+}
+
+const projects: Project[] = [
+  {
+    id: 1,
+    images: [imgProj1],
+    category: "Government & Justice",
+    location: "Brisbane CBD, QLD",
+    title: "Brisbane Supreme Court & Justice Centre",
+  },
+  {
+    id: 2,
+    images: [imgProj2a, imgProj2b],
+    category: "Government & Justice",
+    location: "South Bank, QLD",
+    title: "Queensland Cultural & Arts Precinct",
+  },
+  {
+    id: 3,
+    images: [imgProj3],
+    category: "Transport Infrastructure",
+    location: "Gold Coast, QLD",
+    title: "Gold Coast Airport International Terminal 9",
+  },
+  {
+    id: 4,
+    images: [imgProj4],
+    category: "Health & Science",
+    location: "Brisbane, QLD",
+    title: "Princess Alexandra Hospital Redevelopment",
+  },
+  {
+    id: 5,
+    images: [imgProj5],
+    category: "Defence Infrastructure",
+    location: "Townsville, QLD",
+    title: "ADF Capital Infrastructure Works Programme",
+  },
+];
+
+const clientLogos = [
+  { src: logoQldGov, alt: "Queensland Government" },
+  { src: logoBrisbaneAirport, alt: "Brisbane Airport" },
+  { src: logoBCC, alt: "Brisbane City Council" },
+  { src: logoDefence, alt: "Defence" },
+  { src: logoQldHealth, alt: "Queensland Health" },
+  { src: logoQldRail, alt: "Queensland Rail" },
+  { src: logoTransurban, alt: "Transurban" },
+  { src: logoAirservices, alt: "Airservices Australia" },
+  { src: logoEducation, alt: "Department of Education" },
+  { src: logoHousing, alt: "Department of Housing" },
+  { src: logoYouthJustice, alt: "Youth Justice" },
+  { src: logoAirports, alt: "Airports" },
+  { src: logoQCS, alt: "QCS" },
+  { src: logoRegis, alt: "Regis" },
+  { src: logoStVincents, alt: "St Vincents" },
+  { src: logoBloomberg, alt: "Bloomberg" },
+];
+
+// ===== HELPERS =====
+
+function GoldSquare() {
+  return (
+    <div className="relative shrink-0 size-2">
+      <svg className="absolute inset-0 size-full" viewBox="0 0 8 8" fill="none">
+        <path d="M8 0H0V8H8V0Z" fill="#E5B869" />
+      </svg>
+    </div>
+  );
+}
+
+function SectionLabel({ text, light = false }: { text: string; light?: boolean }) {
+  return (
+    <div className="flex items-start gap-2.5">
+      <div className="pt-1.5 shrink-0">
+        <GoldSquare />
+      </div>
+      <p className={`font-['DM_Mono:Medium',sans-serif] text-[14px] tracking-[0.56px] uppercase whitespace-nowrap leading-[19.6px] ${light ? "text-white" : "text-black"}`}>
+        {text}
+      </p>
+    </div>
+  );
+}
+
+function ArrowBtn({ color = "white", rotate = false }: { color?: string; rotate?: boolean }) {
+  return (
+    <div className={`backdrop-blur-[17px] p-[4.3px] ${rotate ? "bg-black/30" : "bg-[#d4a44f]"} flex items-center justify-center`}>
+      <svg
+        width="21"
+        height="21"
+        viewBox="0 0 21.4286 21.4286"
+        fill="none"
+        style={rotate ? { transform: "scaleX(-1)" } : undefined}
+      >
+        <path d={svgPaths.p33b71300} fill={color} />
+      </svg>
+    </div>
+  );
+}
+
+// ===== NAVBAR =====
+
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navLinks = [
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Why Us", href: "#why-us" },
+    { label: "Services", href: "#services" },
+    { label: "Clients", href: "#clients" },
+    { label: "FAQ", href: "#faq" },
+  ];
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-[12px] border-b border-white/8 transition-colors duration-300 ${
+        scrolled ? "bg-[#0a1b3a]/90" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-5 flex items-center justify-between py-4">
+        <a href="#" className="shrink-0">
+          <img src={imgLogo} alt="Construct Queensland" className="h-11 w-auto object-contain" />
+        </a>
+
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="font-['Onest:Medium',sans-serif] font-medium text-[15px] text-white/80 hover:text-white transition-colors"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+
+        <a href="#contact" className="hidden lg:flex items-center">
+          <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[15px] bg-[#e5b869] px-6 py-3">
+            Get In Touch
+          </span>
+          <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/25 flex items-center justify-center w-[46px] h-[46px]">
+            <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+              <path d={svgPaths.p30053000} fill="#0A1B3A" />
+            </svg>
+          </div>
+        </a>
+
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="lg:hidden p-2.5"
+          aria-label="Toggle menu"
+        >
+          <div className="flex flex-col gap-1.5 w-7">
+            <div className={`bg-white h-0.5 w-7 transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <div className={`bg-white h-0.5 w-7 transition-all ${menuOpen ? "opacity-0" : ""}`} />
+            <div className={`bg-white h-0.5 w-7 transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </div>
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div className="lg:hidden bg-[#0a1b3a] border-t border-white/10 px-5 py-4 flex flex-col gap-3">
+          {navLinks.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="font-['Onest:Regular',sans-serif] text-white/80 text-[16px] py-2.5 border-b border-white/5"
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="flex items-center bg-[#e5b869] mt-2"
+            onClick={() => setMenuOpen(false)}
+          >
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[15px] px-6 py-3 flex-1 text-center">
+              Get In Touch
+            </span>
+          </a>
+        </div>
+      )}
+    </nav>
+  );
+}
+
+// ===== HERO SECTION =====
+
+function HeroSection() {
+  return (
+    <section id="hero" className="relative bg-[#0a1b3a] min-h-screen flex flex-col overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[#0a1b3a]" />
+        <img src={imgHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(180deg, rgba(10,27,58,0.68) 0%, rgba(6,16,36,0.88) 100%)" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at 75% 25%, rgba(229,184,105,0.1) 0%, transparent 55%)" }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-5 pt-28 pb-16 flex-1 flex flex-col lg:flex-row lg:items-center lg:gap-20">
+        <div className="flex-1 max-w-2xl">
+          <div className="mb-4">
+            <SectionLabel text="Executive Construction Advisory" light />
+          </div>
+          <h1
+            className="font-['Onest:Medium',sans-serif] font-medium text-white leading-[1.15] mb-5"
+            style={{ fontSize: "clamp(34px, 4.5vw, 68px)", letterSpacing: "-1.5px" }}
+          >
+            Certainty in Delivery,{" "}
+            <span className="text-[#e5b869]">Excellence in Leadership</span>
+          </h1>
+          <p
+            className="font-['Onest:Regular',sans-serif] text-white/90 leading-[1.6] mb-8 max-w-[520px]"
+            style={{ fontSize: "clamp(15px, 1.4vw, 17px)" }}
+          >
+            Construct Queensland provides government departments and asset leaders with executive-tier
+            construction leadership and delivery capability across complex, high-risk portfolios.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="#capabilities" className="flex items-center">
+              <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16.5px] bg-[#e5b869] px-6 py-4 flex-1 text-center">
+                Our Capabilities
+              </span>
+              <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/42 flex items-center justify-center w-[58px] self-stretch">
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                  <path d={svgPaths.p102e07c0} fill="#0A1B3A" />
+                </svg>
+              </div>
+            </a>
+            <a href="#projects" className="flex items-center border border-white/25">
+              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16.5px] px-6 py-4 flex-1 text-center">
+                View Projects
+              </span>
+              <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[58px] self-stretch">
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                  <path d={svgPaths.p102e07c0} fill="white" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3 mt-10 lg:mt-0 lg:min-w-[340px]">
+          {[
+            { value: "25+", label: "Years of Executive Experience" },
+            { value: "24+", label: "Landmark Infrastructure Projects" },
+            { value: "$2B+", label: "Capital Programme Oversight" },
+          ].map(({ value, label }) => (
+            <div
+              key={label}
+              className="backdrop-blur-[16px] bg-white/6 border border-white/14 px-[22px] py-[20px]"
+            >
+              <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[32px] leading-8 tracking-[-0.96px] mb-1.5">
+                {value}
+              </p>
+              <p className="font-['Onest:Medium',sans-serif] font-medium text-white/88 text-[15px]">
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== ABOUT SECTION =====
+
+function AboutSection() {
+  return (
+    <section id="about" className="bg-white py-[60px] lg:py-24">
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div>
+            <SectionLabel text="About Construct Queensland" />
+            <h2
+              className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] leading-[1.2] tracking-[-0.74px] mt-4 mb-5"
+              style={{ fontSize: "clamp(24px, 2.8vw, 38px)" }}
+            >
+              Where Policy Intent Meets On-the-Ground Delivery
+            </h2>
+            <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[18px] leading-[1.65]">
+              Established in 2019 by Director David Lansdell, Construct Queensland operates at the
+              executive echelon of infrastructure delivery. Having served as Construction Director and
+              Executive Director for critical Queensland portfolios, we bridge commercial rigour with
+              government governance.
+            </p>
+            <div className="grid gap-6 mt-10" id="capabilities">
+              {[
+                {
+                  svg: svgPaths.p1ccfcf0,
+                  title: "Executive Secondment & Advisory",
+                  desc: "Seamless integration into departmental delivery units, providing instant leadership uplift, clear delegations, and strategic accountability on public works.",
+                },
+                {
+                  svg: svgPaths.p8a48180,
+                  title: "Modern Methods of Construction (MMC)",
+                  desc: "Pioneered the Queensland Government MMC Programme in partnership with the Office of the Queensland Government Architect (OQGA), advancing modular and off-site delivery.",
+                },
+                {
+                  svg: svgPaths.p6cfd400,
+                  title: "Programme Recovery & Cost Certainty",
+                  desc: "Targeted high-value interventions that turn around distressed projects, restore stakeholder confidence, and establish ironclad constructability pathways under budget.",
+                },
+              ].map(({ svg, title, desc }) => (
+                <div key={title} className="border-l border-[#e5e7eb] pl-6">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="shrink-0 mb-6">
+                    <path d={svg} fill="#0A1B3A" />
+                  </svg>
+                  <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[18px] leading-7 mb-2">
+                    {title}
+                  </p>
+                  <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[14px] leading-5">
+                    {desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="aspect-[844/676] relative overflow-hidden">
+              <img
+                src={imgAbout}
+                alt="Gold Coast Airport International Terminal"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== PROJECTS SECTION =====
+
+interface GalleryState {
+  images: string[];
+  index: number;
+  title: string;
+}
+
+function GalleryModal({ gallery, onClose }: { gallery: GalleryState; onClose: () => void }) {
+  const [idx, setIdx] = useState(gallery.index);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") setIdx((i) => (i - 1 + gallery.images.length) % gallery.images.length);
+      if (e.key === "ArrowRight") setIdx((i) => (i + 1) % gallery.images.length);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [gallery.images.length, onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/92 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+        <button
+          onClick={onClose}
+          className="absolute -top-10 right-0 font-['Onest:Regular',sans-serif] text-white/70 hover:text-white text-[14px]"
+        >
+          Close ×
+        </button>
+        <div className="relative aspect-[16/9] bg-black overflow-hidden">
+          <img
+            src={gallery.images[idx]}
+            alt={gallery.title}
+            className="absolute inset-0 w-full h-full object-contain"
+          />
+        </div>
+        {gallery.images.length > 1 && (
+          <div className="flex items-center justify-between mt-4">
+            <button
+              onClick={() => setIdx((i) => (i - 1 + gallery.images.length) % gallery.images.length)}
+              className="backdrop-blur-[17px] bg-black/30 border border-white/20 p-2 text-white px-4"
+            >
+              ←
+            </button>
+            <span className="font-['Onest:Regular',sans-serif] text-white/60 text-sm">
+              {idx + 1} / {gallery.images.length}
+            </span>
+            <button
+              onClick={() => setIdx((i) => (i + 1) % gallery.images.length)}
+              className="backdrop-blur-[17px] bg-[#d4a44f] p-2 text-white px-4"
+            >
+              →
+            </button>
+          </div>
+        )}
+        <p className="font-['Onest:Regular',sans-serif] text-white text-[15px] mt-3 text-center opacity-80">
+          {gallery.title}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ProjectsSection() {
+  const [desktopPaused, setDesktopPaused] = useState(false);
+  const [mobilePaused, setMobilePaused] = useState(false);
+  const [gallery, setGallery] = useState<GalleryState | null>(null);
+  const [cardImgIdxs, setCardImgIdxs] = useState<Record<string, number>>({});
+  const mobileTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMobileTap = useCallback(() => {
+    setMobilePaused(true);
+    if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current);
+    mobileTimerRef.current = setTimeout(() => setMobilePaused(false), 3000);
+  }, []);
+
+  const handleCardNav = (
+    trackIdx: string,
+    dir: "prev" | "next",
+    total: number,
+    e: React.MouseEvent
+  ) => {
+    e.stopPropagation();
+    setCardImgIdxs((prev) => {
+      const curr = prev[trackIdx] ?? 0;
+      const next = dir === "prev" ? (curr - 1 + total) % total : (curr + 1) % total;
+      return { ...prev, [trackIdx]: next };
+    });
+  };
+
+  const tripleProjects = [...projects, ...projects, ...projects];
+
+  return (
+    <section id="projects" className="bg-[#0b0c0e] py-[60px] overflow-hidden">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-5 mb-10">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <SectionLabel text="Selected Projects" light />
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[32px] leading-[1.2] tracking-[-0.8px] mt-3 max-w-md">
+              Explore our landmark portfolio.
+            </h2>
+          </div>
+          <a href="#contact" className="flex items-center border border-white/25 self-start">
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] px-7 py-3.5">
+              Get In Touch
+            </span>
+            <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[46px] h-[46px]">
+              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                <path d={svgPaths.p30053000} fill="white" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      {/* ===== DESKTOP CAROUSEL ===== */}
+      <div className="hidden lg:block overflow-hidden pl-5">
+        <div
+          style={{
+            display: "flex",
+            gap: "24px",
+            animation: "carousel-scroll-desktop 55s linear infinite",
+            animationPlayState: desktopPaused ? "paused" : "running",
+          }}
+        >
+          {tripleProjects.map((project, idx) => {
+            const imgIdx = cardImgIdxs[String(idx)] ?? 0;
+            const currentImg = project.images[imgIdx] ?? project.images[0];
+            return (
+              <div
+                key={idx}
+                className="relative shrink-0 w-[400px] group cursor-pointer"
+                onMouseEnter={() => setDesktopPaused(true)}
+                onMouseLeave={() => setDesktopPaused(false)}
+              >
+                <div className="relative h-[480px] overflow-hidden">
+                  <img
+                    src={currentImg}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Dark overlay on hover */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  {/* Category badge */}
+                  <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-black/30 border border-white/10 px-2.5 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="font-['Onest:Regular',sans-serif] text-white text-[13px]">
+                      {project.category}
+                    </p>
+                  </div>
+
+                  {/* Top-right: nav arrows + gallery button */}
+                  <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {project.images.length > 1 && (
+                      <>
+                        <button
+                          onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
+                          title="Previous image"
+                        >
+                          <ArrowBtn rotate />
+                        </button>
+                        <button
+                          onClick={(e) => handleCardNav(String(idx), "next", project.images.length, e)}
+                          title="Next image"
+                        >
+                          <ArrowBtn />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setGallery({ images: project.images, index: imgIdx, title: project.title });
+                          }}
+                          className="backdrop-blur-[16px] bg-black/30 border border-white/20 px-2.5 py-[4.3px] ml-1"
+                          title="View all images"
+                        >
+                          <span className="font-['Onest:Regular',sans-serif] text-white text-[11px] whitespace-nowrap">
+                            View All
+                          </span>
+                        </button>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Bottom text overlay */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+                    style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)" }}
+                  >
+                    <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[13px] tracking-[0.56px] uppercase">
+                      {project.location}
+                    </p>
+                    <p className="font-['Onest:Regular',sans-serif] text-white text-[19px] leading-7 mt-1">
+                      {project.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ===== MOBILE CAROUSEL ===== */}
+      <div
+        className="lg:hidden overflow-hidden pl-5"
+        onClick={handleMobileTap}
+        style={{ cursor: "pointer" }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: "12px",
+            animation: "carousel-scroll-mobile 38s linear infinite",
+            animationPlayState: mobilePaused ? "paused" : "running",
+          }}
+        >
+          {tripleProjects.map((project, idx) => {
+            const imgIdx = cardImgIdxs[`m${idx}`] ?? 0;
+            const currentImg = project.images[imgIdx] ?? project.images[0];
+            return (
+              <div key={idx} className="relative shrink-0 w-[300px]">
+                {/* Image */}
+                <div className="relative h-[240px] overflow-hidden">
+                  <img
+                    src={currentImg}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  {/* Category badge - always visible */}
+                  <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-black/30 border border-white/10 px-2.5 py-1">
+                    <p className="font-['Onest:Regular',sans-serif] text-white text-[13px]">
+                      {project.category}
+                    </p>
+                  </div>
+                  {/* Nav arrows - always visible if multi-image */}
+                  {project.images.length > 1 && (
+                    <div className="absolute top-4 right-4 flex items-center">
+                      <ArrowBtn rotate />
+                      <ArrowBtn />
+                    </div>
+                  )}
+                </div>
+
+                {/* Text always visible below image */}
+                <div className="mt-4">
+                  <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[13px] tracking-[0.56px] uppercase">
+                    {project.location}
+                  </p>
+                  <p className="font-['Onest:Regular',sans-serif] text-white text-[19px] leading-7 mt-1">
+                    {project.title}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {gallery && <GalleryModal gallery={gallery} onClose={() => setGallery(null)} />}
+    </section>
+  );
+}
+
+// ===== WHY CHOOSE US =====
+
+function WhyChooseUsSection() {
+  return (
+    <section id="why-us" className="bg-white py-[60px] lg:py-24">
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div>
+            <SectionLabel text="Our Commitment" />
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#111827] text-[32px] leading-[1.2] tracking-[-0.8px] mt-4 mb-5">
+              Why Choose Us
+            </h2>
+            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[18px] leading-[1.65] mb-8">
+              At Construct Queensland, we understand that choosing the right construction leadership
+              partner is decisive for the success of your capital programme. Here is why government
+              departments and institutional owners choose us:
+            </p>
+            <div className="flex flex-col gap-4 mb-16">
+              {[
+                "Senior Executive Involvement",
+                "On-Time, On-Budget Integrity",
+                "Safety and Compliance",
+                "Client-Centred Approach",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2.5">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0">
+                    <path d={svgPaths.p10b1df80} fill="#E5B869" />
+                  </svg>
+                  <span className="font-['Onest:Medium',sans-serif] font-medium text-[#0a1b3a] text-[16px]">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-2 gap-x-12 gap-y-10">
+              {[
+                { value: "100%", label: "Programme Governance" },
+                { value: "25+", label: "Years of Experience" },
+                { value: "24+", label: "Completed Landmarks" },
+                { value: "16+", label: "Government Clients" },
+              ].map(({ value, label }) => (
+                <div key={label}>
+                  <p className="font-['Onest:Medium',sans-serif] font-medium text-[#0a1b3a] text-[32px] leading-8 tracking-[-0.8px]">
+                    {value}
+                  </p>
+                  <p className="font-['DM_Mono:Medium',sans-serif] text-[#5b6574] text-[14px] tracking-[0.56px] uppercase mt-1.5">
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative min-h-[300px]">
+            <img src={imgWhyUsBg} alt="" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== SERVICES SECTION =====
+
+function ServicesSection() {
+  const services = [
+    {
+      num: "#01",
+      title: "Executive Portfolio Leadership",
+      desc: "Director-level secondment into your portfolio, with authority over governance, delegations and risk decisions.",
+    },
+    {
+      num: "#02",
+      title: "Client-Sided Project Management",
+      desc: "A low-friction extension of your existing delivery unit, holding the contractor and consultant interfaces day to day.",
+    },
+    {
+      num: "#03",
+      title: "Business Cases & PAF Studies",
+      desc: "Investment-grade business cases tested for constructability, cost and time viability before funding is committed.",
+    },
+    {
+      num: "#04",
+      title: "Modern Methods of Construction",
+      desc: "Modularisation, DfMA and off-site prefabrication, used to compress delivery schedules on social housing programmes.",
+    },
+    {
+      num: "#05",
+      title: "Superintendent Contract Admin",
+      desc: "Impartial superintendent services under AS 2124, AS 4000 and AS 4902, certifying claims, time extensions and completion.",
+    },
+    {
+      num: "#06",
+      title: "Distressed Programme Recovery",
+      desc: "Forensic intervention on stalled programmes. We reset the baseline and stage the works so live sites keep operating.",
+    },
+  ];
+
+  return (
+    <section id="services" className="bg-[#f7f8fa] py-[60px] lg:py-24">
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div>
+            <SectionLabel text="What We Do" />
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#111827] text-[32px] leading-[1.2] tracking-[-0.8px] mt-4 mb-5">
+              Comprehensive Construction Services
+            </h2>
+            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[18px] leading-[1.65] mb-14">
+              Senior-level construction leadership and delivery capability for complex, high-risk capital
+              portfolios.
+            </p>
+            <a href="#contact" className="flex items-center self-start w-fit">
+              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
+                Discuss Engagement
+              </span>
+              <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px] h-[46px]">
+                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                  <path d={svgPaths.p3c2a0580} fill="white" />
+                </svg>
+              </div>
+            </a>
+            <div className="mt-9">
+              <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px]">
+                Contact Us for Consultation
+              </p>
+              <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] mt-1.5">
+                Call us:{" "}
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a]">
+                  0436 603 061
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-[rgba(10,27,58,0.14)]">
+            {services.map(({ num, title, desc }) => (
+              <div key={num} className="border-b border-[rgba(10,27,58,0.14)] py-9 grid grid-cols-[50px_1fr] gap-5">
+                <p className="font-['Onest:Bold',sans-serif] font-bold text-[#0b0c0e] text-[16px]">{num}</p>
+                <div>
+                  <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0b0c0e] text-[18px] leading-6 mb-3">
+                    {title}
+                  </p>
+                  <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[16px] leading-[1.65]">
+                    {desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== TRUSTED BY SECTION =====
+
+function TrustedBySection() {
+  const allLogos = [...clientLogos, ...clientLogos];
+
+  return (
+    <section id="clients" className="bg-[#0b0c0e] py-[60px] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="lg:flex lg:items-start lg:justify-between lg:gap-16">
+          <div className="flex-shrink-0">
+            <SectionLabel text="Trusted By" light />
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[28px] leading-[1.2] tracking-[-0.7px] mt-3 max-w-sm">
+              Key Statutory Authorities & Tier-1 Operators
+            </h2>
+            <a href="#contact" className="mt-6 flex items-center border border-white/25 w-fit">
+              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] px-7 py-3.5">
+                Get In Touch
+              </span>
+              <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[46px] h-[46px]">
+                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                  <path d={svgPaths.p3c2a0580} fill="white" />
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          {/* Testimonial */}
+          <div className="mt-10 lg:mt-0 bg-[#14161a] border border-white/10 p-5 lg:p-8 max-w-xl">
+            <p className="font-['Onest:Light',sans-serif] font-light text-white text-[17.6px] leading-[1.5] tracking-[-0.44px]">
+              "Construct Queensland bridges the gap between executive policy intent and practical
+              contractor execution. In high-risk brownfield and government portfolios, our sustained
+              focus on constructability, cost certainty, and transparent governance delivers landmark
+              results."
+            </p>
+            <div className="flex items-center gap-4 mt-5">
+              <div className="relative size-[54px] shrink-0">
+                <img
+                  src={imgDavidLansdell}
+                  alt="David Lansdell"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 border-2 border-[#e5b869]" />
+              </div>
+              <div>
+                <p className="font-['Onest:Bold',sans-serif] font-bold text-white text-[18px]">
+                  David Lansdell
+                </p>
+                <p className="font-['DM_Mono:Medium',sans-serif] text-white text-[12px] tracking-[0.56px] uppercase mt-1 max-w-[240px] leading-[1.4]">
+                  Director — Construct Queensland | Former Executive Director, QLD Government
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Our Clients label */}
+        <div className="flex items-center gap-6 mt-10 mb-6">
+          <div className="flex items-center gap-2.5 shrink-0">
+            <div className="pt-1.5 shrink-0">
+              <GoldSquare />
+            </div>
+            <span className="font-['DM_Mono:Medium',sans-serif] text-white text-[14px] tracking-[0.56px] uppercase">
+              Our Clients
+            </span>
+          </div>
+          <div className="bg-white/45 h-px flex-1" />
+        </div>
+      </div>
+
+      {/* Logo Marquee — full width overflow */}
+      <div className="overflow-hidden mt-2">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            animation: "logo-marquee 40s linear infinite",
+            width: "max-content",
+            gap: "56px",
+            paddingLeft: "56px",
+          }}
+        >
+          {allLogos.map((logo, idx) => (
+            <div
+              key={idx}
+              className="flex items-center justify-center h-[60px] shrink-0 opacity-[0.78]"
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-[52px] max-w-[200px] object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== LEADERSHIP SECTION =====
+
+function LeadershipSection() {
+  return (
+    <section id="leadership" className="bg-white py-[60px] px-5">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white border border-[#eef0f2] shadow-[0px_10px_30px_0px_rgba(0,0,0,0.05)] grid lg:grid-cols-2 overflow-hidden">
+          <div className="relative min-h-[400px] lg:min-h-[500px] bg-[#0a1b3a]">
+            <img
+              src={imgDavidDirector}
+              alt="David Lansdell"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="p-6 lg:p-8">
+            <div className="flex gap-2.5 items-start mb-4">
+              <div className="pt-1.5 shrink-0">
+                <GoldSquare />
+              </div>
+              <span className="font-['DM_Mono:Medium',sans-serif] text-[14px] tracking-[0.56px] uppercase text-black">
+                Director & Founder
+              </span>
+            </div>
+            <h2 className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[28px] tracking-[-0.7px] mb-1">
+              David Lansdell
+            </h2>
+            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[15px] mb-6">
+              Founder & Director, Construct Queensland
+            </p>
+            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] leading-[1.65] mb-6">
+              Over 25 years across government and tier-1 delivery, including the QCS portfolio of
+              works — with the institutional insight and senior-level visibility rarely accessible to
+              external advisors.
+            </p>
+
+            <div className="border-t border-[#eef0f2] pt-6 pb-7 mb-6">
+              {[
+                "Former Executive Director, QLD Government",
+                "Construction Director, Major Infrastructure",
+                "Lead for MMC Programme Delivery (OQGA)",
+                "Corrections, Health & Aviation Expert",
+              ].map((cred) => (
+                <div key={cred} className="flex items-center gap-2.5 mb-3">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
+                    <path d={svgPaths.p27a39400} fill="#5B6574" />
+                  </svg>
+                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[16px]">
+                    {cred}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t border-[#eef0f2] pt-5 flex flex-col gap-3">
+              <a href="tel:0436603061" className="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d={svgPaths.p27a46300} fill="#5B6574" />
+                </svg>
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px]">
+                  0436 603 061
+                </span>
+              </a>
+              <a href="mailto:dlansdell@constructqld.com.au" className="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d={svgPaths.p2aa90880} fill="#5B6574" />
+                </svg>
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px]">
+                  dlansdell@constructqld.com.au
+                </span>
+              </a>
+              <a href="https://linkedin.com" className="flex items-center mt-2 w-fit">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[14px] bg-[#0a1b3a] px-5 py-2">
+                  Connect on LinkedIn
+                </span>
+                <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[38px] h-[38px]">
+                  <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                    <path d={svgPaths.p2434d500} fill="white" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== CONTACT SECTION =====
+
+function ContactSection() {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const inputClass =
+    "border border-[rgba(10,27,58,0.35)] px-3.5 py-3 text-[16px] font-['Onest:Regular',sans-serif] text-[#0a1b3a] placeholder-[#8e96a4] focus:outline-none focus:border-[#0a1b3a] w-full bg-white";
+
+  return (
+    <section id="contact" className="bg-[#f0f4f8] py-20 relative overflow-hidden">
+      <div className="absolute bottom-0 left-5 opacity-[0.18] pointer-events-none">
+        <img
+          src={imgConstructionBg}
+          alt=""
+          className="w-[184px] h-[123px] object-cover"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div>
+            <div className="flex items-start gap-2.5 mb-5">
+              <div className="pt-1.5 shrink-0">
+                <GoldSquare />
+              </div>
+              <span className="font-['DM_Mono:Medium',sans-serif] text-[14px] tracking-[0.56px] uppercase text-[#0a1b3a]">
+                Engagement & Consultation
+              </span>
+            </div>
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[32px] leading-[1.2] tracking-[-0.8px] mb-5">
+              Partner with Construct Queensland
+            </h2>
+            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] leading-[1.65]">
+              Whether you require executive secondment to stabilise a high-risk portfolio, strategic
+              advisory for PAF business cases, or expert client-sided project leadership, our directors
+              are available for confidential consultations.
+            </p>
+          </div>
+
+          <div className="bg-white border-t-2 border-[#0a1b3a] shadow-[0px_4px_12px_rgba(10,27,58,0.05)] p-5 lg:p-7">
+            <h3 className="font-['Onest:Medium',sans-serif] font-medium text-[#0a1b3a] text-[22px] tracking-[-0.55px] mb-5">
+              Request a Consultation
+            </h3>
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-12">
+                <div className="w-12 h-12 bg-[#e5b869] flex items-center justify-center mb-4">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d={svgPaths.p10b1df80} fill="#0A1B3A" />
+                  </svg>
+                </div>
+                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[18px]">
+                  Request Submitted
+                </p>
+                <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[15px] mt-2 text-center">
+                  We will be in touch within 1 business day.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Enter your first name"
+                      value={form.firstName}
+                      onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+                      className={inputClass}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Enter your last name"
+                      value={form.lastName}
+                      onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+                      className={inputClass}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className={inputClass}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    className={inputClass}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
+                    Message
+                  </label>
+                  <textarea
+                    placeholder="Outline your portfolio, programme requirements, or advisory needs..."
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    rows={5}
+                    className={`${inputClass} resize-none`}
+                  />
+                </div>
+                <button type="submit" className="flex items-center">
+                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] tracking-[0.96px] uppercase bg-[#0a1b3a] px-6 py-3.5 flex-1 text-center">
+                    Request a Consultation
+                  </span>
+                  <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px] h-[46px]">
+                    <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                      <path d={svgPaths.p30053000} fill="white" />
+                    </svg>
+                  </div>
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== FAQ SECTION =====
+
+function FAQSection() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "What sectors and project scopes does Construct Queensland specialise in?",
+      a: "We specialise in government, justice, health, transport, defence and social infrastructure. Our directors have led complex brownfield and greenfield portfolios across Queensland, from court facilities to aviation terminals.",
+    },
+    {
+      q: "How do government departments and institutional clients engage your services?",
+      a: "Engagement typically begins with a confidential consultation to scope your programme. We can commence via direct engagement, panel arrangements, or PSA frameworks across state and local government.",
+    },
+    {
+      q: "What is Construct Queensland's role in Programme Recovery & Distressed Projects?",
+      a: "We conduct forensic programme analysis, reset baselines, re-sequence live works, and restore contractor accountability. We operate as a trusted extension of your executive team throughout recovery.",
+    },
+    {
+      q: "Do you provide design management and Modern Methods of Construction (MMC) advisory?",
+      a: "Yes. Our directors pioneered Queensland's MMC Programme with OQGA and can deliver DfMA strategies, modular procurement frameworks and off-site delivery planning across social and civic infrastructure.",
+    },
+    {
+      q: "What contract administration and Superintendent services do you offer?",
+      a: "We provide independent superintendent services under AS 2124, AS 4000, and AS 4902 — covering claim certification, time extensions, completion, and dispute resolution support.",
+    },
+    {
+      q: "How does Construct Queensland integrate with existing departmental delivery teams?",
+      a: "Seamlessly. Our directors are accustomed to operating within government governance structures, holding delegations alongside departmental officers without duplicating existing functions.",
+    },
+  ];
+
+  return (
+    <section id="faq" className="bg-white py-[60px] pb-[70px]">
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div>
+            <div className="inline-block border border-[#161616] px-3 py-1 mb-6">
+              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616] text-[12px] tracking-[0.72px] uppercase">
+                Common Enquiries
+              </span>
+            </div>
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#161616] text-[32px] leading-[1.2] tracking-[-0.8px]">
+              Frequently Asked Questions
+            </h2>
+            <div className="mt-10">
+              <h3 className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[20px] tracking-[-0.5px]">
+                Have a Specific Programme Enquiry?
+              </h3>
+              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[16px] leading-6 mt-2.5 max-w-xs">
+                Our executive leadership is available to discuss advisory mandates, programme
+                recoveries, and procurement pathways.
+              </p>
+              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[16px] mt-4">
+                Call us:{" "}
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616]">
+                  0436 603 061
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div>
+            {faqs.map(({ q, a }, idx) => (
+              <div key={idx} className="border-b border-[#e5e7eb]">
+                <button
+                  className="flex items-center justify-between py-6 w-full text-left gap-4"
+                  onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
+                >
+                  <p className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[16px] leading-[1.35]">
+                    {q}
+                  </p>
+                  <div
+                    className="flex items-center justify-center size-6 shrink-0 transition-transform duration-200"
+                    style={{ transform: openIdx === idx ? "rotate(45deg)" : "rotate(0deg)" }}
+                  >
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d={svgPaths.p9106f00} fill="#161616" />
+                    </svg>
+                  </div>
+                </button>
+                {openIdx === idx && (
+                  <div className="pb-6 pr-8">
+                    <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[15px] leading-[1.65]">
+                      {a}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== FOOTER =====
+
+function Footer() {
+  const navLinks = [
+    ["About", "#about"],
+    ["Projects", "#projects"],
+    ["Why Us", "#why-us"],
+    ["Services", "#services"],
+    ["Clients", "#clients"],
+    ["Leadership", "#leadership"],
+    ["FAQs", "#faq"],
+    ["Contact Us", "#contact"],
+  ];
+
+  return (
+    <footer className="bg-[#061024] border-t border-white/8 pt-12 pb-7">
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <img src={imgLogo} alt="Construct Queensland" className="h-9 w-auto object-contain mb-4" />
+            <p className="font-['Onest:Regular',sans-serif] text-white/70 text-[14px] leading-[1.65] max-w-xs mb-4">
+              Specialist infrastructure advisory and executive project delivery practice, providing
+              high-level construction leadership across Queensland Government portfolios and tier-1
+              assets.
+            </p>
+            <div className="font-['Onest:Regular',sans-serif] text-white/45 text-[12px] space-y-1">
+              <p>QBCC Licence #15243890 • ABN 48 624 819 032</p>
+              <p>Brisbane, QLD</p>
+            </div>
+          </div>
+
+          <div>
+            <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
+              Quick Navigation
+            </p>
+            <div className="grid grid-cols-2 gap-2.5">
+              {navLinks.map(([label, href]) => (
+                <a
+                  key={label}
+                  href={href}
+                  className="font-['Onest:Medium',sans-serif] font-medium text-white/80 text-[14px] hover:text-white transition-colors leading-[21px]"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
+              Head Office
+            </p>
+            <p className="font-['Onest:Regular',sans-serif] text-white/75 text-[14px]">
+              Brisbane City, QLD 4000
+            </p>
+            <p className="font-['Onest:Regular',sans-serif] text-white/50 text-[14px] mt-1">
+              enquiries@constructqld.com.au
+            </p>
+            <a
+              href="https://linkedin.com"
+              className="mt-4 flex items-center gap-2 bg-white/5 border border-white/20 px-4 py-2 w-fit rounded-sm"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d={svgPaths.p318e7a00} fill="white" />
+              </svg>
+              <span className="font-['Onest:Medium',sans-serif] font-medium text-white text-[14px]">
+                Follow Us
+              </span>
+            </a>
+          </div>
+
+          <div>
+            <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
+              Acknowledgement of Country
+            </p>
+            <p className="font-['Onest:Regular',sans-serif] text-white/50 text-[14px] leading-[1.5]">
+              Construct Queensland respectfully acknowledges the Traditional Custodians of the lands,
+              winds, and waters on which we live and build across Queensland. We pay our deepest
+              respects to Elders past, present, and emerging.
+            </p>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 mt-8 pt-6">
+          <p className="font-['Onest:Regular',sans-serif] text-white/45 text-[14px]">
+            Copyright © 2026 Construct Queensland Pty Ltd. All rights reserved.
+          </p>
+          <p className="font-['Onest:Regular',sans-serif] text-white/45 text-[14px] mt-1">
+            Site by Belver
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+// ===== ROOT =====
+
 export default function App() {
-  return <div className="min-h-screen flex items-center justify-center"></div>
+  return (
+    <div>
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <WhyChooseUsSection />
+      <ServicesSection />
+      <TrustedBySection />
+      <LeadershipSection />
+      <ContactSection />
+      <FAQSection />
+      <Footer />
+    </div>
+  );
 }

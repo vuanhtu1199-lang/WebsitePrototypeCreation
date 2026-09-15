@@ -1,1 +1,61 @@
 @import 'tailwindcss';
+
+@font-face {
+  font-family: "DM Mono:Medium";
+  src: url("https://static.figma.com/font/DMMono-Medium_1") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Onest:Medium";
+  src: url("https://static.figma.com/font/Onest_wght__1") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Onest:Regular";
+  src: url("https://static.figma.com/font/Onest_wght__1") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Onest:Bold";
+  src: url("https://static.figma.com/font/Onest_wght__1") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Onest:SemiBold";
+  src: url("https://static.figma.com/font/Onest_wght__1") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Onest:Light";
+  src: url("https://static.figma.com/font/Onest_wght__1") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Desktop carousel: 5 × (400 + 24) = 2120px per set */
+@keyframes carousel-scroll-desktop {
+  from { transform: translateX(0); }
+  to { transform: translateX(-2120px); }
+}
+
+/* Mobile carousel: 5 × (300 + 12) = 1560px per set */
+@keyframes carousel-scroll-mobile {
+  from { transform: translateX(0); }
+  to { transform: translateX(-1560px); }
+}
+
+/* Logo marquee — uses -50% on a 2× duplicated track */
+@keyframes logo-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
