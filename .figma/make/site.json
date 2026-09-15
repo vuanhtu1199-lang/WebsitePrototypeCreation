@@ -1,1 +1,10 @@
-{}
+{
+  "description": "Showcases projects with auto-sliding images and interactive details on desktop and mobile, enhancing user engagement with smooth navigation and logo marquee.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
