@@ -509,11 +509,11 @@ function ProjectsSection() {
               Explore our landmark portfolio.
             </h2>
           </div>
-          <a href="#contact" className="flex items-center border border-white/25 self-start">
+          <a href="#contact" className="flex border border-white/25 self-start">
             <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] px-7 py-3.5">
               Get In Touch
             </span>
-            <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[46px] h-[46px]">
+            <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[46px]">
               <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                 <path d={svgPaths.p30053000} fill="white" />
               </svg>
@@ -657,18 +657,18 @@ function ProjectsSection() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => goMobile("prev")}
-              className="bg-white hover:bg-[#d4a44f] p-2.5 transition-colors duration-200"
+              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5"
             >
               <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
-                <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+                <path d={svgPaths.p33b71300} fill="white" />
               </svg>
             </button>
             <button
               onClick={() => goMobile("next")}
-              className="bg-white hover:bg-[#d4a44f] p-2.5 transition-colors duration-200"
+              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5"
             >
               <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
-                <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+                <path d={svgPaths.p33b71300} fill="white" />
               </svg>
             </button>
           </div>
@@ -803,11 +803,11 @@ function ServicesSection() {
                 </span>
               </p>
             </div>
-            <a href="#contact" className="flex items-center self-start w-fit">
+            <a href="#contact" className="flex self-start w-fit">
               <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
                 Get In Touch
               </span>
-              <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px] h-[46px]">
+              <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px]">
                 <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                   <path d={svgPaths.p3c2a0580} fill="white" />
                 </svg>
@@ -850,11 +850,11 @@ function TrustedBySection() {
             <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[28px] leading-[1.2] tracking-[-0.7px] mt-3 max-w-sm">
               Key Statutory Authorities & Tier-1 Operators
             </h2>
-            <a href="#contact" className="mt-6 flex items-center border border-white/25 w-fit">
+            <a href="#contact" className="mt-6 flex border border-white/25 w-fit">
               <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] px-7 py-3.5">
                 Get In Touch
               </span>
-              <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[46px] h-[46px]">
+              <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[46px]">
                 <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                   <path d={svgPaths.p3c2a0580} fill="white" />
                 </svg>
@@ -1009,11 +1009,11 @@ function LeadershipSection() {
                   dlansdell@constructqld.com.au
                 </span>
               </a>
-              <a href="https://linkedin.com" className="flex items-center mt-2 w-fit">
+              <a href="https://linkedin.com" className="flex mt-2 w-fit">
                 <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[14px] bg-[#0a1b3a] px-5 py-2">
                   Connect on LinkedIn
                 </span>
-                <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[38px] h-[38px]">
+                <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[38px]">
                   <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                     <path d={svgPaths.p2434d500} fill="white" />
                   </svg>
@@ -1160,11 +1160,11 @@ function ContactSection() {
                     className={`${inputClass} resize-none`}
                   />
                 </div>
-                <button type="submit" className="flex items-center">
+                <button type="submit" className="flex">
                   <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] tracking-[0.96px] uppercase bg-[#0a1b3a] px-6 py-3.5 flex-1 text-center">
                     Request a Consultation
                   </span>
-                  <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px] h-[46px]">
+                  <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px]">
                     <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                       <path d={svgPaths.p30053000} fill="white" />
                     </svg>
@@ -1215,7 +1215,7 @@ function FAQSection() {
     <section id="faq" className="bg-white py-[60px] pb-[70px]">
       <div className="max-w-7xl mx-auto px-5">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          <div>
+          <div className="flex flex-col">
             <div className="inline-block border border-[#161616] px-3 py-1 mb-6">
               <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616] text-[12px] tracking-[0.72px] uppercase">
                 Common Enquiries · Expanded State
@@ -1224,7 +1224,7 @@ function FAQSection() {
             <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#161616] text-[40px] leading-[48px] tracking-[-1px]">
               Frequently Asked Questions
             </h2>
-            <div className="mt-10">
+            <div className="mt-10 flex-1 flex flex-col">
               <h3 className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[20px] tracking-[-0.5px]">
                 Have a Specific Programme Enquiry?
               </h3>
@@ -1238,6 +1238,18 @@ function FAQSection() {
                   0436 603 061
                 </span>
               </p>
+              <div className="mt-8 lg:mt-auto lg:pt-8">
+                <a href="#contact" className="flex w-fit">
+                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
+                    Get In Touch
+                  </span>
+                  <div className="bg-[#061024] border-l border-white/30 flex items-center justify-center w-[46px]">
+                    <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                      <path d={svgPaths.p3c2a0580} fill="white" />
+                    </svg>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -1301,7 +1313,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-5">
         {/* Main grid: left info | right block */}
         <div className="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-12 lg:gap-20 pb-14">
-          {/* Left: logo + description + credentials + CTA */}
+          {/* Left: logo + description + credentials */}
           <div className="flex flex-col gap-6">
             <img
               src={imgLogo}
@@ -1318,66 +1330,28 @@ function Footer() {
               <p>ABN 48 624 819 032</p>
               <p>Brisbane, QLD</p>
             </div>
-            <a href="#contact" className="flex w-fit border border-white/30">
-              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] px-7 py-3.5">
-                Get In Touch
-              </span>
-              <div className="bg-white/10 border-l border-white/20 flex items-center justify-center w-[46px]">
-                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
-                  <path d={svgPaths.p30053000} fill="white" />
-                </svg>
-              </div>
-            </a>
           </div>
 
-          {/* Right block: Quick Nav | Head Office + Acknowledgement */}
+          {/* Right block: Quick Nav + Acknowledgement | Head Office */}
           <div className="grid sm:grid-cols-2 gap-10">
-            {/* Quick Navigation */}
-            <div>
-              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-5">
-                Quick Navigation
-              </p>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-                {navLinks.map(([label, href]) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="font-['Onest:Medium',sans-serif] font-medium text-white/75 text-[14px] hover:text-white transition-colors leading-[1.5]"
-                  >
-                    {label}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Head Office + Acknowledgement of Country */}
+            {/* Quick Navigation + Acknowledgement */}
             <div className="flex flex-col gap-8">
               <div>
-                <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
-                  Head Office
+                <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-5">
+                  Quick Navigation
                 </p>
-                <p className="font-['Onest:Regular',sans-serif] text-white/75 text-[14px] leading-[1.5]">
-                  Brisbane City, QLD 4000
-                </p>
-                <a
-                  href="mailto:enquiries@constructqld.com.au"
-                  className="font-['Onest:Regular',sans-serif] text-white/55 text-[14px] mt-1.5 block hover:text-white transition-colors"
-                >
-                  enquiries@constructqld.com.au
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  className="mt-4 flex items-center gap-2 border border-white/20 px-4 py-2 w-fit"
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d={svgPaths.p318e7a00} fill="white" />
-                  </svg>
-                  <span className="font-['Onest:Medium',sans-serif] font-medium text-white text-[13px]">
-                    LinkedIn
-                  </span>
-                </a>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                  {navLinks.map(([label, href]) => (
+                    <a
+                      key={label}
+                      href={href}
+                      className="font-['Onest:Medium',sans-serif] font-medium text-white/75 text-[14px] hover:text-white transition-colors leading-[1.5]"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </div>
               </div>
-
               <div>
                 <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-3">
                   Acknowledgement of Country
@@ -1388,6 +1362,33 @@ function Footer() {
                   deepest respects to Elders past, present, and emerging.
                 </p>
               </div>
+            </div>
+
+            {/* Head Office */}
+            <div>
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
+                Head Office
+              </p>
+              <p className="font-['Onest:Regular',sans-serif] text-white/75 text-[14px] leading-[1.5]">
+                Brisbane City, QLD 4000
+              </p>
+              <a
+                href="mailto:enquiries@constructqld.com.au"
+                className="font-['Onest:Regular',sans-serif] text-white/55 text-[14px] mt-1.5 block hover:text-white transition-colors"
+              >
+                enquiries@constructqld.com.au
+              </a>
+              <a
+                href="https://linkedin.com"
+                className="mt-4 flex items-center gap-2 border border-white/20 px-4 py-2 w-fit"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d={svgPaths.p318e7a00} fill="white" />
+                </svg>
+                <span className="font-['Onest:Medium',sans-serif] font-medium text-white text-[13px]">
+                  LinkedIn
+                </span>
+              </a>
             </div>
           </div>
         </div>
