@@ -314,14 +314,14 @@ function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-5 pt-28 pb-16 flex-1 flex flex-col lg:flex-row lg:items-center lg:gap-20">
-        <div className="flex-1 max-w-2xl">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-5 pt-28 pb-16 flex-1 flex flex-col justify-start lg:flex-row lg:items-center lg:gap-20">
+        <div className="flex-initial max-w-2xl">
           <div className="mb-4">
             <SectionLabel text="Executive Construction Advisory" light />
           </div>
           <h1
             className="font-['Onest:Medium',sans-serif] font-medium text-white leading-[1.15] mb-5"
-            style={{ fontSize: "clamp(34px, 4.5vw, 68px)", letterSpacing: "-1.5px" }}
+            style={{ fontSize: "clamp(34px, 4.5vw, 68px)", letterSpacing: "-1.5px", width: "800px" }}
           >
             Certainty in Delivery,{" "}
             <span className="text-[#e5b869]">Excellence in Leadership</span>
@@ -367,7 +367,7 @@ function HeroSection() {
               key={label}
               className="backdrop-blur-[16px] bg-white/6 border border-white/14 px-[22px] py-[20px]"
             >
-              <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[32px] leading-8 tracking-[-0.96px] mb-1.5">
+              <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[56px] leading-[56px] tracking-[-0.96px] mb-1.5">
                 {value}
               </p>
               <p className="font-['Onest:Medium',sans-serif] font-medium text-white/88 text-[15px]">
