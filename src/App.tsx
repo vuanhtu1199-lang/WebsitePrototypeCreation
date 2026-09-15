@@ -300,7 +300,7 @@ function Navbar() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative bg-[#0a1b3a] min-h-screen lg:min-h-[900px] flex flex-col overflow-hidden">
+    <section id="hero" className="relative bg-[#0a1b3a] min-h-screen flex flex-col overflow-hidden">
       {/* Backgrounds */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[#0a1b3a]" />
@@ -315,45 +315,42 @@ function HeroSection() {
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 flex items-center">
-        <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[80px] pt-[130px] pb-[80px] lg:pb-[110px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-8">
+      {/* Content — mobile: top-aligned below navbar; desktop: vertically centered */}
+      <div className="relative z-10 flex-1 flex lg:items-center">
+        <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[80px] pt-8 pb-11 lg:pt-[130px] lg:pb-[110px] mt-[77px] lg:mt-0 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-7 lg:gap-8">
 
           {/* Left — text block */}
           <div className="w-full lg:w-[800px] lg:shrink-0">
             {/* Label */}
-            <div className="flex items-start gap-2.5 mb-[22px]">
-              <div className="pt-[5.6px] shrink-0">
+            <div className="flex items-start gap-[10px] mb-[16px] lg:mb-[22px]">
+              <div className="pt-[5.25px] lg:pt-[5.6px] shrink-0">
                 <GoldSquare />
               </div>
-              <p className="font-['DM_Mono:Medium',sans-serif] text-[13px] lg:text-[16px] text-white tracking-[0.52px] lg:tracking-[0.64px] uppercase leading-[1.2]">
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[15px] lg:text-[16px] text-white tracking-[0.6px] lg:tracking-[0.64px] uppercase leading-[21.75px]">
                 Executive Construction Advisory
               </p>
             </div>
 
             {/* Heading */}
-            <h1 className="font-['Onest:Medium',sans-serif] font-medium text-white mb-0" style={{ letterSpacing: "-1.92px" }}>
-              <span className="block" style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: "clamp(42px, 5.6vw, 72px)" }}>
+            <h1 className="font-['Onest:Medium',sans-serif] font-medium text-white mb-0">
+              <span className="block text-[35.2px] leading-[40.48px] tracking-[-1.056px] lg:text-[64px] lg:leading-[72px] lg:tracking-[-1.92px]">
                 Certainty in Delivery,{" "}
               </span>
-              <span className="block text-[#e5b869]" style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: "clamp(42px, 5.6vw, 72px)" }}>
+              <span className="block text-[35.2px] leading-[40.48px] tracking-[-1.056px] lg:text-[64px] lg:leading-[72px] lg:tracking-[-1.92px] text-[#e5b869]">
                 Excellence in Leadership
               </span>
             </h1>
 
             {/* Paragraph */}
-            <p
-              className="font-['Onest:Regular',sans-serif] text-[rgba(255,255,255,0.92)] leading-[1.6] lg:leading-[28px] mt-5 lg:mt-[28px] max-w-[740px]"
-              style={{ fontSize: "clamp(15px, 1.6vw, 20px)" }}
-            >
+            <p className="font-['Onest:Regular',sans-serif] text-[rgba(255,255,255,0.92)] text-[17px] leading-[27.2px] mt-[18px] lg:text-[20px] lg:leading-[28px] lg:mt-[28px] lg:max-w-[740px]">
               Construct Queensland provides government departments and asset leaders with executive-tier
               construction leadership and delivery capability across complex, high-risk portfolios.
             </p>
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 lg:gap-[18px] mt-7 lg:mt-[42px]">
-              <a href="#capabilities" className="flex">
-                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] lg:text-[18px] bg-[#e5b869] px-8 lg:px-9 py-[18px] flex-1 sm:flex-initial text-center whitespace-nowrap">
+            {/* Buttons — stacked on mobile, side-by-side on desktop */}
+            <div className="flex flex-col lg:flex-row gap-[13.8px] lg:gap-[18px] mt-6 lg:mt-[42px]">
+              <a href="#capabilities" className="flex w-full lg:w-auto">
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16.5px] leading-[19.8px] bg-[#e5b869] px-6 py-4 flex-1 text-center">
                   Our Capabilities
                 </span>
                 <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/42 flex items-center justify-center w-[58px] self-stretch">
@@ -362,8 +359,8 @@ function HeroSection() {
                   </svg>
                 </div>
               </a>
-              <a href="#projects" className="flex border border-white/25">
-                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] lg:text-[18px] px-8 lg:px-9 py-[18px] flex-1 sm:flex-initial text-center whitespace-nowrap">
+              <a href="#projects" className="flex w-full lg:w-auto border border-white/25">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16.5px] leading-[19.8px] px-6 py-4 flex-1 text-center">
                   View Projects
                 </span>
                 <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[58px] self-stretch">
@@ -375,8 +372,8 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Right — stat cards */}
-          <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:gap-5 w-full lg:w-auto lg:min-w-[290px] lg:shrink-0">
+          {/* Right — stat cards: full-width vertical stack on mobile, column on desktop */}
+          <div className="flex flex-col gap-3 lg:gap-5 w-full lg:w-auto lg:min-w-[290px] lg:shrink-0">
             {[
               { value: "25+", label: "Years of Executive Experience" },
               { value: "24+", label: "Landmark Infrastructure Projects" },
@@ -384,15 +381,12 @@ function HeroSection() {
             ].map(({ value, label }) => (
               <div
                 key={label}
-                className="backdrop-blur-[16px] bg-white/6 border border-white/14 px-3 py-4 lg:px-[36px] lg:py-[30px]"
+                className="backdrop-blur-[16px] bg-white/6 border border-white/14 px-[22px] py-[20px] lg:px-[36px] lg:py-[30px]"
               >
-                <p
-                  className="font-['Onest:Medium',sans-serif] font-medium text-[#e5b869] tracking-[-1.6416px] leading-none mb-1.5 lg:mb-2"
-                  style={{ fontSize: "clamp(26px, 3.8vw, 56px)" }}
-                >
+                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[32px] leading-[32px] tracking-[-0.96px] lg:text-[54.72px] lg:leading-[54.72px] lg:tracking-[-1.6416px] mb-1.5 lg:mb-2">
                   {value}
                 </p>
-                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[rgba(255,255,255,0.85)] text-[10px] sm:text-[12px] lg:text-[16px] leading-[1.35] lg:leading-[21.6px]">
+                <p className="font-['Onest:Medium',sans-serif] font-medium text-[rgba(255,255,255,0.88)] text-[15px] leading-[21px] lg:text-[16px] lg:leading-[21.6px] lg:text-[rgba(255,255,255,0.85)]">
                   {label}
                 </p>
               </div>
