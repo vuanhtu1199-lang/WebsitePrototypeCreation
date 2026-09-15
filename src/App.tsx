@@ -46,35 +46,35 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    images: [imgProj1],
+    images: [imgProj1, imgProj2a, imgProj3],
     category: "Government & Justice",
     location: "Brisbane CBD, QLD",
     title: "Brisbane Supreme Court & Justice Centre",
   },
   {
     id: 2,
-    images: [imgProj2a, imgProj2b],
+    images: [imgProj2a, imgProj2b, imgProj4],
     category: "Government & Justice",
     location: "South Bank, QLD",
     title: "Queensland Cultural & Arts Precinct",
   },
   {
     id: 3,
-    images: [imgProj3],
+    images: [imgProj3, imgProj5, imgProj1],
     category: "Transport Infrastructure",
     location: "Gold Coast, QLD",
     title: "Gold Coast Airport International Terminal 9",
   },
   {
     id: 4,
-    images: [imgProj4],
+    images: [imgProj4, imgProj2b, imgProj2a],
     category: "Health & Science",
     location: "Brisbane, QLD",
     title: "Princess Alexandra Hospital Redevelopment",
   },
   {
     id: 5,
-    images: [imgProj5],
+    images: [imgProj5, imgProj4, imgProj3],
     category: "Defence Infrastructure",
     location: "Townsville, QLD",
     title: "ADF Capital Infrastructure Works Programme",
@@ -125,23 +125,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
   );
 }
 
-function ArrowBtn({ color = "white", rotate = false }: { color?: string; rotate?: boolean }) {
-  return (
-    <div className={`backdrop-blur-[17px] p-[4.3px] ${rotate ? "bg-black/30" : "bg-[#d4a44f]"} flex items-center justify-center`}>
-      <svg
-        width="21"
-        height="21"
-        viewBox="0 0 21.4286 21.4286"
-        fill="none"
-        style={rotate ? { transform: "scaleX(-1)" } : undefined}
-      >
-        <path d={svgPaths.p33b71300} fill={color} />
-      </svg>
-    </div>
-  );
-}
-
-// ===== NAVBAR =====
+//===== NAVBAR =====
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -185,11 +169,11 @@ function Navbar() {
           ))}
         </div>
 
-        <a href="#contact" className="hidden lg:flex items-center">
+        <a href="#contact" className="hidden lg:flex">
           <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[15px] bg-[#e5b869] px-6 py-3">
             Get In Touch
           </span>
-          <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/25 flex items-center justify-center w-[46px] h-[46px]">
+          <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/25 flex items-center justify-center w-[46px]">
             <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
               <path d={svgPaths.p30053000} fill="#0A1B3A" />
             </svg>
@@ -349,17 +333,17 @@ function AboutSection() {
   ];
 
   return (
-    <section id="about" className="bg-white py-[100px]">
-      <div className="max-w-7xl mx-auto px-[80px]">
+    <section id="about" className="bg-white py-[60px] lg:py-[100px]">
+      <div className="max-w-7xl mx-auto px-5 lg:px-[80px]">
         {/* Top: text + image */}
-        <div className="flex items-start gap-0 mb-[60px]">
-          <div className="flex-1 min-w-0 pr-10">
+        <div className="flex flex-col lg:flex-row items-start gap-10 mb-10 lg:mb-[60px]">
+          <div className="flex-1 min-w-0">
             <SectionLabel text="About" />
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[40px] leading-[48px] tracking-[-1px] mt-4 mb-0 max-w-[519px]">
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[28px] lg:text-[40px] leading-[1.2] lg:leading-[48px] tracking-[-1px] mt-4 mb-0">
               Where Policy Intent Meets On-the-Ground Delivery
             </h2>
             <div className="pt-[18px]">
-              <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[18px] leading-[28px] max-w-[620px]">
+              <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[16px] lg:text-[18px] leading-[1.6] lg:leading-[28px]">
                 Established in 2019 by Director David Lansdell, Construct Queensland operates at the
                 executive echelon of infrastructure delivery. Having served as Construction Director and
                 Executive Director for critical Queensland portfolios, we bridge commercial rigour with
@@ -367,7 +351,7 @@ function AboutSection() {
               </p>
             </div>
           </div>
-          <div className="shrink-0 w-[626px] h-[502px] relative overflow-hidden">
+          <div className="w-full lg:w-[626px] lg:shrink-0 h-[240px] sm:h-[340px] lg:h-[502px] relative overflow-hidden">
             <img
               src={imgAbout}
               alt="Gold Coast Airport International Terminal"
@@ -377,22 +361,22 @@ function AboutSection() {
         </div>
 
         {/* Bottom: 3-column capability cards */}
-        <div id="capabilities" className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div id="capabilities" className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {capabilityCards.map(({ svgPath, viewBox, size, title, desc }) => (
             <div
               key={title}
-              className="border-l border-[#e5e7eb] flex flex-col gap-10 p-8"
+              className="border-l border-[#e5e7eb] flex flex-col gap-8 lg:gap-10 p-6 lg:p-8"
             >
-              <div className="relative shrink-0" style={{ width: size, height: size }}>
+              <div className="shrink-0">
                 <svg width={size} height={size} viewBox={viewBox} fill="none" className="block">
                   <path d={svgPath} fill="#0A1B3A" />
                 </svg>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[24px] leading-[32px]">
+                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[20px] lg:text-[24px] leading-[32px]">
                   {title}
                 </p>
-                <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[16px] leading-[24px]">
+                <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[15px] lg:text-[16px] leading-[24px]">
                   {desc}
                 </p>
               </div>
@@ -473,16 +457,30 @@ function GalleryModal({ gallery, onClose }: { gallery: GalleryState; onClose: ()
 
 function ProjectsSection() {
   const [desktopPaused, setDesktopPaused] = useState(false);
-  const [mobilePaused, setMobilePaused] = useState(false);
   const [gallery, setGallery] = useState<GalleryState | null>(null);
   const [cardImgIdxs, setCardImgIdxs] = useState<Record<string, number>>({});
-  const mobileTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Mobile slider state
+  const [mobileSlideIdx, setMobileSlideIdx] = useState(0);
+  const mobileAutoRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const handleMobileTap = useCallback(() => {
-    setMobilePaused(true);
-    if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current);
-    mobileTimerRef.current = setTimeout(() => setMobilePaused(false), 3000);
+  const startMobileAuto = useCallback(() => {
+    if (mobileAutoRef.current) clearInterval(mobileAutoRef.current);
+    mobileAutoRef.current = setInterval(() => {
+      setMobileSlideIdx((i) => (i + 1) % projects.length);
+    }, 4000);
   }, []);
+
+  useEffect(() => {
+    startMobileAuto();
+    return () => { if (mobileAutoRef.current) clearInterval(mobileAutoRef.current); };
+  }, [startMobileAuto]);
+
+  const goMobile = useCallback((dir: "prev" | "next") => {
+    setMobileSlideIdx((i) =>
+      dir === "prev" ? (i - 1 + projects.length) % projects.length : (i + 1) % projects.length
+    );
+    startMobileAuto();
+  }, [startMobileAuto]);
 
   const handleCardNav = (
     trackIdx: string,
@@ -556,54 +554,40 @@ function ProjectsSection() {
                   </div>
 
                   {/* Nav arrows — always visible on hover */}
-                  <div className="absolute top-4 right-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <button
                       onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
                       title="Previous image"
+                      className="group/btn"
                     >
-                      <div className="backdrop-blur-[17px] bg-[rgba(0,0,0,0.3)] p-[4.3px] flex items-center justify-center">
+                      <div className="backdrop-blur-[17px] bg-white hover:bg-[#d4a44f] p-[4.3px] flex items-center justify-center transition-colors duration-200">
                         <svg width="21" height="21" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
-                          <path d={svgPaths.p33b71300} fill="white" />
+                          <path d={svgPaths.p33b71300} fill="#0a1b3a" />
                         </svg>
                       </div>
                     </button>
                     <button
                       onClick={(e) => handleCardNav(String(idx), "next", project.images.length, e)}
                       title="Next image"
+                      className="group/btn"
                     >
-                      <div className="backdrop-blur-[17px] bg-[#d4a44f] p-[4.3px] flex items-center justify-center">
+                      <div className="backdrop-blur-[17px] bg-white hover:bg-[#d4a44f] p-[4.3px] flex items-center justify-center transition-colors duration-200">
                         <svg width="21" height="21" viewBox="0 0 21.4286 21.4286" fill="none">
-                          <path d={svgPaths.p33b71300} fill="white" />
+                          <path d={svgPaths.p33b71300} fill="#0a1b3a" />
                         </svg>
                       </div>
                     </button>
-                    {project.images.length > 1 && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setGallery({ images: project.images, index: imgIdx, title: project.title });
-                        }}
-                        className="backdrop-blur-[16px] bg-black/30 border border-white/20 px-2.5 py-[4.3px] ml-1"
-                        title="View all images"
-                      >
-                        <span className="font-['Onest:Regular',sans-serif] text-white text-[11px] whitespace-nowrap">
-                          View All
-                        </span>
-                      </button>
-                    )}
                   </div>
                 </div>
 
                 {/* Text below image — visible on hover */}
-                <div className="h-[56px] overflow-hidden">
-                  <div className="flex flex-col gap-1 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[14px] tracking-[0.56px] uppercase leading-5 whitespace-nowrap">
-                      {project.location}
-                    </p>
-                    <p className="font-['Onest:Regular',sans-serif] text-white text-[20px] leading-[28px] whitespace-nowrap">
-                      {project.title}
-                    </p>
-                  </div>
+                <div className="pt-4 pb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[14px] tracking-[0.56px] uppercase leading-5">
+                    {project.location}
+                  </p>
+                  <p className="font-['Onest:Regular',sans-serif] text-white text-[20px] leading-[28px]">
+                    {project.title}
+                  </p>
                 </div>
               </div>
             );
@@ -611,55 +595,83 @@ function ProjectsSection() {
         </div>
       </div>
 
-      {/* ===== MOBILE CAROUSEL ===== */}
-      <div
-        className="lg:hidden overflow-hidden pl-5"
-        onClick={handleMobileTap}
-        style={{ cursor: "pointer" }}
-      >
-        <div
-          className={`carousel-track-mobile${mobilePaused ? " carousel-paused" : ""}`}
-          style={{ display: "flex", gap: "12px" }}
-        >
-          {tripleProjects.map((project, idx) => {
-            const imgIdx = cardImgIdxs[`m${idx}`] ?? 0;
-            const currentImg = project.images[imgIdx] ?? project.images[0];
-            return (
-              <div key={idx} className="relative shrink-0 w-[300px]">
-                {/* Image */}
-                <div className="relative h-[240px] overflow-hidden">
-                  <img
-                    src={currentImg}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  {/* Category badge - always visible */}
-                  <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-black/30 border border-white/10 px-2.5 py-1">
-                    <p className="font-['Onest:Regular',sans-serif] text-white text-[13px]">
-                      {project.category}
-                    </p>
+      {/* ===== MOBILE SLIDER ===== */}
+      <div className="lg:hidden px-5">
+        {/* Card */}
+        {(() => {
+          const project = projects[mobileSlideIdx];
+          const imgIdx = cardImgIdxs[`ms${mobileSlideIdx}`] ?? 0;
+          const currentImg = project.images[imgIdx] ?? project.images[0];
+          return (
+            <div className="relative">
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                <img
+                  src={currentImg}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-black/30 border border-white/10 px-2.5 py-1">
+                  <p className="font-['Onest:Regular',sans-serif] text-white text-[13px]">
+                    {project.category}
+                  </p>
+                </div>
+                {/* Image nav arrows (top-right) */}
+                {project.images.length > 1 && (
+                  <div className="absolute top-4 right-4 flex items-center gap-1">
+                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "prev", project.images.length, e)} className="bg-white hover:bg-[#d4a44f] p-[4.3px] transition-colors">
+                      <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
+                        <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+                      </svg>
+                    </button>
+                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "next", project.images.length, e)} className="bg-white hover:bg-[#d4a44f] p-[4.3px] transition-colors">
+                      <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
+                        <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+                      </svg>
+                    </button>
                   </div>
-                  {/* Nav arrows - always visible if multi-image */}
-                  {project.images.length > 1 && (
-                    <div className="absolute top-4 right-4 flex items-center">
-                      <ArrowBtn rotate />
-                      <ArrowBtn />
-                    </div>
-                  )}
-                </div>
-
-                {/* Text always visible below image */}
-                <div className="mt-4">
-                  <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[13px] tracking-[0.56px] uppercase">
-                    {project.location}
-                  </p>
-                  <p className="font-['Onest:Regular',sans-serif] text-white text-[19px] leading-7 mt-1">
-                    {project.title}
-                  </p>
-                </div>
+                )}
               </div>
-            );
-          })}
+              <div className="mt-4">
+                <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[13px] tracking-[0.56px] uppercase">
+                  {project.location}
+                </p>
+                <p className="font-['Onest:Regular',sans-serif] text-white text-[19px] leading-7 mt-1">
+                  {project.title}
+                </p>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* Slide navigation */}
+        <div className="flex items-center justify-between mt-6">
+          <div className="flex items-center gap-2">
+            {projects.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setMobileSlideIdx(i); startMobileAuto(); }}
+                className={`h-1 transition-all duration-300 ${i === mobileSlideIdx ? "w-6 bg-[#e5b869]" : "w-2 bg-white/30"}`}
+              />
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => goMobile("prev")}
+              className="bg-white hover:bg-[#d4a44f] p-2.5 transition-colors duration-200"
+            >
+              <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
+                <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+              </svg>
+            </button>
+            <button
+              onClick={() => goMobile("next")}
+              className="bg-white hover:bg-[#d4a44f] p-2.5 transition-colors duration-200"
+            >
+              <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
+                <path d={svgPaths.p33b71300} fill="#0a1b3a" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -893,8 +905,10 @@ function TrustedBySection() {
             <div className="bg-white/45 h-px flex-1" />
           </div>
 
-          {/* Marquee clipped to this container's width */}
-          <div className="overflow-hidden">
+          {/* Marquee clipped to this container's width, with fade edges */}
+          <div className="relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10" style={{ background: "linear-gradient(to right, #0b0c0e 0%, transparent 100%)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10" style={{ background: "linear-gradient(to left, #0b0c0e 0%, transparent 100%)" }} />
             <div
               className="carousel-track-logos"
               style={{
@@ -1236,7 +1250,7 @@ function FAQSection() {
                     className="flex items-center justify-between py-6 w-full text-left gap-4"
                     onClick={() => setOpenIdx(isOpen ? null : idx)}
                   >
-                    <p className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[18px] leading-[24.3px] w-[633px]">
+                    <p className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[18px] leading-[24.3px] flex-1">
                       {q}
                     </p>
                     <div className="flex items-center justify-center size-6 shrink-0">
@@ -1252,7 +1266,7 @@ function FAQSection() {
                     </div>
                   </button>
                   {isOpen && (
-                    <div className="pb-6 w-[654px]">
+                    <div className="pb-6 w-full">
                       <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] leading-[26.4px]">
                         {a}
                       </p>
@@ -1283,79 +1297,107 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-[#061024] border-t border-white/8 pt-12 pb-7">
+    <footer className="bg-[#061024] pt-16 pb-0">
       <div className="max-w-7xl mx-auto px-5">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <img src={imgLogo} alt="Construct Queensland" className="h-9 w-auto object-contain mb-4" />
-            <p className="font-['Onest:Regular',sans-serif] text-white/70 text-[14px] leading-[1.65] max-w-xs mb-4">
+        {/* Main grid: left info | right block */}
+        <div className="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-12 lg:gap-20 pb-14">
+          {/* Left: logo + description + credentials + CTA */}
+          <div className="flex flex-col gap-6">
+            <img
+              src={imgLogo}
+              alt="Construct Queensland"
+              className="h-9 w-auto object-contain self-start"
+            />
+            <p className="font-['Onest:Regular',sans-serif] text-white/65 text-[14px] leading-[1.65]">
               Specialist infrastructure advisory and executive project delivery practice, providing
               high-level construction leadership across Queensland Government portfolios and tier-1
               assets.
             </p>
-            <div className="font-['Onest:Regular',sans-serif] text-white/45 text-[12px] space-y-1">
-              <p>QBCC Licence #15243890 • ABN 48 624 819 032</p>
+            <div className="font-['Onest:Regular',sans-serif] text-white/40 text-[13px] leading-[1.7]">
+              <p>QBCC Licence #15243890</p>
+              <p>ABN 48 624 819 032</p>
               <p>Brisbane, QLD</p>
             </div>
-          </div>
-
-          <div>
-            <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
-              Quick Navigation
-            </p>
-            <div className="grid grid-cols-2 gap-2.5">
-              {navLinks.map(([label, href]) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="font-['Onest:Medium',sans-serif] font-medium text-white/80 text-[14px] hover:text-white transition-colors leading-[21px]"
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
-              Head Office
-            </p>
-            <p className="font-['Onest:Regular',sans-serif] text-white/75 text-[14px]">
-              Brisbane City, QLD 4000
-            </p>
-            <p className="font-['Onest:Regular',sans-serif] text-white/50 text-[14px] mt-1">
-              enquiries@constructqld.com.au
-            </p>
-            <a
-              href="https://linkedin.com"
-              className="mt-4 flex items-center gap-2 bg-white/5 border border-white/20 px-4 py-2 w-fit rounded-sm"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d={svgPaths.p318e7a00} fill="white" />
-              </svg>
-              <span className="font-['Onest:Medium',sans-serif] font-medium text-white text-[14px]">
-                Follow Us
+            <a href="#contact" className="flex w-fit border border-white/30">
+              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] px-7 py-3.5">
+                Get In Touch
               </span>
+              <div className="bg-white/10 border-l border-white/20 flex items-center justify-center w-[46px]">
+                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                  <path d={svgPaths.p30053000} fill="white" />
+                </svg>
+              </div>
             </a>
           </div>
 
-          <div>
-            <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
-              Acknowledgement of Country
-            </p>
-            <p className="font-['Onest:Regular',sans-serif] text-white/50 text-[14px] leading-[1.5]">
-              Construct Queensland respectfully acknowledges the Traditional Custodians of the lands,
-              winds, and waters on which we live and build across Queensland. We pay our deepest
-              respects to Elders past, present, and emerging.
-            </p>
+          {/* Right block: Quick Nav | Head Office + Acknowledgement */}
+          <div className="grid sm:grid-cols-2 gap-10">
+            {/* Quick Navigation */}
+            <div>
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-5">
+                Quick Navigation
+              </p>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                {navLinks.map(([label, href]) => (
+                  <a
+                    key={label}
+                    href={href}
+                    className="font-['Onest:Medium',sans-serif] font-medium text-white/75 text-[14px] hover:text-white transition-colors leading-[1.5]"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Head Office + Acknowledgement of Country */}
+            <div className="flex flex-col gap-8">
+              <div>
+                <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
+                  Head Office
+                </p>
+                <p className="font-['Onest:Regular',sans-serif] text-white/75 text-[14px] leading-[1.5]">
+                  Brisbane City, QLD 4000
+                </p>
+                <a
+                  href="mailto:enquiries@constructqld.com.au"
+                  className="font-['Onest:Regular',sans-serif] text-white/55 text-[14px] mt-1.5 block hover:text-white transition-colors"
+                >
+                  enquiries@constructqld.com.au
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  className="mt-4 flex items-center gap-2 border border-white/20 px-4 py-2 w-fit"
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d={svgPaths.p318e7a00} fill="white" />
+                  </svg>
+                  <span className="font-['Onest:Medium',sans-serif] font-medium text-white text-[13px]">
+                    LinkedIn
+                  </span>
+                </a>
+              </div>
+
+              <div>
+                <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-3">
+                  Acknowledgement of Country
+                </p>
+                <p className="font-['Onest:Regular',sans-serif] text-white/45 text-[13px] leading-[1.65]">
+                  Construct Queensland respectfully acknowledges the Traditional Custodians of the
+                  lands, winds, and waters on which we live and build across Queensland. We pay our
+                  deepest respects to Elders past, present, and emerging.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-8 pt-6">
-          <p className="font-['Onest:Regular',sans-serif] text-white/45 text-[14px]">
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <p className="font-['Onest:Regular',sans-serif] text-white/40 text-[13px]">
             Copyright © 2026 Construct Queensland Pty Ltd. All rights reserved.
           </p>
-          <p className="font-['Onest:Regular',sans-serif] text-white/45 text-[14px] mt-1">
+          <p className="font-['Onest:Regular',sans-serif] text-white/40 text-[13px]">
             Site by Belver
           </p>
         </div>
