@@ -300,7 +300,8 @@ function Navbar() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative bg-[#0a1b3a] min-h-screen flex flex-col overflow-hidden">
+    <section id="hero" className="relative bg-[#0a1b3a] min-h-screen lg:min-h-[900px] flex flex-col overflow-hidden">
+      {/* Backgrounds */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[#0a1b3a]" />
         <img src={imgHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
@@ -314,67 +315,90 @@ function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-5 pt-28 pb-16 flex-1 flex flex-col justify-start lg:flex-row lg:items-center lg:gap-20">
-        <div className="flex-initial max-w-2xl">
-          <div className="mb-4">
-            <SectionLabel text="Executive Construction Advisory" light />
-          </div>
-          <h1
-            className="font-['Onest:Medium',sans-serif] font-medium text-white leading-[1.15] mb-5"
-            style={{ fontSize: "clamp(34px, 4.5vw, 68px)", letterSpacing: "-1.5px", width: "800px" }}
-          >
-            Certainty in Delivery,{" "}
-            <span className="text-[#e5b869]">Excellence in Leadership</span>
-          </h1>
-          <p
-            className="font-['Onest:Regular',sans-serif] text-white/90 leading-[1.6] mb-8 max-w-[520px]"
-            style={{ fontSize: "clamp(15px, 1.4vw, 17px)" }}
-          >
-            Construct Queensland provides government departments and asset leaders with executive-tier
-            construction leadership and delivery capability across complex, high-risk portfolios.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#capabilities" className="flex items-center">
-              <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16.5px] bg-[#e5b869] px-6 py-4 flex-1 text-center">
-                Our Capabilities
-              </span>
-              <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/42 flex items-center justify-center w-[58px] self-stretch">
-                <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
-                  <path d={svgPaths.p102e07c0} fill="#0A1B3A" />
-                </svg>
-              </div>
-            </a>
-            <a href="#projects" className="flex items-center border border-white/25">
-              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16.5px] px-6 py-4 flex-1 text-center">
-                View Projects
-              </span>
-              <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[58px] self-stretch">
-                <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
-                  <path d={svgPaths.p102e07c0} fill="white" />
-                </svg>
-              </div>
-            </a>
-          </div>
-        </div>
+      {/* Content */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[80px] pt-[130px] pb-[80px] lg:pb-[110px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-8">
 
-        <div className="flex flex-col gap-3 mt-10 lg:mt-0 lg:min-w-[340px]">
-          {[
-            { value: "25+", label: "Years of Executive Experience" },
-            { value: "24+", label: "Landmark Infrastructure Projects" },
-            { value: "$2B+", label: "Capital Programme Oversight" },
-          ].map(({ value, label }) => (
-            <div
-              key={label}
-              className="backdrop-blur-[16px] bg-white/6 border border-white/14 px-[22px] py-[20px]"
-            >
-              <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[56px] leading-[56px] tracking-[-0.96px] mb-1.5">
-                {value}
-              </p>
-              <p className="font-['Onest:Medium',sans-serif] font-medium text-white/88 text-[15px]">
-                {label}
+          {/* Left — text block */}
+          <div className="w-full lg:w-[800px] lg:shrink-0">
+            {/* Label */}
+            <div className="flex items-start gap-2.5 mb-[22px]">
+              <div className="pt-[5.6px] shrink-0">
+                <GoldSquare />
+              </div>
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[13px] lg:text-[16px] text-white tracking-[0.52px] lg:tracking-[0.64px] uppercase leading-[1.2]">
+                Executive Construction Advisory
               </p>
             </div>
-          ))}
+
+            {/* Heading */}
+            <h1 className="font-['Onest:Medium',sans-serif] font-medium text-white mb-0" style={{ letterSpacing: "-1.92px" }}>
+              <span className="block" style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: "clamp(42px, 5.6vw, 72px)" }}>
+                Certainty in Delivery,{" "}
+              </span>
+              <span className="block text-[#e5b869]" style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: "clamp(42px, 5.6vw, 72px)" }}>
+                Excellence in Leadership
+              </span>
+            </h1>
+
+            {/* Paragraph */}
+            <p
+              className="font-['Onest:Regular',sans-serif] text-[rgba(255,255,255,0.92)] leading-[1.6] lg:leading-[28px] mt-5 lg:mt-[28px] max-w-[740px]"
+              style={{ fontSize: "clamp(15px, 1.6vw, 20px)" }}
+            >
+              Construct Queensland provides government departments and asset leaders with executive-tier
+              construction leadership and delivery capability across complex, high-risk portfolios.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 lg:gap-[18px] mt-7 lg:mt-[42px]">
+              <a href="#capabilities" className="flex">
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] lg:text-[18px] bg-[#e5b869] px-8 lg:px-9 py-[18px] flex-1 sm:flex-initial text-center whitespace-nowrap">
+                  Our Capabilities
+                </span>
+                <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/42 flex items-center justify-center w-[58px] self-stretch">
+                  <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                    <path d={svgPaths.p102e07c0} fill="#0A1B3A" />
+                  </svg>
+                </div>
+              </a>
+              <a href="#projects" className="flex border border-white/25">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] lg:text-[18px] px-8 lg:px-9 py-[18px] flex-1 sm:flex-initial text-center whitespace-nowrap">
+                  View Projects
+                </span>
+                <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[58px] self-stretch">
+                  <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                    <path d={svgPaths.p102e07c0} fill="white" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Right — stat cards */}
+          <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:gap-5 w-full lg:w-auto lg:min-w-[290px] lg:shrink-0">
+            {[
+              { value: "25+", label: "Years of Executive Experience" },
+              { value: "24+", label: "Landmark Infrastructure Projects" },
+              { value: "$2B+", label: "Capital Programme Oversight" },
+            ].map(({ value, label }) => (
+              <div
+                key={label}
+                className="backdrop-blur-[16px] bg-white/6 border border-white/14 px-3 py-4 lg:px-[36px] lg:py-[30px]"
+              >
+                <p
+                  className="font-['Onest:Medium',sans-serif] font-medium text-[#e5b869] tracking-[-1.6416px] leading-none mb-1.5 lg:mb-2"
+                  style={{ fontSize: "clamp(26px, 3.8vw, 56px)" }}
+                >
+                  {value}
+                </p>
+                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[rgba(255,255,255,0.85)] text-[10px] sm:text-[12px] lg:text-[16px] leading-[1.35] lg:leading-[21.6px]">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
