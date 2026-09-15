@@ -137,86 +137,162 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   const navLinks = [
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Why Us", href: "#why-us" },
     { label: "Services", href: "#services" },
     { label: "Clients", href: "#clients" },
-    { label: "FAQ", href: "#faq" },
+    { label: "FAQs", href: "#faq" },
   ];
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-[12px] border-b border-white/8 transition-colors duration-300 ${
-        scrolled ? "bg-[#0a1b3a]/90" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-5 flex items-center justify-between py-4">
-        <a href="#" className="shrink-0">
-          <img src={imgLogo} alt="Construct Queensland" className="h-11 w-auto object-contain" />
-        </a>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-[12px] border-b border-white/8 transition-colors duration-300 ${
+          scrolled ? "bg-[#0a1b3a]/90" : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-5 flex items-center justify-between py-4">
+          <a href="#" className="shrink-0">
+            <img src={imgLogo} alt="Construct Queensland" className="h-11 w-auto object-contain" />
+          </a>
 
-        <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="font-['Onest:Medium',sans-serif] font-medium text-[15px] text-white/80 hover:text-white transition-colors"
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-
-        <a href="#contact" className="hidden lg:flex">
-          <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[15px] bg-[#e5b869] px-6 py-3">
-            Get In Touch
-          </span>
-          <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/25 flex items-center justify-center w-[46px]">
-            <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
-              <path d={svgPaths.p30053000} fill="#0A1B3A" />
-            </svg>
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="font-['Onest:Medium',sans-serif] font-medium text-[15px] text-white/80 hover:text-white transition-colors"
+              >
+                {label}
+              </a>
+            ))}
           </div>
-        </a>
 
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden p-2.5"
-          aria-label="Toggle menu"
-        >
-          <div className="flex flex-col gap-1.5 w-7">
-            <div className={`bg-white h-0.5 w-7 transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <div className={`bg-white h-0.5 w-7 transition-all ${menuOpen ? "opacity-0" : ""}`} />
-            <div className={`bg-white h-0.5 w-7 transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-          </div>
-        </button>
-      </div>
-
-      {menuOpen && (
-        <div className="lg:hidden bg-[#0a1b3a] border-t border-white/10 px-5 py-4 flex flex-col gap-3">
-          {navLinks.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="font-['Onest:Regular',sans-serif] text-white/80 text-[16px] py-2.5 border-b border-white/5"
-              onClick={() => setMenuOpen(false)}
-            >
-              {label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="flex items-center bg-[#e5b869] mt-2"
-            onClick={() => setMenuOpen(false)}
-          >
-            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[15px] px-6 py-3 flex-1 text-center">
+          <a href="#contact" className="hidden lg:flex">
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[15px] bg-[#e5b869] px-6 py-3">
               Get In Touch
             </span>
+            <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/25 flex items-center justify-center w-[46px]">
+              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                <path d={svgPaths.p30053000} fill="#0A1B3A" />
+              </svg>
+            </div>
           </a>
+
+          {/* Hamburger — mobile only */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="lg:hidden p-2.5"
+            aria-label="Open menu"
+          >
+            <div className="flex flex-col gap-1.5 w-7">
+              <div className="bg-white h-0.5 w-7" />
+              <div className="bg-white h-0.5 w-7" />
+              <div className="bg-white h-0.5 w-7" />
+            </div>
+          </button>
         </div>
-      )}
-    </nav>
+      </nav>
+
+      {/* Full-screen mobile menu overlay */}
+      {/* Backdrop */}
+      <div
+        className={`fixed inset-0 z-[60] bg-black/40 lg:hidden transition-opacity duration-300 ${
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={closeMenu}
+      />
+
+      {/* Slide-in panel from right */}
+      <div
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-full max-w-[375px] bg-[#0a1b3a] flex flex-col lg:hidden transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Panel header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 backdrop-blur-[12px]">
+          <a href="#" onClick={closeMenu} className="shrink-0">
+            <img src={imgLogo} alt="Construct Queensland" className="h-11 w-auto object-contain" />
+          </a>
+          {/* X close button — two crossed bars */}
+          <button
+            onClick={closeMenu}
+            className="p-2.5 flex items-center justify-center"
+            aria-label="Close menu"
+          >
+            <div className="relative w-[22px] h-[22px]">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="bg-white h-[2px] w-[30px] rotate-45" />
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="bg-white h-[2px] w-[30px] -rotate-45" />
+              </div>
+            </div>
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <div className="flex-1 overflow-y-auto px-5 pt-4">
+          {navLinks.map(({ label, href }, i) => (
+            <a
+              key={label}
+              href={href}
+              onClick={closeMenu}
+              className={`flex items-center justify-between py-4 ${
+                i === 0
+                  ? "border-t border-b border-[rgba(255,255,255,0.08)]"
+                  : "border-b border-[rgba(255,255,255,0.08)]"
+              }`}
+              style={{ transitionDelay: menuOpen ? `${i * 40 + 60}ms` : "0ms" }}
+            >
+              <span className="font-['Onest:Medium',sans-serif] font-medium text-[18.4px] text-white leading-[1.5]">
+                {label}
+              </span>
+              {/* Chevron right */}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M11.354 8.35354L6.35403 13.3535C6.30757 13.4 6.25242 13.4368 6.19173 13.462C6.13103 13.4871 6.06598 13.5001 6.00028 13.5001C5.93458 13.5001 5.86953 13.4871 5.80883 13.462C5.74813 13.4368 5.69298 13.4 5.64653 13.3535C5.60007 13.3071 5.56322 13.2519 5.53808 13.1912C5.51294 13.1305 5.5 13.0655 5.5 12.9998C5.5 12.9341 5.51294 12.869 5.53808 12.8083C5.56322 12.7476 5.60007 12.6925 5.64653 12.646L10.2934 7.99979L5.64653 3.35354C5.55271 3.25972 5.5 3.13247 5.5 2.99979C5.5 2.86711 5.55271 2.73986 5.64653 2.64604C5.74035 2.55222 5.8676 2.49951 6.00028 2.49951C6.13296 2.49951 6.26021 2.55222 6.35403 2.64604L11.354 7.64604C11.4005 7.69248 11.4374 7.74762 11.4626 7.80832C11.4877 7.86902 11.5007 7.93408 11.5007 7.99979C11.5007 8.0655 11.4877 8.13056 11.4626 8.19126C11.4374 8.25196 11.4005 8.3071 11.354 8.35354Z" fill="white" fillOpacity="0.35" />
+              </svg>
+            </a>
+          ))}
+        </div>
+
+        {/* Bottom: Contact Us + tagline */}
+        <div className="px-5 pb-7 pt-8 flex flex-col gap-4">
+          <a
+            href="#contact"
+            onClick={closeMenu}
+            className="flex items-center w-full border border-[#e5b869] bg-[#e5b869]"
+          >
+            <span className="flex-1 font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[18px] text-center px-9 py-[18px] leading-[1.2]">
+              Contact Us
+            </span>
+            <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/40 flex items-center justify-center w-[58px] self-stretch">
+              <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                <path d={svgPaths.p102e07c0} fill="#0A1B3A" />
+              </svg>
+            </div>
+          </a>
+          <div className="flex items-center justify-center gap-2.5">
+            <span className="font-['DM_Mono:Regular',sans-serif] text-[12px] text-white/55 tracking-[0.48px] uppercase">
+              Brisbane, Queensland
+            </span>
+            <span className="font-['DM_Mono:Regular',sans-serif] text-[12px] text-[#e5b869] tracking-[0.48px]">·</span>
+            <span className="font-['DM_Mono:Regular',sans-serif] text-[12px] text-white/55 tracking-[0.48px] uppercase">
+              Executive Advisory
+            </span>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
