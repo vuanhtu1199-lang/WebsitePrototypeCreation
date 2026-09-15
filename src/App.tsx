@@ -527,15 +527,8 @@ function ProjectsSection() {
       {/* ===== DESKTOP CAROUSEL — 4:3 images, text below ===== */}
       <div className="hidden lg:block overflow-hidden pl-5">
         <div
-          style={{
-            display: "flex",
-            gap: "24px",
-            animationName: "carousel-scroll-desktop",
-            animationDuration: "62s",
-            animationTimingFunction: "linear",
-            animationIterationCount: "infinite",
-            animationPlayState: desktopPaused ? "paused" : "running",
-          }}
+          className={`carousel-track-desktop${desktopPaused ? " carousel-paused" : ""}`}
+          style={{ display: "flex", gap: "24px" }}
         >
           {tripleProjects.map((project, idx) => {
             const imgIdx = cardImgIdxs[String(idx)] ?? 0;
@@ -625,15 +618,8 @@ function ProjectsSection() {
         style={{ cursor: "pointer" }}
       >
         <div
-          style={{
-            display: "flex",
-            gap: "12px",
-            animationName: "carousel-scroll-mobile",
-            animationDuration: "38s",
-            animationTimingFunction: "linear",
-            animationIterationCount: "infinite",
-            animationPlayState: mobilePaused ? "paused" : "running",
-          }}
+          className={`carousel-track-mobile${mobilePaused ? " carousel-paused" : ""}`}
+          style={{ display: "flex", gap: "12px" }}
         >
           {tripleProjects.map((project, idx) => {
             const imgIdx = cardImgIdxs[`m${idx}`] ?? 0;
@@ -910,13 +896,10 @@ function TrustedBySection() {
           {/* Marquee clipped to this container's width */}
           <div className="overflow-hidden">
             <div
+              className="carousel-track-logos"
               style={{
                 display: "flex",
                 alignItems: "center",
-                animationName: "logo-marquee",
-                animationDuration: "40s",
-                animationTimingFunction: "linear",
-                animationIterationCount: "infinite",
                 width: "max-content",
                 gap: "48px",
               }}

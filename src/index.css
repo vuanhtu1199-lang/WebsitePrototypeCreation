@@ -59,3 +59,16 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+.carousel-track-desktop {
+  animation: carousel-scroll-desktop 62s linear infinite;
+}
+.carousel-track-mobile {
+  animation: carousel-scroll-mobile 38s linear infinite;
+}
+.carousel-track-logos {
+  animation: logo-marquee 40s linear infinite;
+}
+.carousel-paused {
+  animation-play-state: paused;
+}
