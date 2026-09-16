@@ -1288,7 +1288,7 @@ function FAQSection() {
       <div className="max-w-7xl mx-auto px-5">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           <div className="flex flex-col">
-            <div className="inline-block border border-[#161616] px-3 py-1 mb-6">
+            <div className="inline-block w-fit border border-[#161616] px-3 py-1 mb-6">
               <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616] text-[12px] tracking-[0.72px] uppercase">
                 Common Enquiries · Expanded State
               </span>
