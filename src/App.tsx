@@ -453,8 +453,8 @@ function AboutSection() {
           </div>
         </div>
 
-        {/* Bottom: 3-column capability cards with consistent left border lines on both mobile and desktop */}
-        <div id="capabilities" className="grid grid-cols-1 md:grid-cols-3 border-[#e5e7eb]">
+        {/* Bottom: 3-column capability cards with gap between boxes and left border lines */}
+        <div id="capabilities" className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 pt-8 md:pt-12">
           {capabilityCards.map(({ svgPath, viewBox, size, title, desc }) => (
             <div
               key={title}
