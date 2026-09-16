@@ -998,11 +998,20 @@ function TrustedBySection() {
 // ===== LEADERSHIP SECTION =====
 
 function LeadershipSection() {
+  const credentials = [
+    "Executive Director (QLD Gov)",
+    "Lendlease Senior Leadership Alumnus",
+    "Lead for MMC Programme Delivery (OQGA)",
+    "Corrections, Health & Aviation Expert",
+  ];
+
   return (
-    <section id="leadership" className="bg-white py-[60px] px-5">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-white border border-[#eef0f2] shadow-[0px_10px_30px_0px_rgba(0,0,0,0.05)] grid lg:grid-cols-[minmax(0,5fr)_minmax(0,12fr)] overflow-hidden">
-          <div className="relative min-h-[300px] lg:min-h-0 bg-[#0a1b3a]">
+    <section id="leadership" className="bg-white py-[60px] lg:py-[100px]">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-[80px]">
+        <div className="bg-white border border-[#eef0f2] shadow-[0px_10px_30px_0px_rgba(0,0,0,0.05)] overflow-hidden grid lg:grid-cols-[400px_1fr]">
+
+          {/* Photo column */}
+          <div className="bg-[#0a1b3a] relative min-h-[280px] lg:min-h-0">
             <img
               src={imgDavidDirector}
               alt="David Lansdell"
@@ -1010,67 +1019,72 @@ function LeadershipSection() {
             />
           </div>
 
-          <div className="p-6 lg:p-8">
-            <div className="flex gap-2.5 items-start mb-4">
-              <div className="pt-1.5 shrink-0">
+          {/* Content column */}
+          <div className="flex flex-col justify-center px-6 py-8 lg:p-[48px]">
+            {/* Label */}
+            <div className="flex items-start gap-[10px] mb-[18px]">
+              <div className="pt-[4.9px] shrink-0">
                 <GoldSquare />
               </div>
-              <span className="font-['DM_Mono:Medium',sans-serif] text-[14px] tracking-[0.56px] uppercase text-black">
-                Director & Founder
+              <span className="font-['DM_Mono:Medium',sans-serif] text-[14px] tracking-[0.56px] uppercase text-black leading-[19.6px]">
+                Executive Profile
               </span>
             </div>
-            <h2 className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[28px] tracking-[-0.7px] mb-1">
+
+            {/* Name */}
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#111827] text-[28px] leading-[1.2] tracking-[-0.7px] mb-[18px] lg:text-[40px] lg:leading-[48px] lg:tracking-[-1px]">
               David Lansdell
             </h2>
-            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[15px] mb-6">
-              Founder & Director, Construct Queensland
+
+            {/* Title */}
+            <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[18px] leading-[24.3px] mb-[16px]">
+              Director — Construct Queensland
             </p>
-            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] leading-[1.65] mb-6">
+
+            {/* Bio */}
+            <p className="font-['Onest:Regular',sans-serif] font-normal text-[#5b6574] text-[16px] leading-[26.4px]">
               Over 25 years across government and tier-1 delivery, including the QCS portfolio of
               works — with the institutional insight and senior-level visibility rarely accessible to
               external advisors.
             </p>
 
-            <div className="border-t border-[#eef0f2] pt-6 pb-7 mb-6">
-              {[
-                "Former Executive Director, QLD Government",
-                "Construction Director, Major Infrastructure",
-                "Lead for MMC Programme Delivery (OQGA)",
-                "Corrections, Health & Aviation Expert",
-              ].map((cred) => (
-                <div key={cred} className="flex items-center gap-2.5 mb-3">
+            {/* Credentials — 2-col on desktop, 1-col on mobile */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-3.5 pt-6 pb-7 lg:pt-[24px] lg:pb-[28px]">
+              {credentials.map((cred) => (
+                <div key={cred} className="flex items-center gap-[10px]">
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
                     <path d={svgPaths.p27a39400} fill="#5B6574" />
                   </svg>
-                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[16px]">
+                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[16px] leading-[24px]">
                     {cred}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="border-t border-[#eef0f2] pt-5 flex flex-col gap-3">
-              <a href="tel:0436603061" className="flex items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            {/* Contact row */}
+            <div className="border-t border-[#eef0f2] pt-5 lg:pt-[22px] flex flex-col lg:flex-row lg:items-center lg:gap-[22px] gap-4">
+              <a href="tel:0436603061" className="flex items-center gap-[8px]">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
                   <path d={svgPaths.p27a46300} fill="#5B6574" />
                 </svg>
-                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px]">
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] leading-[24px]">
                   0436 603 061
                 </span>
               </a>
-              <a href="mailto:dlansdell@constructqld.com.au" className="flex items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <a href="mailto:dlansdell@constructqld.com.au" className="flex items-center gap-[8px]">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
                   <path d={svgPaths.p2aa90880} fill="#5B6574" />
                 </svg>
-                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px]">
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] leading-[24px]">
                   dlansdell@constructqld.com.au
                 </span>
               </a>
-              <a href="https://linkedin.com" className="group flex mt-2 w-fit">
-                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[14px] bg-[#0a1b3a] px-5 py-2">
+              <a href="https://linkedin.com" className="group flex w-fit mt-1 lg:mt-0">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[14px] leading-[16.8px] bg-[#0a1b3a] px-5 py-2">
                   Connect on LinkedIn
                 </span>
-                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[38px] transition-colors duration-200">
+                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[38px] self-stretch transition-colors duration-200">
                   <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                     <path d={svgPaths.p2434d500} fill="white" />
                   </svg>
@@ -1078,6 +1092,7 @@ function LeadershipSection() {
               </a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
