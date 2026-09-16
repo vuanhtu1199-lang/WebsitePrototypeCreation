@@ -180,15 +180,12 @@ function Navbar() {
             ))}
           </div>
 
-          <a
-            href="#contact"
-            className="group hidden lg:flex transition-all duration-300 hover:shadow-[0_4px_16px_rgba(229,184,105,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-          >
-            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[15px] bg-[#e5b869] group-hover:bg-[#eed090] px-6 py-3 transition-colors duration-300">
+          <a href="#contact" className="group hidden lg:flex">
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[15px] bg-[#e5b869] group-hover:bg-[#eed090] px-6 py-3 transition-colors duration-200">
               Get In Touch
             </span>
-            <div className="bg-[#d4a44f] group-hover:bg-[#dfb15e] border-l border-[#0a1b3a]/25 flex items-center justify-center w-[46px] transition-colors duration-300">
-              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none" className="transform group-hover:translate-x-1 transition-transform duration-300 ease-out">
+            <div className="bg-[#d4a44f] group-hover:bg-[#e0b05b] border-l border-[#0a1b3a]/25 flex items-center justify-center w-[46px] self-stretch transition-colors duration-200">
+              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                 <path d={svgPaths.p30053000} fill="#0A1B3A" />
               </svg>
             </div>
@@ -197,7 +194,7 @@ function Navbar() {
           {/* Hamburger button — visible on mobile & tablet */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="lg:hidden p-2.5 hover:bg-white/10 active:scale-95 transition-all duration-200"
+            className="lg:hidden p-2.5"
             aria-label="Open menu"
           >
             <div className="flex flex-col gap-1.5 w-7">
@@ -230,7 +227,7 @@ function Navbar() {
           </a>
           <button
             onClick={closeMenu}
-            className="p-2.5 flex items-center justify-center hover:bg-white/10 active:scale-95 transition-all duration-200"
+            className="p-2.5 flex items-center justify-center"
             aria-label="Close menu"
           >
             <div className="relative w-[22px] h-[22px]">
@@ -251,16 +248,16 @@ function Navbar() {
               key={label}
               href={href}
               onClick={closeMenu}
-              className={`flex items-center justify-between py-4 group ${
+              className={`flex items-center justify-between py-4 ${
                 i === 0
                   ? "border-t border-b border-[rgba(255,255,255,0.08)]"
                   : "border-b border-[rgba(255,255,255,0.08)]"
               }`}
             >
-              <span className="font-['Onest:Medium',sans-serif] font-medium text-[18px] text-white leading-[1.5] group-hover:text-[#e5b869] transition-colors duration-200">
+              <span className="font-['Onest:Medium',sans-serif] font-medium text-[18px] text-white leading-[1.5]">
                 {label}
               </span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transform group-hover:translate-x-1 transition-transform duration-200">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M11.354 8.35354L6.35403 13.3535C6.30757 13.4 6.25242 13.4368 6.19173 13.462C6.13103 13.4871 6.06598 13.5001 6.00028 13.5001C5.93458 13.5001 5.86953 13.4871 5.80883 13.462C5.74813 13.4368 5.69298 13.4 5.64653 13.3535C5.60007 13.3071 5.56322 13.2519 5.53808 13.1912C5.51294 13.1305 5.5 13.0655 5.5 12.9998C5.5 12.9341 5.51294 12.869 5.53808 12.8083C5.56322 12.7476 5.60007 12.6925 5.64653 12.646L10.2934 7.99979L5.64653 3.35354C5.55271 3.25972 5.5 3.13247 5.5 2.99979C5.5 2.86711 5.55271 2.73986 5.64653 2.64604C5.74035 2.55222 5.8676 2.49951 6.00028 2.49951C6.13296 2.49951 6.26021 2.55222 6.35403 2.64604L11.354 7.64604C11.4005 7.69248 11.4374 7.74762 11.4626 7.80832C11.4877 7.86902 11.5007 7.93408 11.5007 7.99979C11.5007 8.0655 11.4877 8.13056 11.4626 8.19126C11.4374 8.25196 11.4005 8.3071 11.354 8.35354Z" fill="white" fillOpacity="0.35" />
               </svg>
             </a>
@@ -271,13 +268,13 @@ function Navbar() {
           <a
             href="#contact"
             onClick={closeMenu}
-            className="group flex items-center w-full border border-[#e5b869] bg-[#e5b869] transition-all duration-300 hover:shadow-lg active:scale-[0.98]"
+            className="group flex items-stretch w-full border border-[#e5b869] bg-[#e5b869]"
           >
-            <span className="flex-1 font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[17px] text-center px-6 py-4 leading-[1.2] group-hover:bg-[#eed090] transition-colors duration-300">
+            <span className="flex-1 font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[17px] text-center px-6 py-4 leading-[1.2] group-hover:bg-[#eed090] transition-colors duration-200">
               Contact Us
             </span>
-            <div className="bg-[#d4a44f] group-hover:bg-[#dfb15e] border-l border-[#0a1b3a]/40 flex items-center justify-center w-[52px] self-stretch transition-colors duration-300">
-              <svg width="20" height="20" viewBox="0 0 23 23" fill="none" className="transform group-hover:translate-x-1.5 transition-transform duration-300 ease-out">
+            <div className="bg-[#d4a44f] group-hover:bg-[#dfb15e] border-l border-[#0a1b3a]/40 flex items-center justify-center w-[52px] self-stretch transition-colors duration-200">
+              <svg width="20" height="20" viewBox="0 0 23 23" fill="none">
                 <path d={svgPaths.p102e07c0} fill="#0A1B3A" />
               </svg>
             </div>
@@ -285,10 +282,6 @@ function Navbar() {
           <div className="flex items-center justify-center gap-2">
             <span className="font-['DM_Mono:Regular',sans-serif] text-[11px] text-white/55 tracking-[0.48px] uppercase">
               Brisbane, QLD
-            </span>
-            <span className="font-['DM_Mono:Regular',sans-serif] text-[11px] text-[#e5b869]">·</span>
-            <span className="font-['DM_Mono:Regular',sans-serif] text-[11px] text-white/55 tracking-[0.48px] uppercase">
-              Executive Advisory
             </span>
           </div>
         </div>
@@ -301,25 +294,35 @@ function Navbar() {
 
 function HeroSection() {
   return (
-    <section className="relative bg-[#0b0c0e] min-h-[90vh] lg:min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-      {/* Background Image */}
-      <img
-        src={imgHeroBg}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0b0c0e] via-[#0b0c0e]/80 to-transparent" />
+    <section id="hero" className="relative bg-[#0a1b3a] min-h-screen flex flex-col overflow-hidden">
+      {/* Backgrounds */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[#0a1b3a]" />
+        <img src={imgHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(180deg, rgba(10,27,58,0.72) 0%, rgba(6,16,36,0.92) 100%)" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at 75% 25%, rgba(229,184,105,0.12) 0%, transparent 60%)" }}
+        />
+      </div>
 
-      <div className={`${SECTION_CONTAINER} relative z-10 w-full`}>
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 lg:gap-16">
-          {/* Left — text */}
-          <div className="max-w-[780px]">
-            {/* Tagline label */}
-            <div className="flex items-center gap-2.5 mb-6">
-              <GoldSquare />
-              <span className="font-['DM_Mono:Medium',sans-serif] text-[13px] md:text-[14px] tracking-[0.56px] uppercase text-white/80">
-                Executive Infrastructure Leadership
-              </span>
+      {/* Content */}
+      <div className="relative z-10 flex-1 flex lg:items-center">
+        <div className={`${SECTION_CONTAINER} pt-24 pb-12 sm:pt-28 md:pt-32 lg:pt-[130px] lg:pb-[110px] mt-[60px] sm:mt-[70px] lg:mt-0 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 md:gap-10 lg:gap-12`}>
+
+          {/* Left — text block */}
+          <div className="w-full lg:max-w-[760px] xl:max-w-[840px] lg:shrink-0">
+            {/* Label */}
+            <div className="flex items-start gap-[10px] mb-4 md:mb-6">
+              <div className="pt-[5px] shrink-0">
+                <GoldSquare />
+              </div>
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[14px] sm:text-[15px] lg:text-[16px] text-white tracking-[0.6px] uppercase leading-[21.75px]">
+                Executive Construction Advisory
+              </p>
             </div>
 
             {/* Heading */}
@@ -340,28 +343,22 @@ function HeroSection() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 lg:mt-10">
-              <a
-                href="#capabilities"
-                className="group flex w-full sm:w-auto transition-all duration-300 hover:shadow-[0_8px_25px_rgba(229,184,105,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-              >
-                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] md:text-[16.5px] leading-[19.8px] bg-[#e5b869] group-hover:bg-[#eed090] px-6 py-4 flex-1 sm:flex-none text-center transition-colors duration-300">
+              <a href="#capabilities" className="group flex w-full sm:w-auto">
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] md:text-[16.5px] leading-[19.8px] bg-[#e5b869] group-hover:bg-[#eed090] px-6 py-4 flex-1 sm:flex-none text-center transition-colors duration-200">
                   Our Capabilities
                 </span>
-                <div className="bg-[#d4a44f] group-hover:bg-[#dfb15e] border-l border-[#0a1b3a]/42 flex items-center justify-center w-[54px] self-stretch transition-colors duration-300">
-                  <svg width="22" height="22" viewBox="0 0 23 23" fill="none" className="transform group-hover:translate-x-1.5 transition-transform duration-300 ease-out">
+                <div className="bg-[#d4a44f] group-hover:bg-[#dfb15e] border-l border-[#0a1b3a]/42 flex items-center justify-center w-[54px] self-stretch transition-colors duration-200">
+                  <svg width="22" height="22" viewBox="0 0 23 23" fill="none">
                     <path d={svgPaths.p102e07c0} fill="#0A1B3A" />
                   </svg>
                 </div>
               </a>
-              <a
-                href="#projects"
-                className="group flex w-full sm:w-auto border border-white/25 hover:border-white/60 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-              >
-                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] md:text-[16.5px] leading-[19.8px] px-6 py-4 flex-1 sm:flex-none text-center group-hover:bg-white/10 transition-colors duration-300">
+              <a href="#projects" className="group flex w-full sm:w-auto border border-white/25">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] md:text-[16.5px] leading-[19.8px] px-6 py-4 flex-1 sm:flex-none text-center group-hover:bg-white/10 transition-colors duration-200">
                   View Projects
                 </span>
-                <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[54px] self-stretch transition-colors duration-300">
-                  <svg width="22" height="22" viewBox="0 0 23 23" fill="none" className="transform group-hover:translate-x-1.5 transition-transform duration-300 ease-out">
+                <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[54px] self-stretch transition-colors duration-200">
+                  <svg width="22" height="22" viewBox="0 0 23 23" fill="none">
                     <path d={svgPaths.p102e07c0} fill="white" />
                   </svg>
                 </div>
@@ -602,15 +599,12 @@ function ProjectsSection() {
               Explore our landmark portfolio
             </h2>
           </div>
-          <a
-            href="#contact"
-            className="group flex border border-white/25 hover:border-white/50 self-start shrink-0 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-          >
-            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] px-6 md:px-7 py-3 md:py-3.5 group-hover:bg-white/10 transition-colors duration-300">
+          <a href="#contact" className="group flex border border-white/25 self-start shrink-0">
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] px-6 md:px-7 py-3 md:py-3.5 group-hover:bg-white/10 transition-colors duration-200">
               Get In Touch
             </span>
-            <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] transition-colors duration-300">
-              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none" className="transform group-hover:translate-x-1.5 transition-transform duration-300 ease-out">
+            <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] self-stretch transition-colors duration-200">
+              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                 <path d={svgPaths.p30053000} fill="white" />
               </svg>
             </div>
@@ -639,46 +633,48 @@ function ProjectsSection() {
                   <img
                     src={currentImg}
                     alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    className="absolute inset-0 w-full h-full object-cover"
                     onClick={() => setGallery({ images: project.images, index: imgIdx, title: project.title })}
                   />
 
                   {/* Category badge */}
-                  <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] px-[9px] py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="font-['Onest:Regular',sans-serif] text-white text-[13px] md:text-[14px] leading-5 whitespace-nowrap">
+                  <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-black/30 border border-white/10 px-2.5 py-1">
+                    <p className="font-['Onest:Regular',sans-serif] text-white text-[13px]">
                       {project.category}
                     </p>
                   </div>
 
-                  {/* Nav arrows */}
-                  <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button
-                      onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
-                      title="Previous image"
-                      className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.4)] hover:bg-[#d4a44f] border border-white/20 p-2 transition-all duration-200 hover:scale-110 active:scale-95"
-                    >
-                      <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
-                        <path d={svgPaths.p33b71300} fill="white" />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={(e) => handleCardNav(String(idx), "next", project.images.length, e)}
-                      title="Next image"
-                      className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.4)] hover:bg-[#d4a44f] border border-white/20 p-2 transition-all duration-200 hover:scale-110 active:scale-95"
-                    >
-                      <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
-                        <path d={svgPaths.p33b71300} fill="white" />
-                      </svg>
-                    </button>
-                  </div>
+                  {/* Card navigation controls */}
+                  {project.images.length > 1 && (
+                    <div className="absolute top-4 right-4 flex items-center gap-1 z-10">
+                      <button
+                        onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
+                        title="Previous image"
+                        className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.4)] hover:bg-[#d4a44f] border border-white/20 p-2 transition-colors duration-200"
+                      >
+                        <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
+                          <path d={svgPaths.p33b71300} fill="white" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={(e) => handleCardNav(String(idx), "next", project.images.length, e)}
+                        title="Next image"
+                        className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.4)] hover:bg-[#d4a44f] border border-white/20 p-2 transition-colors duration-200"
+                      >
+                        <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
+                          <path d={svgPaths.p33b71300} fill="white" />
+                        </svg>
+                      </button>
+                    </div>
+                  )}
                 </div>
 
-                {/* Text below image */}
-                <div className="pt-4 pb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Card footer info */}
+                <div className="mt-4">
                   <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[13px] md:text-[14px] tracking-[0.56px] uppercase leading-5">
                     {project.location}
                   </p>
-                  <p className="font-['Onest:Regular',sans-serif] text-white text-[18px] md:text-[20px] leading-[26px] group-hover:text-[#e5b869] transition-colors duration-200">
+                  <p className="font-['Onest:Regular',sans-serif] text-white text-[18px] md:text-[20px] leading-[26px]">
                     {project.title}
                   </p>
                 </div>
@@ -688,8 +684,8 @@ function ProjectsSection() {
         </div>
       </div>
 
-      {/* ===== MOBILE SLIDER (Mobile < md) ===== */}
-      <div className="md:hidden px-5">
+      {/* ===== MOBILE CAROUSEL CARD ===== */}
+      <div className={`${SECTION_CONTAINER} block md:hidden`}>
         {(() => {
           const project = projects[mobileSlideIdx];
           const imgIdx = cardImgIdxs[`ms${mobileSlideIdx}`] ?? 0;
@@ -750,7 +746,7 @@ function ProjectsSection() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => goMobile("prev")}
-              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5 hover:bg-[#d4a44f] transition-all duration-200 hover:scale-110 active:scale-95"
+              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5 hover:bg-[#d4a44f] transition-colors duration-200"
             >
               <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
                 <path d={svgPaths.p33b71300} fill="white" />
@@ -758,7 +754,7 @@ function ProjectsSection() {
             </button>
             <button
               onClick={() => goMobile("next")}
-              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5 hover:bg-[#d4a44f] transition-all duration-200 hover:scale-110 active:scale-95"
+              className="bg-black/30 border border-white/10 backdrop-blur-[16px] p-2.5 hover:bg-[#d4a44f] transition-colors duration-200"
             >
               <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
                 <path d={svgPaths.p33b71300} fill="white" />
@@ -901,15 +897,12 @@ function ServicesSection() {
                 </span>
               </p>
             </div>
-            <a
-              href="#contact"
-              className="group flex self-start w-fit transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-            >
-              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] bg-[#0a1b3a] group-hover:bg-[#112347] px-6 md:px-7 py-3 md:py-3.5 transition-colors duration-300">
+            <a href="#contact" className="group flex self-start w-fit">
+              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] bg-[#0a1b3a] group-hover:bg-[#112347] px-6 md:px-7 py-3 md:py-3.5 transition-colors duration-200">
                 Get In Touch
               </span>
-              <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] transition-colors duration-300">
-                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none" className="transform group-hover:translate-x-1.5 transition-transform duration-300 ease-out">
+              <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] self-stretch transition-colors duration-200">
+                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                   <path d={svgPaths.p3c2a0580} fill="white" />
                 </svg>
               </div>
@@ -918,10 +911,10 @@ function ServicesSection() {
 
           <div className="border-t border-[rgba(10,27,58,0.14)]">
             {services.map(({ num, title, desc }) => (
-              <div key={num} className="border-b border-[rgba(10,27,58,0.14)] py-6 md:py-8 grid grid-cols-[44px_1fr] md:grid-cols-[50px_1fr] gap-4 md:gap-5 group hover:bg-white/50 px-3 transition-colors duration-200">
-                <p className="font-['Onest:Bold',sans-serif] font-bold text-[#0b0c0e] text-[15px] md:text-[16px] group-hover:text-[#d4a44f] transition-colors duration-200">{num}</p>
+              <div key={num} className="border-b border-[rgba(10,27,58,0.14)] py-6 md:py-8 grid grid-cols-[44px_1fr] md:grid-cols-[50px_1fr] gap-4 md:gap-5">
+                <p className="font-['Onest:Bold',sans-serif] font-bold text-[#0b0c0e] text-[15px] md:text-[16px]">{num}</p>
                 <div>
-                  <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0b0c0e] text-[17px] md:text-[18px] leading-6 mb-2 group-hover:text-[#0a1b3a] transition-colors duration-200">
+                  <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0b0c0e] text-[17px] md:text-[18px] leading-6 mb-2">
                     {title}
                   </p>
                   <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[14px] md:text-[15px] lg:text-[16px] leading-[1.6]">
@@ -954,15 +947,12 @@ function TrustedBySection() {
               Key Statutory Authorities &amp; Tier-1 Operators
             </h2>
           </div>
-          <a
-            href="#contact"
-            className="group flex border border-white/25 hover:border-white/50 w-fit shrink-0 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-          >
-            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] leading-[19.2px] px-6 md:px-7 py-3 md:py-[14px] group-hover:bg-white/10 transition-colors duration-300">
+          <a href="#contact" className="group flex border border-white/25 w-fit shrink-0">
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] leading-[19.2px] px-6 md:px-7 py-3 md:py-[14px] group-hover:bg-white/10 transition-colors duration-200">
               Get In Touch
             </span>
-            <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] self-stretch transition-colors duration-300">
-              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none" className="transform group-hover:translate-x-1.5 transition-transform duration-300 ease-out">
+            <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] self-stretch transition-colors duration-200">
+              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                 <path d={svgPaths.p3c2a0580} fill="white" />
               </svg>
             </div>
@@ -994,7 +984,7 @@ function TrustedBySection() {
               style={{ width: "max-content", gap: "48px" }}
             >
               {allLogos.map((logo, idx) => (
-                <div key={idx} className="flex items-center justify-center h-[54px] md:h-[60px] shrink-0 opacity-[0.82] hover:opacity-100 transition-opacity duration-200">
+                <div key={idx} className="flex items-center justify-center h-[54px] md:h-[60px] shrink-0 opacity-[0.82]">
                   <img src={logo.src} alt={logo.alt} className="max-h-[50px] md:max-h-[56px] max-w-[200px] md:max-w-[240px] object-contain" />
                 </div>
               ))}
@@ -1070,7 +1060,7 @@ function LeadershipSection() {
             </div>
 
             <div className="border-t border-[#eef0f2] pt-5 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 lg:gap-6">
-              <a href="tel:0436603061" className="flex items-center gap-[8px] hover:text-[#d4a44f] transition-colors duration-200">
+              <a href="tel:0436603061" className="flex items-center gap-[8px]">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
                   <path d={svgPaths.p27a46300} fill="#5B6574" />
                 </svg>
@@ -1078,7 +1068,7 @@ function LeadershipSection() {
                   0436 603 061
                 </span>
               </a>
-              <a href="mailto:dlansdell@constructqld.com.au" className="flex items-center gap-[8px] hover:text-[#d4a44f] transition-colors duration-200">
+              <a href="mailto:dlansdell@constructqld.com.au" className="flex items-center gap-[8px]">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
                   <path d={svgPaths.p2aa90880} fill="#5B6574" />
                 </svg>
@@ -1086,15 +1076,12 @@ function LeadershipSection() {
                   dlansdell@constructqld.com.au
                 </span>
               </a>
-              <a
-                href="https://linkedin.com"
-                className="group flex w-fit mt-1 sm:mt-0 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-              >
-                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[13px] md:text-[14px] bg-[#0a1b3a] group-hover:bg-[#112347] px-4 md:px-5 py-2 transition-colors duration-300">
+              <a href="https://linkedin.com" className="group flex w-fit mt-1 sm:mt-0">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[13px] md:text-[14px] bg-[#0a1b3a] group-hover:bg-[#112347] px-4 md:px-5 py-2 transition-colors duration-200">
                   Connect on LinkedIn
                 </span>
-                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[36px] self-stretch transition-colors duration-300">
-                  <svg width="16" height="16" viewBox="0 0 18.4 18.4" fill="none" className="transform group-hover:translate-x-1 transition-transform duration-300 ease-out">
+                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[36px] self-stretch transition-colors duration-200">
+                  <svg width="16" height="16" viewBox="0 0 18.4 18.4" fill="none">
                     <path d={svgPaths.p2434d500} fill="white" />
                   </svg>
                 </div>
@@ -1246,15 +1233,12 @@ function ContactSection() {
                   />
                 </div>
                 <div className="flex justify-end mt-2">
-                  <button
-                    type="submit"
-                    className="group flex items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-                  >
-                    <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] bg-[#0a1b3a] group-hover:bg-[#112347] px-6 py-3.5 transition-colors duration-300">
+                  <button type="submit" className="group flex items-stretch cursor-pointer">
+                    <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] bg-[#0a1b3a] group-hover:bg-[#061024] px-6 py-3.5 flex items-center transition-colors duration-200">
                       Request a Consultation
                     </span>
-                    <div className="border-l border-white/20 bg-[#061024] group-hover:bg-[#d4a44f] flex items-center justify-center px-4 py-3.5 transition-colors duration-300">
-                      <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none" className="transform group-hover:translate-x-1.5 transition-transform duration-300 ease-out">
+                    <div className="border-l border-white/20 bg-[#061024] group-hover:bg-[#d4a44f] flex items-center justify-center px-4 self-stretch transition-colors duration-200">
+                      <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                         <path d={svgPaths.p30053000} fill="white" />
                       </svg>
                     </div>
@@ -1331,15 +1315,12 @@ function FAQSection() {
                   0436 603 061
                 </span>
               </p>
-              <a
-                href="#contact"
-                className="group flex w-fit mt-1 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-              >
-                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] bg-[#0a1b3a] group-hover:bg-[#112347] px-6 md:px-7 py-3 md:py-3.5 transition-colors duration-300">
+              <a href="#contact" className="group flex w-fit mt-1">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] bg-[#0a1b3a] group-hover:bg-[#112347] px-6 md:px-7 py-3 md:py-3.5 transition-colors duration-200">
                   Get In Touch
                 </span>
-                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] transition-colors duration-300">
-                  <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none" className="transform group-hover:translate-x-1.5 transition-transform duration-300 ease-out">
+                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] self-stretch transition-colors duration-200">
+                  <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
                     <path d={svgPaths.p3c2a0580} fill="white" />
                   </svg>
                 </div>
