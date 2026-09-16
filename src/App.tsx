@@ -453,12 +453,12 @@ function AboutSection() {
           </div>
         </div>
 
-        {/* Bottom: 3-column capability cards with desktop style (left border lines on all cards) */}
-        <div id="capabilities" className="grid grid-cols-1 md:grid-cols-3 border-t md:border-t-0 border-[#e5e7eb]">
+        {/* Bottom: 3-column capability cards with consistent left border lines on both mobile and desktop */}
+        <div id="capabilities" className="grid grid-cols-1 md:grid-cols-3 border-[#e5e7eb]">
           {capabilityCards.map(({ svgPath, viewBox, size, title, desc }) => (
             <div
               key={title}
-              className="flex flex-col gap-6 md:gap-8 p-6 lg:p-8 bg-white border-t md:border-t-0 md:border-l border-[#e5e7eb]"
+              className="flex flex-col gap-6 md:gap-8 p-6 lg:p-8 bg-white border-l border-[#e5e7eb]"
             >
               <div className="shrink-0">
                 <svg width={size} height={size} viewBox={viewBox} fill="none" className="block">
