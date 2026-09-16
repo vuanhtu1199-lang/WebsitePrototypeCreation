@@ -934,97 +934,62 @@ function TrustedBySection() {
   const allLogos = [...clientLogos, ...clientLogos];
 
   return (
-    <section id="clients" className="bg-[#0b0c0e] py-[60px] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5">
-        <div className="lg:flex lg:items-start lg:justify-between lg:gap-16">
-          <div className="flex-shrink-0">
-            <SectionLabel text="Trusted By" light />
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[28px] leading-[1.2] tracking-[-0.7px] mt-3 max-w-sm">
-              Key Statutory Authorities & Tier-1 Operators
-            </h2>
-            <a href="#contact" className="group mt-6 flex border border-white/25 w-fit">
-              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] px-7 py-3.5">
-                Get In Touch
-              </span>
-              <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] transition-colors duration-200">
-                <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
-                  <path d={svgPaths.p3c2a0580} fill="white" />
-                </svg>
-              </div>
-            </a>
-          </div>
+    <section id="clients" className="bg-[#0b0c0e] py-[60px] lg:py-[100px] overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-[80px]">
 
-          {/* Testimonial */}
-          <div className="mt-10 lg:mt-0 bg-[#14161a] border border-white/10 p-5 lg:p-8 max-w-xl">
-            <p className="font-['Onest:Light',sans-serif] font-light text-white text-[17.6px] leading-[1.5] tracking-[-0.44px]">
-              "Construct Queensland bridges the gap between executive policy intent and practical
-              contractor execution. In high-risk brownfield and government portfolios, our sustained
-              focus on constructability, cost certainty, and transparent governance delivers landmark
-              results."
-            </p>
-            <div className="flex items-center gap-4 mt-5">
-              <div className="relative size-[54px] shrink-0">
-                <img
-                  src={imgDavidLansdell}
-                  alt="David Lansdell"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 border-2 border-[#e5b869]" />
-              </div>
-              <div>
-                <p className="font-['Onest:Bold',sans-serif] font-bold text-white text-[18px]">
-                  David Lansdell
-                </p>
-                <p className="font-['DM_Mono:Medium',sans-serif] text-white text-[12px] tracking-[0.56px] uppercase mt-1 max-w-[240px] leading-[1.4]">
-                  Director — Construct Queensland | Former Executive Director, QLD Government
-                </p>
-              </div>
+        {/* Header row: label+heading left, button right — bottom-aligned */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8">
+          <div className="max-w-[780px]">
+            <SectionLabel text="Trusted By" light />
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[26px] leading-[1.2] tracking-[-0.65px] mt-3 lg:text-[32px] lg:leading-[38.4px] lg:tracking-[-0.8px] lg:mt-0 lg:whitespace-nowrap">
+              Key Statutory Authorities &amp; Tier-1 Operators
+            </h2>
+          </div>
+          <a href="#contact" className="group flex border border-white/25 w-fit shrink-0">
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] leading-[19.2px] px-7 py-[14px]">
+              Get In Touch
+            </span>
+            <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] self-stretch transition-colors duration-200">
+              <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                <path d={svgPaths.p3c2a0580} fill="white" />
+              </svg>
             </div>
+          </a>
+        </div>
+
+        {/* Quote block — full width */}
+        <div className="mt-8 lg:mt-[44px] bg-[#14161a] border border-white/10 p-6 lg:p-[48px]">
+          <p className="font-['Onest:Light',sans-serif] font-light text-white text-[17px] leading-[1.55] tracking-[-0.42px] lg:text-[24px] lg:leading-[36px] lg:tracking-[-0.6px]">
+            "Construct Queensland bridges the gap between executive policy intent and practical contractor execution. In high-risk brownfield and government portfolios, our sustained focus on constructability, cost certainty, and transparent governance delivers landmark results."
+          </p>
+          <div className="mt-7 lg:mt-[28px]">
+            <p className="font-['Onest:Bold',sans-serif] font-bold text-white text-[18px] leading-[27px]">
+              David Lansdell
+            </p>
+            <p className="font-['DM_Mono:Medium',sans-serif] text-white text-[12px] lg:text-[14px] tracking-[0.56px] uppercase leading-[16.8px] mt-0.5">
+              Director — Construct Queensland | Former Executive Director, QLD Government
+            </p>
           </div>
         </div>
 
-        {/* Our Clients label + marquee clipped within the container */}
-        <div className="mt-10">
-          <div className="flex items-center gap-6 mb-6">
-            <div className="flex items-center gap-2.5 shrink-0">
-              <div className="pt-1.5 shrink-0">
-                <GoldSquare />
-              </div>
-              <span className="font-['DM_Mono:Medium',sans-serif] text-white text-[14px] tracking-[0.56px] uppercase">
-                Our Clients
-              </span>
-            </div>
-            <div className="bg-white/45 h-px flex-1" />
-          </div>
-
-          {/* Marquee clipped to this container's width, with fade edges */}
-          <div className="relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10" style={{ background: "linear-gradient(to right, #0b0c0e 0%, transparent 100%)" }} />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10" style={{ background: "linear-gradient(to left, #0b0c0e 0%, transparent 100%)" }} />
+        {/* Logo marquee */}
+        <div className="mt-12 lg:mt-[72px]">
+          <div className="relative overflow-hidden py-[10px]">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10" style={{ background: "linear-gradient(to right, #0b0c0e, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10" style={{ background: "linear-gradient(to left, #0b0c0e, transparent)" }} />
             <div
-              className="carousel-track-logos"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                width: "max-content",
-                gap: "48px",
-              }}
+              className="carousel-track-logos flex items-center"
+              style={{ width: "max-content", gap: "56px" }}
             >
               {allLogos.map((logo, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center justify-center h-[56px] shrink-0 opacity-[0.78]"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="max-h-[48px] max-w-[160px] object-contain"
-                  />
+                <div key={idx} className="flex items-center justify-center h-[60px] shrink-0 opacity-[0.78]">
+                  <img src={logo.src} alt={logo.alt} className="max-h-[56px] max-w-[240px] object-contain" />
                 </div>
               ))}
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
