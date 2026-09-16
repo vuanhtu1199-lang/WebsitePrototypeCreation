@@ -12,7 +12,6 @@ import imgProj3 from "@/imports/ConstructQldDesktopSm-1/4e616da646f44f330ed44251
 import imgProj4 from "@/imports/ConstructQldDesktopSm-1/ddb7aefbfc3acccd1672c9bdd2284e0d16d9c457.png";
 import imgProj5 from "@/imports/ConstructQldDesktopSm-1/85c24732ddc9b63aa6887c9e01682297ee32eb7b.png";
 import imgWhyUsBg from "@/imports/ConstructQldDesktopSm-1/f0a5ae6d016f6e0b35305126c7e539647c478e77.png";
-import imgDavidLansdell from "@/imports/ConstructQldDesktopSm-1/8d29293451dd8fdfea0fc92f15f3b91f17684b40.png";
 import imgDavidDirector from "@/imports/ConstructQldDesktopSm-1/3849eacacaa613d286caca5a991e26fa60175bda.png";
 import imgConstructionBg from "@/imports/ConstructQldDesktopSm-1/c9a857ac12e83ad66507bb2254e207dabba94373.png";
 import imgLogo from "@/imports/ConstructQldDesktopSm-1/09226c2e8d97c3c0c5923aa477aa8ef349cbed29.png";
@@ -32,6 +31,10 @@ import logoQCS from "@/imports/ConstructQldDesktopSm-1/03155c7a3b333db917e755eb7
 import logoRegis from "@/imports/ConstructQldDesktopSm-1/ca03546fe94b6752d299c57012918f86053fcb09.png";
 import logoStVincents from "@/imports/ConstructQldDesktopSm-1/2f62ae2c28533167af9b49ac90d935d6984961d0.png";
 import logoBloomberg from "@/imports/ConstructQldDesktopSm-1/b63759244a0d5c207c80d1ed6161d387855abed4.png";
+
+// ===== DESIGN SYSTEM CONTAINER CLASS =====
+// Unified max-width and horizontal padding across ALL sections for perfect alignment on 1920px screens & tablets
+const SECTION_CONTAINER = "w-full max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16";
 
 // ===== DATA =====
 
@@ -118,7 +121,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
       <div className="pt-1.5 shrink-0">
         <GoldSquare />
       </div>
-      <p className={`font-['DM_Mono:Medium',sans-serif] text-[14px] tracking-[0.56px] uppercase whitespace-nowrap leading-[19.6px] ${light ? "text-white" : "text-black"}`}>
+      <p className={`font-['DM_Mono:Medium',sans-serif] text-[13px] md:text-[14px] tracking-[0.56px] uppercase whitespace-nowrap leading-[19.6px] ${light ? "text-white" : "text-black"}`}>
         {text}
       </p>
     </div>
@@ -160,12 +163,12 @@ function Navbar() {
           scrolled ? "bg-[#0a1b3a]/90" : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-5 flex items-center justify-between py-4">
+        <div className={`${SECTION_CONTAINER} flex items-center justify-between py-4`}>
           <a href="#" className="shrink-0">
-            <img src={imgLogo} alt="Construct Queensland" className="h-11 w-auto object-contain" />
+            <img src={imgLogo} alt="Construct Queensland" className="h-10 md:h-11 w-auto object-contain" />
           </a>
 
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map(({ label, href }) => (
               <a
                 key={label}
@@ -188,7 +191,7 @@ function Navbar() {
             </div>
           </a>
 
-          {/* Hamburger — mobile only */}
+          {/* Hamburger button — visible on mobile & tablet */}
           <button
             onClick={() => setMenuOpen(true)}
             className="lg:hidden p-2.5"
@@ -203,27 +206,25 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* Full-screen mobile menu overlay */}
-      {/* Backdrop */}
+      {/* Mobile/Tablet menu overlay */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/40 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[60] bg-black/50 lg:hidden transition-opacity duration-300 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
       />
 
-      {/* Slide-in panel from right */}
+      {/* Slide-in drawer from right */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-full bg-[#0a1b3a] flex flex-col lg:hidden transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-full sm:w-[380px] bg-[#0a1b3a] flex flex-col lg:hidden transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Panel header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 backdrop-blur-[12px]">
           <a href="#" onClick={closeMenu} className="shrink-0">
-            <img src={imgLogo} alt="Construct Queensland" className="h-11 w-auto object-contain" />
+            <img src={imgLogo} alt="Construct Queensland" className="h-10 w-auto object-contain" />
           </a>
-          {/* X close button — two crossed bars */}
           <button
             onClick={closeMenu}
             className="p-2.5 flex items-center justify-center"
@@ -231,10 +232,10 @@ function Navbar() {
           >
             <div className="relative w-[22px] h-[22px]">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-white h-[2px] w-[30px] rotate-45" />
+                <div className="bg-white h-[2px] w-[26px] rotate-45" />
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-white h-[2px] w-[30px] -rotate-45" />
+                <div className="bg-white h-[2px] w-[26px] -rotate-45" />
               </div>
             </div>
           </button>
@@ -252,12 +253,10 @@ function Navbar() {
                   ? "border-t border-b border-[rgba(255,255,255,0.08)]"
                   : "border-b border-[rgba(255,255,255,0.08)]"
               }`}
-              style={{ transitionDelay: menuOpen ? `${i * 40 + 60}ms` : "0ms" }}
             >
-              <span className="font-['Onest:Medium',sans-serif] font-medium text-[18.4px] text-white leading-[1.5]">
+              <span className="font-['Onest:Medium',sans-serif] font-medium text-[18px] text-white leading-[1.5]">
                 {label}
               </span>
-              {/* Chevron right */}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M11.354 8.35354L6.35403 13.3535C6.30757 13.4 6.25242 13.4368 6.19173 13.462C6.13103 13.4871 6.06598 13.5001 6.00028 13.5001C5.93458 13.5001 5.86953 13.4871 5.80883 13.462C5.74813 13.4368 5.69298 13.4 5.64653 13.3535C5.60007 13.3071 5.56322 13.2519 5.53808 13.1912C5.51294 13.1305 5.5 13.0655 5.5 12.9998C5.5 12.9341 5.51294 12.869 5.53808 12.8083C5.56322 12.7476 5.60007 12.6925 5.64653 12.646L10.2934 7.99979L5.64653 3.35354C5.55271 3.25972 5.5 3.13247 5.5 2.99979C5.5 2.86711 5.55271 2.73986 5.64653 2.64604C5.74035 2.55222 5.8676 2.49951 6.00028 2.49951C6.13296 2.49951 6.26021 2.55222 6.35403 2.64604L11.354 7.64604C11.4005 7.69248 11.4374 7.74762 11.4626 7.80832C11.4877 7.86902 11.5007 7.93408 11.5007 7.99979C11.5007 8.0655 11.4877 8.13056 11.4626 8.19126C11.4374 8.25196 11.4005 8.3071 11.354 8.35354Z" fill="white" fillOpacity="0.35" />
               </svg>
@@ -265,28 +264,27 @@ function Navbar() {
           ))}
         </div>
 
-        {/* Bottom: Contact Us + tagline */}
-        <div className="px-5 pb-7 pt-8 flex flex-col gap-4">
+        <div className="px-5 pb-7 pt-6 flex flex-col gap-4">
           <a
             href="#contact"
             onClick={closeMenu}
             className="flex items-center w-full border border-[#e5b869] bg-[#e5b869]"
           >
-            <span className="flex-1 font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[18px] text-center px-9 py-[18px] leading-[1.2]">
+            <span className="flex-1 font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[17px] text-center px-6 py-4 leading-[1.2]">
               Contact Us
             </span>
-            <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/40 flex items-center justify-center w-[58px] self-stretch">
-              <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+            <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/40 flex items-center justify-center w-[52px] self-stretch">
+              <svg width="20" height="20" viewBox="0 0 23 23" fill="none">
                 <path d={svgPaths.p102e07c0} fill="#0A1B3A" />
               </svg>
             </div>
           </a>
-          <div className="flex items-center justify-center gap-2.5">
-            <span className="font-['DM_Mono:Regular',sans-serif] text-[12px] text-white/55 tracking-[0.48px] uppercase">
-              Brisbane, Queensland
+          <div className="flex items-center justify-center gap-2">
+            <span className="font-['DM_Mono:Regular',sans-serif] text-[11px] text-white/55 tracking-[0.48px] uppercase">
+              Brisbane, QLD
             </span>
-            <span className="font-['DM_Mono:Regular',sans-serif] text-[12px] text-[#e5b869] tracking-[0.48px]">·</span>
-            <span className="font-['DM_Mono:Regular',sans-serif] text-[12px] text-white/55 tracking-[0.48px] uppercase">
+            <span className="font-['DM_Mono:Regular',sans-serif] text-[11px] text-[#e5b869]">·</span>
+            <span className="font-['DM_Mono:Regular',sans-serif] text-[11px] text-white/55 tracking-[0.48px] uppercase">
               Executive Advisory
             </span>
           </div>
@@ -307,64 +305,64 @@ function HeroSection() {
         <img src={imgHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(180deg, rgba(10,27,58,0.68) 0%, rgba(6,16,36,0.88) 100%)" }}
+          style={{ background: "linear-gradient(180deg, rgba(10,27,58,0.72) 0%, rgba(6,16,36,0.92) 100%)" }}
         />
         <div
           className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at 75% 25%, rgba(229,184,105,0.1) 0%, transparent 55%)" }}
+          style={{ background: "radial-gradient(ellipse at 75% 25%, rgba(229,184,105,0.12) 0%, transparent 60%)" }}
         />
       </div>
 
-      {/* Content — mobile: top-aligned below navbar; desktop: vertically centered */}
+      {/* Content */}
       <div className="relative z-10 flex-1 flex lg:items-center">
-        <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[80px] pt-8 pb-11 lg:pt-[130px] lg:pb-[110px] mt-[77px] lg:mt-0 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-7 lg:gap-8">
+        <div className={`${SECTION_CONTAINER} pt-24 pb-12 sm:pt-28 md:pt-32 lg:pt-[130px] lg:pb-[110px] mt-[60px] sm:mt-[70px] lg:mt-0 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 md:gap-10 lg:gap-12`}>
 
           {/* Left — text block */}
-          <div className="w-full lg:w-[800px] lg:shrink-0">
+          <div className="w-full lg:max-w-[760px] xl:max-w-[840px] lg:shrink-0">
             {/* Label */}
-            <div className="flex items-start gap-[10px] mb-[16px] lg:mb-[22px]">
-              <div className="pt-[5.25px] lg:pt-[5.6px] shrink-0">
+            <div className="flex items-start gap-[10px] mb-4 md:mb-6">
+              <div className="pt-[5px] shrink-0">
                 <GoldSquare />
               </div>
-              <p className="font-['DM_Mono:Medium',sans-serif] text-[15px] lg:text-[16px] text-white tracking-[0.6px] lg:tracking-[0.64px] uppercase leading-[21.75px]">
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[14px] sm:text-[15px] lg:text-[16px] text-white tracking-[0.6px] uppercase leading-[21.75px]">
                 Executive Construction Advisory
               </p>
             </div>
 
             {/* Heading */}
             <h1 className="font-['Onest:Medium',sans-serif] font-medium text-white mb-0">
-              <span className="block text-[35.2px] leading-[40.48px] tracking-[-1.056px] lg:text-[64px] lg:leading-[72px] lg:tracking-[-1.92px]">
+              <span className="block text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px] xl:text-[64px] leading-[1.12] tracking-[-1.2px] md:tracking-[-1.8px]">
                 Certainty in Delivery,{" "}
               </span>
-              <span className="block text-[35.2px] leading-[40.48px] tracking-[-1.056px] lg:text-[64px] lg:leading-[72px] lg:tracking-[-1.92px] text-[#e5b869]">
+              <span className="block text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px] xl:text-[64px] leading-[1.12] tracking-[-1.2px] md:tracking-[-1.8px] text-[#e5b869]">
                 Excellence in Leadership
               </span>
             </h1>
 
             {/* Paragraph */}
-            <p className="font-['Onest:Regular',sans-serif] text-[rgba(255,255,255,0.92)] text-[17px] leading-[27.2px] mt-[18px] lg:text-[20px] lg:leading-[28px] lg:mt-[28px] lg:max-w-[740px]">
+            <p className="font-['Onest:Regular',sans-serif] text-[rgba(255,255,255,0.92)] text-[16px] sm:text-[18px] lg:text-[20px] leading-[1.6] md:leading-[28px] mt-4 md:mt-6 lg:max-w-[740px]">
               Construct Queensland provides government departments and asset leaders with executive-tier
               construction leadership and delivery capability across complex, high-risk portfolios.
             </p>
 
-            {/* Buttons — stacked on mobile, side-by-side on desktop */}
-            <div className="flex flex-col lg:flex-row gap-[13.8px] lg:gap-[18px] mt-6 lg:mt-[42px]">
-              <a href="#capabilities" className="flex w-full lg:w-auto">
-                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16.5px] leading-[19.8px] bg-[#e5b869] px-6 py-4 flex-1 text-center">
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 lg:mt-10">
+              <a href="#capabilities" className="flex w-full sm:w-auto">
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] md:text-[16.5px] leading-[19.8px] bg-[#e5b869] px-6 py-4 flex-1 sm:flex-none text-center">
                   Our Capabilities
                 </span>
-                <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/42 flex items-center justify-center w-[58px] self-stretch">
-                  <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                <div className="bg-[#d4a44f] border-l border-[#0a1b3a]/42 flex items-center justify-center w-[54px] self-stretch">
+                  <svg width="22" height="22" viewBox="0 0 23 23" fill="none">
                     <path d={svgPaths.p102e07c0} fill="#0A1B3A" />
                   </svg>
                 </div>
               </a>
-              <a href="#projects" className="flex w-full lg:w-auto border border-white/25">
-                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16.5px] leading-[19.8px] px-6 py-4 flex-1 text-center">
+              <a href="#projects" className="flex w-full sm:w-auto border border-white/25">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] md:text-[16.5px] leading-[19.8px] px-6 py-4 flex-1 sm:flex-none text-center">
                   View Projects
                 </span>
-                <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[58px] self-stretch">
-                  <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                <div className="bg-white/12 border-l border-white/38 flex items-center justify-center w-[54px] self-stretch">
+                  <svg width="22" height="22" viewBox="0 0 23 23" fill="none">
                     <path d={svgPaths.p102e07c0} fill="white" />
                   </svg>
                 </div>
@@ -372,8 +370,8 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Right — stat cards: full-width vertical stack on mobile, column on desktop */}
-          <div className="flex flex-col gap-3 lg:gap-5 w-full lg:w-auto lg:min-w-[290px] lg:shrink-0">
+          {/* Right — stat cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:flex lg:flex-col gap-4 md:gap-5 w-full lg:w-auto lg:min-w-[280px] xl:min-w-[320px] lg:shrink-0">
             {[
               { value: "25+", label: "Years of Executive Experience" },
               { value: "24+", label: "Landmark Infrastructure Projects" },
@@ -381,12 +379,12 @@ function HeroSection() {
             ].map(({ value, label }) => (
               <div
                 key={label}
-                className="backdrop-blur-[16px] bg-white/6 border border-white/14 px-[22px] py-[20px] lg:px-[36px] lg:py-[30px]"
+                className="backdrop-blur-[16px] bg-white/6 border border-white/14 px-5 py-4 md:px-6 md:py-5 lg:px-8 lg:py-6"
               >
-                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[32px] leading-[32px] tracking-[-0.96px] lg:text-[54.72px] lg:leading-[54.72px] lg:tracking-[-1.6416px] mb-1.5 lg:mb-2">
+                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[32px] sm:text-[38px] md:text-[44px] lg:text-[50px] xl:text-[54px] leading-tight tracking-[-1.2px] mb-1">
                   {value}
                 </p>
-                <p className="font-['Onest:Medium',sans-serif] font-medium text-[rgba(255,255,255,0.88)] text-[15px] leading-[21px] lg:text-[16px] lg:leading-[21.6px] lg:text-[rgba(255,255,255,0.85)]">
+                <p className="font-['Onest:Medium',sans-serif] font-medium text-white/88 text-[14px] sm:text-[15px] lg:text-[16px] leading-snug">
                   {label}
                 </p>
               </div>
@@ -406,38 +404,38 @@ function AboutSection() {
     {
       svgPath: aboutSvg.p5abe8e0,
       viewBox: "0 0 63 63",
-      size: 63,
+      size: 56,
       title: "Executive Secondment & Advisory",
       desc: "Seamless integration into departmental delivery units, providing instant leadership uplift, clear delegations, and strategic accountability on public works.",
     },
     {
       svgPath: aboutSvg.p398a6c00,
       viewBox: "0 0 64 64",
-      size: 64,
+      size: 56,
       title: "Modern Methods of Construction (MMC)",
       desc: "Pioneered the Queensland Government MMC Programme in partnership with the Office of the Queensland Government Architect (OQGA), advancing modular and off-site delivery.",
     },
     {
       svgPath: aboutSvg.p2b518e80,
       viewBox: "0 0 64 64",
-      size: 64,
+      size: 56,
       title: "Programme Recovery & Cost Certainty",
       desc: "Targeted high-value interventions that turn around distressed projects, restore stakeholder confidence, and establish ironclad constructability pathways under budget.",
     },
   ];
 
   return (
-    <section id="about" className="bg-white py-[60px] lg:py-[100px]">
-      <div className="max-w-7xl mx-auto px-5 lg:px-[80px]">
-        {/* Top: text + image */}
-        <div className="flex flex-col lg:flex-row items-start gap-10 mb-10 lg:mb-[60px]">
+    <section id="about" className="bg-white py-14 md:py-20 lg:py-24">
+      <div className={SECTION_CONTAINER}>
+        {/* Top: text + image (top aligned with items-start as shown in screenshot 1) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 xl:gap-16 items-start mb-12 lg:mb-16">
           <div className="flex-1 min-w-0">
             <SectionLabel text="About" />
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[28px] lg:text-[40px] leading-[1.2] lg:leading-[48px] tracking-[-1px] mt-4 mb-0">
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[28px] sm:text-[34px] md:text-[38px] lg:text-[40px] leading-[1.2] tracking-[-1px] mt-4 mb-0">
               Where Policy Intent Meets On-the-Ground Delivery
             </h2>
-            <div className="pt-[18px]">
-              <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[16px] lg:text-[18px] leading-[1.6] lg:leading-[28px]">
+            <div className="pt-4 md:pt-5">
+              <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[1.65]">
                 Established in 2019 by Director David Lansdell, Construct Queensland operates at the
                 executive echelon of infrastructure delivery. Having served as Construction Director and
                 Executive Director for critical Queensland portfolios, we bridge commercial rigour with
@@ -445,7 +443,8 @@ function AboutSection() {
               </p>
             </div>
           </div>
-          <div className="w-full lg:w-[626px] lg:shrink-0 h-[240px] sm:h-[340px] lg:h-[502px] relative overflow-hidden">
+          {/* Image maintaining natural aspect ratio responsively */}
+          <div className="w-full aspect-[4/3] sm:aspect-[3/2] md:aspect-[4/3] relative overflow-hidden">
             <img
               src={imgAbout}
               alt="Gold Coast Airport International Terminal"
@@ -454,12 +453,12 @@ function AboutSection() {
           </div>
         </div>
 
-        {/* Bottom: 3-column capability cards */}
-        <div id="capabilities" className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {/* Bottom: 3-column capability cards with desktop style (left border lines on all cards) */}
+        <div id="capabilities" className="grid grid-cols-1 md:grid-cols-3 border-t md:border-t-0 border-[#e5e7eb]">
           {capabilityCards.map(({ svgPath, viewBox, size, title, desc }) => (
             <div
               key={title}
-              className="border-l border-[#e5e7eb] flex flex-col gap-8 lg:gap-10 p-6 lg:p-8"
+              className="flex flex-col gap-6 md:gap-8 p-6 lg:p-8 bg-white border-t md:border-t-0 md:border-l border-[#e5e7eb]"
             >
               <div className="shrink-0">
                 <svg width={size} height={size} viewBox={viewBox} fill="none" className="block">
@@ -467,10 +466,10 @@ function AboutSection() {
                 </svg>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[20px] lg:text-[24px] leading-[32px]">
+                <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[19px] md:text-[21px] lg:text-[24px] leading-[1.3]">
                   {title}
                 </p>
-                <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[15px] lg:text-[16px] leading-[24px]">
+                <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[14px] md:text-[15px] lg:text-[16px] leading-[1.6]">
                   {desc}
                 </p>
               </div>
@@ -553,6 +552,7 @@ function ProjectsSection() {
   const [desktopPaused, setDesktopPaused] = useState(false);
   const [gallery, setGallery] = useState<GalleryState | null>(null);
   const [cardImgIdxs, setCardImgIdxs] = useState<Record<string, number>>({});
+
   // Mobile slider state
   const [mobileSlideIdx, setMobileSlideIdx] = useState(0);
   const mobileAutoRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -593,18 +593,18 @@ function ProjectsSection() {
   const tripleProjects = [...projects, ...projects, ...projects];
 
   return (
-    <section id="projects" className="bg-[#0b0c0e] py-[80px] overflow-hidden">
+    <section id="projects" className="bg-[#0b0c0e] py-14 md:py-20 lg:py-24 overflow-hidden">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-5 mb-10">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+      <div className={`${SECTION_CONTAINER} mb-8 md:mb-12`}>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <SectionLabel text="Selected Projects" light />
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[32px] leading-[1.2] tracking-[-0.8px] mt-3 max-w-md">
-              Explore our landmark portfolio.
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[28px] sm:text-[34px] md:text-[38px] leading-[1.2] tracking-[-0.8px] mt-3 max-w-2xl">
+              Explore our landmark portfolio
             </h2>
           </div>
-          <a href="#contact" className="group flex border border-white/25 self-start">
-            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] px-7 py-3.5">
+          <a href="#contact" className="group flex border border-white/25 self-start shrink-0">
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] px-6 md:px-7 py-3 md:py-3.5">
               Get In Touch
             </span>
             <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] transition-colors duration-200">
@@ -616,8 +616,8 @@ function ProjectsSection() {
         </div>
       </div>
 
-      {/* ===== DESKTOP CAROUSEL — 4:3 images, text below ===== */}
-      <div className="hidden lg:block overflow-hidden pl-5">
+      {/* ===== DESKTOP & TABLET CAROUSEL (Visible md+) ===== */}
+      <div className="hidden md:block overflow-hidden pl-5 md:pl-8 lg:pl-12 xl:pl-16">
         <div
           className={`carousel-track-desktop${desktopPaused ? " carousel-paused" : ""}`}
           style={{ display: "flex", gap: "24px" }}
@@ -628,26 +628,26 @@ function ProjectsSection() {
             return (
               <div
                 key={idx}
-                className="relative shrink-0 w-[484px] group cursor-pointer"
+                className="relative shrink-0 w-[360px] md:w-[420px] lg:w-[484px] group cursor-pointer"
                 onMouseEnter={() => setDesktopPaused(true)}
                 onMouseLeave={() => setDesktopPaused(false)}
               >
-                {/* 4:3 image container */}
-                <div className="relative overflow-hidden" style={{ height: "363px" }}>
+                {/* Image container */}
+                <div className="relative overflow-hidden aspect-[4/3]">
                   <img
                     src={currentImg}
                     alt={project.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Category badge — visible on hover */}
+                  {/* Category badge */}
                   <div className="absolute top-4 left-4 backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] px-[9px] py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="font-['Onest:Regular',sans-serif] text-white text-[14px] leading-5 whitespace-nowrap">
+                    <p className="font-['Onest:Regular',sans-serif] text-white text-[13px] md:text-[14px] leading-5 whitespace-nowrap">
                       {project.category}
                     </p>
                   </div>
 
-                  {/* Nav arrows — always visible on hover */}
+                  {/* Nav arrows */}
                   <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <button
                       onClick={(e) => handleCardNav(String(idx), "prev", project.images.length, e)}
@@ -672,12 +672,12 @@ function ProjectsSection() {
                   </div>
                 </div>
 
-                {/* Text below image — visible on hover */}
+                {/* Text below image */}
                 <div className="pt-4 pb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[14px] tracking-[0.56px] uppercase leading-5">
+                  <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[13px] md:text-[14px] tracking-[0.56px] uppercase leading-5">
                     {project.location}
                   </p>
-                  <p className="font-['Onest:Regular',sans-serif] text-white text-[20px] leading-[28px]">
+                  <p className="font-['Onest:Regular',sans-serif] text-white text-[18px] md:text-[20px] leading-[26px]">
                     {project.title}
                   </p>
                 </div>
@@ -687,16 +687,15 @@ function ProjectsSection() {
         </div>
       </div>
 
-      {/* ===== MOBILE SLIDER ===== */}
-      <div className="lg:hidden px-5">
-        {/* Card */}
+      {/* ===== MOBILE SLIDER (Mobile < md) ===== */}
+      <div className="md:hidden px-5">
         {(() => {
           const project = projects[mobileSlideIdx];
           const imgIdx = cardImgIdxs[`ms${mobileSlideIdx}`] ?? 0;
           const currentImg = project.images[imgIdx] ?? project.images[0];
           return (
             <div className="relative">
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
+              <div className="relative w-full overflow-hidden aspect-[4/3]">
                 <img
                   src={currentImg}
                   alt={project.title}
@@ -707,15 +706,14 @@ function ProjectsSection() {
                     {project.category}
                   </p>
                 </div>
-                {/* Image nav arrows (top-right) */}
                 {project.images.length > 1 && (
                   <div className="absolute top-4 right-4 flex items-center gap-1">
-                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "prev", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] hover:bg-[#d4a44f] border border-white/10 p-[4.3px] transition-colors duration-200">
+                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "prev", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] hover:bg-[#d4a44f] border border-white/10 p-[4.3px]">
                       <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none" style={{ transform: "scaleX(-1)" }}>
                         <path d={svgPaths.p33b71300} fill="white" />
                       </svg>
                     </button>
-                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "next", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] hover:bg-[#d4a44f] border border-white/10 p-[4.3px] transition-colors duration-200">
+                    <button onClick={(e) => handleCardNav(`ms${mobileSlideIdx}`, "next", project.images.length, e)} className="backdrop-blur-[16px] bg-[rgba(0,0,0,0.3)] hover:bg-[#d4a44f] border border-white/10 p-[4.3px]">
                       <svg width="18" height="18" viewBox="0 0 21.4286 21.4286" fill="none">
                         <path d={svgPaths.p33b71300} fill="white" />
                       </svg>
@@ -727,7 +725,7 @@ function ProjectsSection() {
                 <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[13px] tracking-[0.56px] uppercase">
                   {project.location}
                 </p>
-                <p className="font-['Onest:Regular',sans-serif] text-white text-[19px] leading-7 mt-1">
+                <p className="font-['Onest:Regular',sans-serif] text-white text-[18px] leading-6 mt-1">
                   {project.title}
                 </p>
               </div>
@@ -735,7 +733,6 @@ function ProjectsSection() {
           );
         })()}
 
-        {/* Slide navigation */}
         <div className="flex items-center justify-between mt-6">
           <div className="flex items-center gap-2">
             {projects.map((_, i) => (
@@ -776,20 +773,23 @@ function ProjectsSection() {
 
 function WhyChooseUsSection() {
   return (
-    <section id="why-us" className="bg-white py-[60px] lg:py-24">
-      <div className="max-w-7xl mx-auto px-5">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div>
+    <section id="why-us" className="bg-white py-14 md:py-20 lg:py-24">
+      <div className={SECTION_CONTAINER}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center">
+          {/* Left: Content & Statistics */}
+          <div className="flex flex-col justify-center">
             <SectionLabel text="Our Commitment" />
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#111827] text-[32px] leading-[1.2] tracking-[-0.8px] mt-4 mb-5">
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[46px] leading-[1.18] tracking-[-1.2px] mt-4 mb-4">
               Why Choose Us
             </h2>
-            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[18px] leading-[1.65] mb-8">
+            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.65] mb-6 md:mb-8">
               At Construct Queensland, we understand that choosing the right construction leadership
               partner is decisive for the success of your capital programme. Here is why government
               departments and institutional owners choose us:
             </p>
-            <div className="flex flex-col gap-4 mb-16">
+
+            {/* Checkmark 2-column grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 mb-10 md:mb-12">
               {[
                 "Senior Executive Involvement",
                 "On-Time, On-Budget Integrity",
@@ -800,25 +800,26 @@ function WhyChooseUsSection() {
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0">
                     <path d={svgPaths.p10b1df80} fill="#E5B869" />
                   </svg>
-                  <span className="font-['Onest:Medium',sans-serif] font-medium text-[#0a1b3a] text-[16px]">
+                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px] sm:text-[15px]">
                     {item}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-x-12 gap-y-10">
+            {/* 2x2 Statistics Grid matching user screenshot */}
+            <div className="grid grid-cols-2 gap-x-8 gap-y-8 md:gap-y-10">
               {[
-                { value: "100%", label: "Programme Governance" },
-                { value: "25+", label: "Years of Experience" },
-                { value: "24+", label: "Completed Landmarks" },
-                { value: "16+", label: "Government Clients" },
+                { value: "100%", label: "PROGRAMME GOVERNANCE" },
+                { value: "25+", label: "YEARS OF EXPERIENCE" },
+                { value: "24+", label: "COMPLETED LANDMARKS" },
+                { value: "16+", label: "GOVERNMENT CLIENTS" },
               ].map(({ value, label }) => (
                 <div key={label}>
-                  <p className="font-['Onest:Medium',sans-serif] font-medium text-[#0a1b3a] text-[32px] leading-8 tracking-[-0.8px]">
+                  <p className="font-['Onest:Medium',sans-serif] font-medium text-[#0a1b3a] text-[36px] sm:text-[42px] md:text-[46px] lg:text-[50px] leading-none tracking-[-1.2px] mb-2">
                     {value}
                   </p>
-                  <p className="font-['DM_Mono:Medium',sans-serif] text-[#5b6574] text-[14px] tracking-[0.56px] uppercase mt-1.5">
+                  <p className="font-['DM_Mono:Medium',sans-serif] text-[#5b6574] text-[12px] md:text-[13px] tracking-[0.56px] uppercase leading-tight">
                     {label}
                   </p>
                 </div>
@@ -826,8 +827,9 @@ function WhyChooseUsSection() {
             </div>
           </div>
 
-          <div className="relative min-h-[300px]">
-            <img src={imgWhyUsBg} alt="" className="w-full h-full object-cover" />
+          {/* Right: Square Image (maintaining 1:1 aspect ratio) */}
+          <div className="w-full aspect-square relative overflow-hidden">
+            <img src={imgWhyUsBg} alt="Construct Queensland Work" className="absolute inset-0 w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -872,23 +874,23 @@ function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="bg-[#f7f8fa] py-[60px] lg:py-24">
-      <div className="max-w-7xl mx-auto px-5">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+    <section id="services" className="bg-[#f7f8fa] py-14 md:py-20 lg:py-24">
+      <div className={SECTION_CONTAINER}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-start">
           <div>
             <SectionLabel text="What We Do" />
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#111827] text-[32px] leading-[1.2] tracking-[-0.8px] mt-4 mb-5">
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#111827] text-[28px] sm:text-[32px] md:text-[36px] leading-[1.2] tracking-[-0.8px] mt-4 mb-4">
               Comprehensive Construction Services
             </h2>
-            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[18px] leading-[1.65] mb-14">
+            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] md:text-[18px] leading-[1.65] mb-10 md:mb-12">
               Senior-level construction leadership and delivery capability for complex, high-risk capital
               portfolios.
             </p>
-            <div className="mb-9">
-              <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px]">
+            <div className="mb-8">
+              <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[15px] md:text-[16px]">
                 Contact Us for Consultation
               </p>
-              <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] mt-1.5">
+              <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[15px] md:text-[16px] mt-1">
                 Call us:{" "}
                 <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a]">
                   0436 603 061
@@ -896,7 +898,7 @@ function ServicesSection() {
               </p>
             </div>
             <a href="#contact" className="group flex self-start w-fit">
-              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
+              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] bg-[#0a1b3a] px-6 md:px-7 py-3 md:py-3.5">
                 Get In Touch
               </span>
               <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] transition-colors duration-200">
@@ -909,13 +911,13 @@ function ServicesSection() {
 
           <div className="border-t border-[rgba(10,27,58,0.14)]">
             {services.map(({ num, title, desc }) => (
-              <div key={num} className="border-b border-[rgba(10,27,58,0.14)] py-9 grid grid-cols-[50px_1fr] gap-5">
-                <p className="font-['Onest:Bold',sans-serif] font-bold text-[#0b0c0e] text-[16px]">{num}</p>
+              <div key={num} className="border-b border-[rgba(10,27,58,0.14)] py-6 md:py-8 grid grid-cols-[44px_1fr] md:grid-cols-[50px_1fr] gap-4 md:gap-5">
+                <p className="font-['Onest:Bold',sans-serif] font-bold text-[#0b0c0e] text-[15px] md:text-[16px]">{num}</p>
                 <div>
-                  <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0b0c0e] text-[18px] leading-6 mb-3">
+                  <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0b0c0e] text-[17px] md:text-[18px] leading-6 mb-2">
                     {title}
                   </p>
-                  <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[16px] leading-[1.65]">
+                  <p className="font-['Onest:Regular',sans-serif] text-[#475467] text-[14px] md:text-[15px] lg:text-[16px] leading-[1.6]">
                     {desc}
                   </p>
                 </div>
@@ -934,19 +936,19 @@ function TrustedBySection() {
   const allLogos = [...clientLogos, ...clientLogos];
 
   return (
-    <section id="clients" className="bg-[#0b0c0e] py-[60px] lg:py-[100px] overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-[80px]">
+    <section id="clients" className="bg-[#0b0c0e] py-14 md:py-20 lg:py-24 overflow-hidden">
+      <div className={SECTION_CONTAINER}>
 
-        {/* Header row: label+heading left, button right — bottom-aligned */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8">
+        {/* Header row */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="max-w-[780px]">
             <SectionLabel text="Trusted By" light />
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[26px] leading-[1.2] tracking-[-0.65px] mt-3 lg:text-[32px] lg:leading-[38.4px] lg:tracking-[-0.8px] lg:mt-0 lg:whitespace-nowrap">
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-white text-[24px] sm:text-[28px] md:text-[32px] leading-[1.2] tracking-[-0.8px] mt-3">
               Key Statutory Authorities &amp; Tier-1 Operators
             </h2>
           </div>
           <a href="#contact" className="group flex border border-white/25 w-fit shrink-0">
-            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] leading-[19.2px] px-7 py-[14px]">
+            <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] leading-[19.2px] px-6 md:px-7 py-3 md:py-[14px]">
               Get In Touch
             </span>
             <div className="bg-white/12 group-hover:bg-[#d4a44f] border-l border-white/38 flex items-center justify-center w-[46px] self-stretch transition-colors duration-200">
@@ -957,33 +959,33 @@ function TrustedBySection() {
           </a>
         </div>
 
-        {/* Quote block — full width */}
-        <div className="mt-8 lg:mt-[44px] bg-[#14161a] border border-white/10 p-6 lg:p-[48px]">
-          <p className="font-['Onest:Light',sans-serif] font-light text-white text-[17px] leading-[1.55] tracking-[-0.42px] lg:text-[24px] lg:leading-[36px] lg:tracking-[-0.6px]">
+        {/* Quote block */}
+        <div className="mt-8 md:mt-10 lg:mt-[44px] bg-[#14161a] border border-white/10 p-6 md:p-10 lg:p-[48px]">
+          <p className="font-['Onest:Light',sans-serif] font-light text-white text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] leading-[1.55] tracking-[-0.5px]">
             "Construct Queensland bridges the gap between executive policy intent and practical contractor execution. In high-risk brownfield and government portfolios, our sustained focus on constructability, cost certainty, and transparent governance delivers landmark results."
           </p>
-          <div className="mt-7 lg:mt-[28px]">
-            <p className="font-['Onest:Bold',sans-serif] font-bold text-white text-[18px] leading-[27px]">
+          <div className="mt-6 md:mt-8">
+            <p className="font-['Onest:Bold',sans-serif] font-bold text-white text-[17px] md:text-[18px] leading-snug">
               David Lansdell
             </p>
-            <p className="font-['DM_Mono:Medium',sans-serif] text-white text-[12px] lg:text-[14px] tracking-[0.56px] uppercase leading-[16.8px] mt-0.5">
+            <p className="font-['DM_Mono:Medium',sans-serif] text-white/70 text-[12px] md:text-[13px] lg:text-[14px] tracking-[0.56px] uppercase leading-relaxed mt-1">
               Director — Construct Queensland | Former Executive Director, QLD Government
             </p>
           </div>
         </div>
 
         {/* Logo marquee */}
-        <div className="mt-12 lg:mt-[72px]">
-          <div className="relative overflow-hidden py-[10px]">
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10" style={{ background: "linear-gradient(to right, #0b0c0e, transparent)" }} />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10" style={{ background: "linear-gradient(to left, #0b0c0e, transparent)" }} />
+        <div className="mt-10 md:mt-14 lg:mt-[72px]">
+          <div className="relative overflow-hidden py-3">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 z-10" style={{ background: "linear-gradient(to right, #0b0c0e, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 z-10" style={{ background: "linear-gradient(to left, #0b0c0e, transparent)" }} />
             <div
               className="carousel-track-logos flex items-center"
-              style={{ width: "max-content", gap: "56px" }}
+              style={{ width: "max-content", gap: "48px" }}
             >
               {allLogos.map((logo, idx) => (
-                <div key={idx} className="flex items-center justify-center h-[60px] shrink-0 opacity-[0.78]">
-                  <img src={logo.src} alt={logo.alt} className="max-h-[56px] max-w-[240px] object-contain" />
+                <div key={idx} className="flex items-center justify-center h-[54px] md:h-[60px] shrink-0 opacity-[0.82]">
+                  <img src={logo.src} alt={logo.alt} className="max-h-[50px] md:max-h-[56px] max-w-[200px] md:max-w-[240px] object-contain" />
                 </div>
               ))}
             </div>
@@ -1006,12 +1008,12 @@ function LeadershipSection() {
   ];
 
   return (
-    <section id="leadership" className="bg-white py-[60px] lg:py-[100px]">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-[80px]">
-        <div className="bg-white border border-[#eef0f2] shadow-[0px_10px_30px_0px_rgba(0,0,0,0.05)] overflow-hidden grid lg:grid-cols-[400px_1fr]">
+    <section id="leadership" className="bg-white py-14 md:py-20 lg:py-24">
+      <div className={SECTION_CONTAINER}>
+        <div className="bg-white border border-[#eef0f2] shadow-[0px_10px_30px_0px_rgba(0,0,0,0.05)] overflow-hidden grid grid-cols-1 md:grid-cols-[300px_1fr] lg:grid-cols-[380px_1fr] xl:grid-cols-[420px_1fr]">
 
-          {/* Photo column */}
-          <div className="bg-[#0a1b3a] relative min-h-[280px] lg:min-h-0">
+          {/* Photo column — maintaining aspect ratio on responsive */}
+          <div className="bg-[#0a1b3a] relative w-full aspect-[4/3] md:aspect-auto md:h-full overflow-hidden">
             <img
               src={imgDavidDirector}
               alt="David Lansdell"
@@ -1020,55 +1022,49 @@ function LeadershipSection() {
           </div>
 
           {/* Content column */}
-          <div className="flex flex-col justify-center px-6 py-8 lg:p-[48px]">
-            {/* Label */}
-            <div className="flex items-start gap-[10px] mb-[18px]">
-              <div className="pt-[4.9px] shrink-0">
+          <div className="flex flex-col justify-center p-6 md:p-8 lg:p-12">
+            <div className="flex items-start gap-[10px] mb-4">
+              <div className="pt-[5px] shrink-0">
                 <GoldSquare />
               </div>
-              <span className="font-['DM_Mono:Medium',sans-serif] text-[14px] tracking-[0.56px] uppercase text-black leading-[19.6px]">
+              <span className="font-['DM_Mono:Medium',sans-serif] text-[13px] md:text-[14px] tracking-[0.56px] uppercase text-black leading-[19.6px]">
                 Executive Profile
               </span>
             </div>
 
-            {/* Name */}
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#111827] text-[28px] leading-[1.2] tracking-[-0.7px] mb-[18px] lg:text-[40px] lg:leading-[48px] lg:tracking-[-1px]">
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#111827] text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] leading-[1.2] tracking-[-1px] mb-3">
               David Lansdell
             </h2>
 
-            {/* Title */}
-            <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[18px] leading-[24.3px] mb-[16px]">
+            <p className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#e5b869] text-[16px] md:text-[18px] leading-[24px] mb-4">
               Director — Construct Queensland
             </p>
 
-            {/* Bio */}
-            <p className="font-['Onest:Regular',sans-serif] font-normal text-[#5b6574] text-[16px] leading-[26.4px]">
+            <p className="font-['Onest:Regular',sans-serif] font-normal text-[#5b6574] text-[15px] md:text-[16px] leading-[1.65]">
               Over 25 years across government and tier-1 delivery, including the QCS portfolio of
               works — with the institutional insight and senior-level visibility rarely accessible to
               external advisors.
             </p>
 
-            {/* Credentials — 2-col on desktop, 1-col on mobile */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-3.5 pt-6 pb-7 lg:pt-[24px] lg:pb-[28px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-3 pt-5 pb-6 lg:pt-6 lg:pb-7">
               {credentials.map((cred) => (
                 <div key={cred} className="flex items-center gap-[10px]">
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
-                    <path d={svgPaths.p27a39400} fill="#5B6574" />
+                    <path d={svgPaths.p27a39400} fill="#0A1B3A" />
                   </svg>
-                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[16px] leading-[24px]">
+                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px] md:text-[15px] lg:text-[16px] leading-[22px]">
                     {cred}
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* Contact row */}
-            <div className="border-t border-[#eef0f2] pt-5 lg:pt-[22px] flex flex-col lg:flex-row lg:items-center lg:gap-[22px] gap-4">
+            <div className="border-t border-[#eef0f2] pt-5 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 lg:gap-6">
               <a href="tel:0436603061" className="flex items-center gap-[8px]">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
                   <path d={svgPaths.p27a46300} fill="#5B6574" />
                 </svg>
-                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] leading-[24px]">
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[15px] md:text-[16px]">
                   0436 603 061
                 </span>
               </a>
@@ -1076,16 +1072,16 @@ function LeadershipSection() {
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="shrink-0">
                   <path d={svgPaths.p2aa90880} fill="#5B6574" />
                 </svg>
-                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[16px] leading-[24px]">
+                <span className="font-['Onest:Bold',sans-serif] font-bold text-[#0a1b3a] text-[15px] md:text-[16px]">
                   dlansdell@constructqld.com.au
                 </span>
               </a>
-              <a href="https://linkedin.com" className="group flex w-fit mt-1 lg:mt-0">
-                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[14px] leading-[16.8px] bg-[#0a1b3a] px-5 py-2">
+              <a href="https://linkedin.com" className="group flex w-fit mt-1 sm:mt-0">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[13px] md:text-[14px] bg-[#0a1b3a] px-4 md:px-5 py-2">
                   Connect on LinkedIn
                 </span>
-                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[38px] self-stretch transition-colors duration-200">
-                  <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[36px] self-stretch transition-colors duration-200">
+                  <svg width="16" height="16" viewBox="0 0 18.4 18.4" fill="none">
                     <path d={svgPaths.p2434d500} fill="white" />
                   </svg>
                 </div>
@@ -1117,45 +1113,47 @@ function ContactSection() {
   };
 
   const inputClass =
-    "border border-[rgba(10,27,58,0.35)] px-3.5 py-3 text-[16px] font-['Onest:Regular',sans-serif] text-[#0a1b3a] placeholder-[#8e96a4] focus:outline-none focus:border-[#0a1b3a] w-full bg-white";
+    "border border-[#d0d5dd] px-3.5 py-3 text-[15px] md:text-[16px] font-['Onest:Regular',sans-serif] text-[#0a1b3a] placeholder-[#98a2b3] focus:outline-none focus:border-[#0a1b3a] w-full bg-white";
 
   return (
-    <section id="contact" className="bg-[#f0f4f8] py-20 relative overflow-hidden">
-      <div className="absolute bottom-0 left-5 opacity-[0.18] pointer-events-none">
-        <img
-          src={imgConstructionBg}
-          alt=""
-          className="w-[184px] h-[123px] object-cover"
-        />
-      </div>
+    <section id="contact" className="bg-[#f0f4f8] py-14 md:py-20 relative overflow-hidden">
+      <div className={`${SECTION_CONTAINER} relative z-10`}>
+        {/* Background Watermark Image - Left-aligned with text, compact bottom-left size matching user screenshot */}
+        <div className="absolute -bottom-14 md:-bottom-20 left-5 md:left-8 lg:left-12 xl:left-16 opacity-[0.20] pointer-events-none z-0">
+          <img
+            src={imgConstructionBg}
+            alt=""
+            className="w-[280px] sm:w-[340px] md:w-[420px] lg:w-[480px] h-auto object-contain"
+          />
+        </div>
 
-      <div className="max-w-7xl mx-auto px-5">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div>
-            <div className="flex items-start gap-2.5 mb-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center relative z-10">
+          <div className="relative z-10">
+            <div className="flex items-start gap-2.5 mb-4">
               <div className="pt-1.5 shrink-0">
                 <GoldSquare />
               </div>
-              <span className="font-['DM_Mono:Medium',sans-serif] text-[14px] tracking-[0.56px] uppercase text-[#0a1b3a]">
+              <span className="font-['DM_Mono:Medium',sans-serif] text-[13px] md:text-[14px] tracking-[0.56px] uppercase text-[#0a1b3a]">
                 Engagement & Consultation
               </span>
             </div>
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[32px] leading-[1.2] tracking-[-0.8px] mb-5">
+            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#0a1b3a] text-[28px] sm:text-[32px] md:text-[36px] leading-[1.2] tracking-[-0.8px] mb-4">
               Partner with Construct Queensland
             </h2>
-            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] leading-[1.65]">
+            <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[15px] md:text-[16px] leading-[1.65]">
               Whether you require executive secondment to stabilise a high-risk portfolio, strategic
               advisory for PAF business cases, or expert client-sided project leadership, our directors
               are available for confidential consultations.
             </p>
           </div>
 
-          <div className="bg-white border-t-2 border-[#0a1b3a] shadow-[0px_4px_12px_rgba(10,27,58,0.05)] p-5 lg:p-7">
-            <h3 className="font-['Onest:Medium',sans-serif] font-medium text-[#0a1b3a] text-[22px] tracking-[-0.55px] mb-5">
+          {/* Form box matching Screenshot 2 */}
+          <div className="bg-white border-t-2 border-[#0a1b3a] shadow-xl p-6 md:p-8 lg:p-10 relative z-10">
+            <h3 className="font-['Onest:Medium',sans-serif] font-medium text-[#0a1b3a] text-[22px] md:text-[24px] tracking-[-0.55px] mb-6">
               Request a Consultation
             </h3>
             {submitted ? (
-              <div className="flex flex-col items-center justify-center py-12">
+              <div className="flex flex-col items-center justify-center py-10 md:py-12">
                 <div className="w-12 h-12 bg-[#e5b869] flex items-center justify-center mb-4">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d={svgPaths.p10b1df80} fill="#0A1B3A" />
@@ -1170,9 +1168,9 @@ function ContactSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
+                    <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[13px] md:text-[14px]">
                       First Name
                     </label>
                     <input
@@ -1184,7 +1182,7 @@ function ContactSection() {
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
+                    <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[13px] md:text-[14px]">
                       Last Name
                     </label>
                     <input
@@ -1196,52 +1194,56 @@ function ContactSection() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className={inputClass}
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[13px] md:text-[14px]">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="Enter your email address"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className={inputClass}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[13px] md:text-[14px]">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="Enter your phone number"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className={inputClass}
+                    />
+                  </div>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Enter your phone number"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className={inputClass}
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[14px]">
+                  <label className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#0a1b3a] text-[13px] md:text-[14px]">
                     Message
                   </label>
                   <textarea
                     placeholder="Outline your portfolio, programme requirements, or advisory needs..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    rows={5}
+                    rows={4}
                     className={`${inputClass} resize-none`}
                   />
                 </div>
-                <button type="submit" className="group flex">
-                  <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] tracking-[0.96px] uppercase bg-[#0a1b3a] px-6 py-3.5 flex-1 text-center">
-                    Request a Consultation
-                  </span>
-                  <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] transition-colors duration-200">
-                    <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
-                      <path d={svgPaths.p30053000} fill="white" />
-                    </svg>
-                  </div>
-                </button>
+                <div className="flex justify-end mt-2">
+                  <button type="submit" className="group flex items-center bg-[#0a1b3a] hover:bg-[#061024] transition-colors duration-200">
+                    <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] px-6 py-3.5">
+                      Request a Consultation
+                    </span>
+                    <div className="border-l border-white/20 flex items-center justify-center px-4 py-3.5 group-hover:bg-[#d4a44f] transition-colors duration-200">
+                      <svg width="18" height="18" viewBox="0 0 18.4 18.4" fill="none">
+                        <path d={svgPaths.p30053000} fill="white" />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
               </form>
             )}
           </div>
@@ -1284,36 +1286,37 @@ function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="bg-white py-[60px] pb-[70px]">
-      <div className="max-w-7xl mx-auto px-5">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          <div className="flex flex-col">
-            <div className="inline-block w-fit border border-[#161616] px-3 py-1 mb-6">
-              <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616] text-[12px] tracking-[0.72px] uppercase">
-                Common Enquiries · Expanded State
-              </span>
+    <section id="faq" className="bg-white py-14 md:py-20 pb-16 md:pb-24">
+      <div className={SECTION_CONTAINER}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 xl:gap-20">
+          <div className="flex flex-col justify-between">
+            <div>
+              <div className="inline-block w-fit border border-[#161616] px-3 py-1 mb-5">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616] text-[11px] md:text-[12px] tracking-[0.72px] uppercase">
+                  Common Enquiries · Expanded State
+                </span>
+              </div>
+              <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#161616] text-[28px] sm:text-[34px] md:text-[38px] lg:text-[40px] leading-[1.2] tracking-[-1px]">
+                Frequently Asked Questions
+              </h2>
             </div>
-            <h2 className="font-['Onest:Regular',sans-serif] font-normal text-[#161616] text-[40px] leading-[48px] tracking-[-1px]">
-              Frequently Asked Questions
-            </h2>
-            {/* Spacer pushes enquiry block to bottom */}
-            <div className="flex-1" />
-            <div className="flex flex-col gap-4 mt-8 lg:mt-0">
-              <h3 className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[20px] tracking-[-0.5px]">
+
+            <div className="flex flex-col gap-4 mt-8 md:mt-12">
+              <h3 className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[18px] md:text-[20px] tracking-[-0.5px]">
                 Have a Specific Programme Enquiry?
               </h3>
-              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[16px] leading-6 max-w-xs">
+              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[15px] md:text-[16px] leading-6 max-w-xs">
                 Our executive leadership is available to discuss advisory mandates, programme
                 recoveries, and procurement pathways.
               </p>
-              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[16px]">
+              <p className="font-['Onest:Regular',sans-serif] text-[#6b7280] text-[15px] md:text-[16px]">
                 Call us:{" "}
                 <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-[#161616]">
                   0436 603 061
                 </span>
               </p>
-              <a href="#contact" className="group flex w-fit">
-                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[16px] bg-[#0a1b3a] px-7 py-3.5">
+              <a href="#contact" className="group flex w-fit mt-1">
+                <span className="font-['Onest:SemiBold',sans-serif] font-semibold text-white text-[15px] md:text-[16px] bg-[#0a1b3a] px-6 md:px-7 py-3 md:py-3.5">
                   Get In Touch
                 </span>
                 <div className="bg-[#061024] group-hover:bg-[#d4a44f] border-l border-white/30 flex items-center justify-center w-[46px] transition-colors duration-200">
@@ -1331,10 +1334,10 @@ function FAQSection() {
               return (
                 <div key={idx} className="border-b border-[#e5e7eb]">
                   <button
-                    className="flex items-center justify-between py-6 w-full text-left gap-4"
+                    className="flex items-center justify-between py-5 md:py-6 w-full text-left gap-4"
                     onClick={() => setOpenIdx(isOpen ? null : idx)}
                   >
-                    <p className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[18px] leading-[24.3px] flex-1">
+                    <p className="font-['Onest:Medium',sans-serif] font-medium text-[#161616] text-[16px] md:text-[18px] leading-[1.4] flex-1">
                       {q}
                     </p>
                     <div className="flex items-center justify-center size-6 shrink-0">
@@ -1350,8 +1353,8 @@ function FAQSection() {
                     </div>
                   </button>
                   {isOpen && (
-                    <div className="pb-6 w-full">
-                      <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[16px] leading-[26.4px]">
+                    <div className="pb-5 md:pb-6 w-full">
+                      <p className="font-['Onest:Regular',sans-serif] text-[#5b6574] text-[14px] md:text-[16px] leading-[1.65]">
                         {a}
                       </p>
                     </div>
@@ -1381,16 +1384,16 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-[#061024] pt-16 pb-0">
-      <div className="max-w-7xl mx-auto px-5">
-        {/* Main grid: left info | right block */}
-        <div className="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-12 lg:gap-20 pb-14">
-          {/* Left: logo + description + credentials */}
-          <div className="flex flex-col gap-6">
+    <footer className="bg-[#061024] pt-14 md:pt-16 pb-0">
+      <div className={SECTION_CONTAINER}>
+        {/* Main grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-10 lg:gap-16 xl:gap-20 pb-12 md:pb-14">
+          {/* Left: logo + description */}
+          <div className="flex flex-col gap-5 md:gap-6">
             <img
               src={imgLogo}
               alt="Construct Queensland"
-              className="h-9 w-auto object-contain self-start"
+              className="h-8 md:h-9 w-auto object-contain self-start"
             />
             <p className="font-['Onest:Regular',sans-serif] text-white/65 text-[14px] leading-[1.65]">
               Specialist infrastructure advisory and executive project delivery practice, providing
@@ -1404,14 +1407,14 @@ function Footer() {
             </div>
           </div>
 
-          {/* Right block: Quick Nav | Head Office / Acknowledgement full-width below */}
-          <div className="grid sm:grid-cols-2 gap-10">
+          {/* Right block */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
             {/* Quick Navigation */}
             <div>
-              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-5">
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
                 Quick Navigation
               </p>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
                 {navLinks.map(([label, href]) => (
                   <a
                     key={label}
@@ -1426,7 +1429,7 @@ function Footer() {
 
             {/* Head Office */}
             <div>
-              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-4">
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-3">
                 Head Office
               </p>
               <p className="font-['Onest:Regular',sans-serif] text-white/75 text-[14px] leading-[1.5]">
@@ -1451,9 +1454,9 @@ function Footer() {
               </a>
             </div>
 
-            {/* Acknowledgement of Country — full width below both columns */}
-            <div className="sm:col-span-2 pt-2 border-t border-white/10">
-              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-3">
+            {/* Acknowledgement of Country */}
+            <div className="sm:col-span-2 pt-4 border-t border-white/10">
+              <p className="font-['DM_Mono:Medium',sans-serif] text-[#e5b869] text-[12px] tracking-[0.48px] uppercase mb-2">
                 Acknowledgement of Country
               </p>
               <p className="font-['Onest:Regular',sans-serif] text-white/45 text-[13px] leading-[1.65]">
